@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wella Schools — Module 3 — Diffs, History, Conflicts & Undo (Frontend)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+    code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+    .prose code { background-color: rgb(243 244 246); padding: .125rem .375rem; border-radius: .375rem; }
+    /* Mobile gate: lock scroll & hide desktop content under lg */
+    @media (max-width: 1023.98px) {
+      html, body { height: 100%; overflow: hidden; }
+      .mobile-hidden { display: none !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+  <!-- Mobile Gate -->
+  <div class="fixed inset-0 z-[9999] flex h-screen w-screen items-center justify-center bg-white p-8 text-center lg:hidden overflow-hidden overscroll-none" role="dialog" aria-modal="true" aria-labelledby="gate-title" aria-describedby="gate-desc">
+    <div class="max-w-md">
+      <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-red-100">🚫</div>
+      <h2 id="gate-title" class="text-xl font-semibold text-slate-900">Desktop Required</h2>
+      <p id="gate-desc" class="mt-2 text-slate-700">Classroom assessments and assignments are to be completed on a desktop or laptop.</p>
+      <p class="mt-1 text-slate-700">Please open this page on a larger screen to continue.</p>
+      <p class="mt-4 text-xs text-slate-500">If you believe you’re seeing this in error, rotate your device or use “Request Desktop Site”.</p>
+    </div>
+  </div>
+
+  <div class="mobile-hidden lg:block">
+    <!-- Header (aligned with Module 1 & 2) -->
+    <header class="relative isolate">
+      <div class="absolute inset-0 -z-10 bg-gradient-to-br from-indigo-600 via-violet-600 to-fuchsia-600 opacity-90"></div>
+      <div class="relative mx-auto max-w-6xl px-6 py-12 text-white">
+        <div class="flex items-start justify-between gap-6">
+          <div>
+            <p class="mb-2 inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-sm font-medium ring-1 ring-white/20 backdrop-blur">
+              <span>Frontend Track</span>
+              <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+              <span>Module 3</span>
+            </p>
+            <p class="mt-1 text-white/80 text-sm font-semibold">Wella Schools</p>
+            <h1 class="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">Diffs, History, Conflicts & Undo</h1>
+            <p class="mt-3 max-w-3xl text-white/90">Compare changes locally & on GitHub, read history, open a well‑formed PR, create & resolve a merge conflict, and practice safe undo with <code>revert</code>. Self‑guided.</p>
+            <div class="mt-4 flex flex-wrap items-center gap-3 text-sm">
+              <span class="inline-flex items-center gap-2 rounded-full bg-black/10 px-3 py-1 ring-1 ring-white/20">⏱️ <strong class="font-semibold">Time:</strong> ~90–120 min</span>
+              <span class="inline-flex items-center gap-2 rounded-full bg-black/10 px-3 py-1 ring-1 ring-white/20">✅ <strong class="font-semibold">You will:</strong> Diff → PR review → Conflict → Resolve → Undo</span>
+            </div>
+          </div>
+          <nav class="hidden lg:block w-64">
+            <div class="sticky top-6 rounded-2xl bg-white/10 p-4 ring-1 ring-white/20 backdrop-blur">
+              <p class="mb-2 text-xs font-semibold uppercase tracking-wider text-white/70">On this page</p>
+              <ol class="space-y-2 text-sm text-white/90">
+                <li><a class="hover:underline" href="#outcomes">Outcomes</a></li>
+                <li><a class="hover:underline" href="#readings">Readings + Do‑it</a></li>
+                <li><a class="hover:underline" href="#lab">Do‑This‑Now — Lab</a></li>
+                <li><a class="hover:underline" href="#submission">Assignment Submission</a></li>
+                <li><a class="hover:underline" href="#troubleshooting">Troubleshooting</a></li>
+                <li><a class="hover:underline" href="#references">References</a></li>
+              </ol>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-6xl px-6 py-12">
+      <!-- Outcomes -->
+      <section id="outcomes" class="scroll-mt-24">
+        <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <h2 class="text-xl font-semibold">Outcomes</h2>
+          <ul class="mt-4 grid gap-2 sm:grid-cols-2">
+            <li class="flex items-start gap-3"><span class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600"></span><span>Use <code>git diff</code>, GitHub <em>Files changed</em>, and PR discussion to compare changes.</span></li>
+            <li class="flex items-start gap-3"><span class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600"></span><span>Read history with <code>git log</code> and GitHub's commit view.</span></li>
+            <li class="flex items-start gap-3"><span class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600"></span><span>Explain why merge conflicts occur and resolve one correctly.</span></li>
+            <li class="flex items-start gap-3"><span class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600"></span><span>Use the undo toolkit safely: <code>restore</code>, <code>revert</code>, <code>reset</code>, <code>reflog</code>.</span></li>
+            <li class="flex items-start gap-3 sm:col-span-2"><span class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600"></span><span>Write a tidy PR description using Markdown (headings, <strong>table</strong>, fenced code block, and an image/GIF).</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Readings + Do-it -->
+      <section id="readings" class="mt-8 scroll-mt-24">
+        <div class="mb-4 flex items-center justify-between">
+          <h2 class="text-xl font-semibold">Readings (with do‑it steps)</h2>
+          <span class="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 text-sm font-medium text-emerald-700 ring-1 ring-emerald-200">Graded via Google Form</span>
+        </div>
+
+        <!-- 1) Compare changes -->
+        <article class="mt-4 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200" id="r1">
+          <div class="flex items-start gap-4">
+            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white font-semibold">1</div>
+            <div class="min-w-0 flex-1">
+              <h3 class="text-lg font-semibold">Compare changes (local & GitHub)</h3>
+              <p class="mt-2 text-slate-700">Primary doc: <a class="text-indigo-600 hover:underline" target="_blank" rel="noreferrer" href="https://docs.github.com/en/repositories/working-with-files/managing-files/differencing-between-commits">Differencing between commits</a></p>
+              <div class="mt-3 grid gap-3 sm:grid-cols-2">
+                <div>
+                  <p class="text-sm font-medium text-slate-900">You’ll learn</p>
+                  <ul class="mt-1 list-disc pl-5 text-slate-700">
+                    <li>Diffs between commits, branches, and tags.</li>
+                    <li>PR <em>Files changed</em> vs commit‑to‑commit diffs.</li>
+                    <li>Two‑dot (<code>A..B</code>) vs three‑dot (<code>A...B</code>) comparisons.</li>
+                  </ul>
+                </div>
+                <div>
+                  <p class="text-sm font-medium text-slate-900">Notice while reading</p>
+                  <ul class="mt-1 list-disc pl-5 text-slate-700">
+                    <li>Inline comments on specific lines.</li>
+                    <li>Hide whitespace option for cleaner reviews.</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="mt-4 rounded-lg bg-slate-50 p-4 ring-1 ring-slate-200">
+                <div class="mb-2 flex items-center justify-between">
+                  <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">Do‑it (CLI)</p>
+                  <button data-copy-target="#code-r1-cli" class="copy-btn text-xs rounded-md border border-slate-300 px-2 py-1 hover:bg-slate-100">Copy</button>
+                </div>
+                <pre id="code-r1-cli" class="overflow-auto"><code class="language-bash"># While on your feature branch:
+git fetch origin
+git diff origin/main...    # three-dot: what's new since merge-base with main
+git diff HEAD~1            # last commit vs working tree
+git log --oneline --graph --decorate  # orient yourself before diffing</code></pre>
+              </div>
+              <p class="mt-2 text-slate-700"><strong>Do‑it (Web/UI):</strong> Open your PR → <em>Files changed</em> → toggle whitespace, add a line comment, request a review.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2) Pull requests: discussion & review -->
+        <article class="mt-4 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200" id="r2">
+          <div class="flex items-start gap-4">
+            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white font-semibold">2</div>
+            <div class="min-w-0 flex-1">
+              <h3 class="text-lg font-semibold">Pull requests: discussion & review</h3>
+              <p class="mt-2 text-slate-700">Primary doc: <a class="text-indigo-600 hover:underline" target="_blank" rel="noreferrer" href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests">About pull requests</a></p>
+              <div class="mt-4 rounded-lg bg-slate-50 p-4 ring-1 ring-slate-200">
+                <p class="text-sm font-medium text-slate-900">Do‑it</p>
+                <ul class="mt-1 list-disc pl-5 text-slate-700">
+                  <li>Open or update a PR with a clear title (<code>feat: add conflict-resolution guide</code>), a checklist, and <em>How to test</em>.</li>
+                  <li>Leave one <strong>suggested change</strong> comment on your own PR.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3) Markdown on GitHub -->
+        <article class="mt-4 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200" id="r3">
+          <div class="flex items-start gap-4">
+            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white font-semibold">3</div>
+            <div class="min-w-0 flex-1">
+              <h3 class="text-lg font-semibold">Markdown on GitHub (for PRs & READMEs)</h3>
+              <p class="mt-2 text-slate-700">Primary doc: <a class="text-indigo-600 hover:underline" target="_blank" rel="noreferrer" href="https://docs.github.com/en/get-started/writing-on-github/basic-writing-and-formatting-syntax">Basic writing & formatting syntax</a></p>
+              <p class="mt-3 text-sm font-medium text-slate-900">Paste this into your PR description</p>
+              <div class="mt-2 rounded-lg bg-slate-50 p-4 ring-1 ring-slate-200">
+                <div class="mb-2 flex items-center justify-between">
+                  <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">PR Markdown snippet</p>
+                  <button data-copy-target="#code-pr-md" class="copy-btn text-xs rounded-md border border-slate-300 px-2 py-1 hover:bg-slate-100">Copy</button>
+                </div>
+                <pre id="code-pr-md" class="overflow-auto"><code class="language-markdown">## What changed
+- Add conflict-resolution guide
+- Improve undo toolkit examples
+
+## Why
+- Helps reviewers reason about safety and scope
+
+## How to test
+1. Reproduce a tiny conflict (follow notes below).
+2. Resolve and push; confirm PR turns green.
+
+## Demo table
+| Step | Command | Purpose |
+|------|---------|---------|
+| Diff | `git diff origin/main...` | Compare with base |
+| Log  | `git log --oneline`       | History at a glance |
+
+```bash
+# Example fenced code block
+git restore --staged file.txt
+git revert &lt;sha&gt;
+```
+
+![GIF of the flow](https://example.com/demo.gif)</code></pre>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4) Resolve merge conflicts -->
+        <article class="mt-4 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200" id="r4">
+          <div class="flex items-start gap-4">
+            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white font-semibold">4</div>
+            <div class="min-w-0 flex-1">
+              <h3 class="text-lg font-semibold">Resolve merge conflicts (why they happen & how to fix)</h3>
+              <p class="mt-2 text-slate-700">Primary doc: <a class="text-indigo-600 hover:underline" target="_blank" rel="noreferrer" href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts">About merge conflicts</a></p>
+              <div class="mt-4 rounded-lg bg-slate-50 p-4 ring-1 ring-slate-200">
+                <div class="mb-2 flex items-center justify-between">
+                  <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">Do‑it (script a safe, tiny conflict)</p>
+                  <button data-copy-target="#code-conflict" class="copy-btn text-xs rounded-md border border-slate-300 px-2 py-1 hover:bg-slate-100">Copy</button>
+                </div>
+                <pre id="code-conflict" class="overflow-auto"><code class="language-bash"># In main:
+git switch main && git pull --ff-only
+echo "title=original" > config.ini
+git add config.ini && git commit -m "base: add config title"
+git push
+
+# Branch A:
+git switch -c feature/title-a
+sed -i 's/original/A-title/' config.ini
+git commit -am "A: change title"
+git push -u origin feature/title-a
+
+# Branch B (from main):
+git switch main && git pull --ff-only
+git switch -c feature/title-b
+sed -i 's/original/B-title/' config.ini
+git commit -am "B: change title"
+git push -u origin feature/title-b</code></pre>
+              </div>
+              <p class="mt-2 text-slate-700">Open PRs for both branches into <code>main</code>. Merge one; the second will conflict. Use the UI or your editor to resolve, commit, and complete the merge. Then append a proof line and push:</p>
+              <div class="mt-2 rounded-lg bg-slate-50 p-4 ring-1 ring-slate-200">
+                <div class="mb-2 flex items-center justify-between">
+                  <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">Prove resolution</p>
+                  <button data-copy-target="#code-conflict-proof" class="copy-btn text-xs rounded-md border border-slate-300 px-2 py-1 hover:bg-slate-100">Copy</button>
+                </div>
+                <pre id="code-conflict-proof" class="overflow-auto"><code class="language-bash">echo "CONFLICT_RESOLVED: &lt;your-github-username&gt;" >> TAGLINE.txt
+git add TAGLINE.txt
+git commit -m "fix: resolve merge conflict in TAGLINE.txt"
+git push</code></pre>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 5) Undo toolkit -->
+        <article class="mt-4 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200" id="r5">
+          <div class="flex items-start gap-4">
+            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white font-semibold">5</div>
+            <div class="min-w-0 flex-1">
+              <h3 class="text-lg font-semibold">Undo toolkit (pick the safe option)</h3>
+              <p class="mt-2 text-slate-700">Overview: <a class="text-indigo-600 hover:underline" target="_blank" rel="noreferrer" href="https://docs.github.com/en/get-started/using-git/about-git#undoing-changes">Undoing changes</a>. Deeper docs: <a class="text-indigo-600 hover:underline" target="_blank" rel="noreferrer" href="https://git-scm.com/docs/git-restore">restore</a>, <a class="text-indigo-600 hover:underline" target="_blank" rel="noreferrer" href="https://git-scm.com/docs/git-revert">revert</a>, <a class="text-indigo-600 hover:underline" target="_blank" rel="noreferrer" href="https://git-scm.com/docs/git-reset">reset</a>, <a class="text-indigo-600 hover:underline" target="_blank" rel="noreferrer" href="https://git-scm.com/docs/git-reflog">reflog</a>.</p>
+              <div class="mt-4 rounded-lg bg-slate-50 p-4 ring-1 ring-slate-200">
+                <div class="mb-2 flex items-center justify-between">
+                  <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">Do‑it (micro‑exercises)</p>
+                  <button data-copy-target="#code-undo" class="copy-btn text-xs rounded-md border border-slate-300 px-2 py-1 hover:bg-slate-100">Copy</button>
+                </div>
+                <pre id="code-undo" class="overflow-auto"><code class="language-bash"># A) Unstage a file without losing changes
+git add app.js
+git restore --staged app.js
+
+# B) Revert a single bad commit (safe on shared branches)
+git log --oneline          # copy the SHA
+git revert &lt;sha&gt;           # creates a new commit that undoes it
+
+# C) Reset last commit locally (unpushed) but keep changes staged
+git reset --soft HEAD~1
+
+# D) Recover with reflog (find where HEAD was moments ago)
+git reflog                 # copy the earlier HEAD
+git reset --hard &lt;sha&gt;     # bring your tree back</code></pre>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 6) Reading history -->
+        <article class="mt-4 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200" id="r6">
+          <div class="flex items-start gap-4">
+            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white font-semibold">6</div>
+            <div class="min-w-0 flex-1">
+              <h3 class="text-lg font-semibold">Reading history (locally & on GitHub)</h3>
+              <p class="mt-2 text-slate-700">Skim the GitHub <em>Commits</em> tab and practice with <code>git log</code>.</p>
+              <div class="mt-3 rounded-lg bg-slate-50 p-4 ring-1 ring-slate-200">
+                <div class="mb-2 flex items-center justify-between">
+                  <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">Useful commands</p>
+                  <button data-copy-target="#code-history" class="copy-btn text-xs rounded-md border border-slate-300 px-2 py-1 hover:bg-slate-100">Copy</button>
+                </div>
+                <pre id="code-history" class="overflow-auto"><code class="language-bash">git log --oneline --graph --decorate --max-count=20
+git show &lt;sha&gt;          # see diff + message for a specific commit</code></pre>
+              </div>
+              <p class="mt-2 text-slate-700">Do‑it: find the SHA of the last merge into <code>main</code>, run <code>git show &lt;sha&gt;</code>, then in the PR <em>Commits</em> tab, review incremental diffs.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- Do-This-Now — Lab -->
+      <section id="lab" class="mt-8 scroll-mt-24">
+        <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <h2 class="text-xl font-semibold">Do‑This‑Now — Lab (self‑guided)</h2>
+          <p class="mt-1 text-slate-700">Accept the Module 3 assignment in Classroom first (see Submission). Clone your repo; CI will verify on <code>main</code> after you merge.</p>
+
+          <!-- A) README content -->
+          <article class="mt-4 rounded-lg bg-slate-50 p-4 ring-1 ring-slate-200">
+            <div class="mb-2 flex items-center justify-between">
+              <p class="text-sm font-medium text-slate-900">A) Prepare README content we’ll inspect later</p>
+              <button data-copy-target="#code-lab-a" class="copy-btn text-xs rounded-md border border-slate-300 px-2 py-1 hover:bg-slate-100">Copy</button>
+            </div>
+            <pre id="code-lab-a" class="overflow-auto"><code class="language-bash">git switch -c feat/table-docs
+cat >> README.md <<'MD'
+
+| Command | Purpose |
+|---------|---------|
+| git diff | Compare changes between working directory, staging area, or commits |
+| git log | View commit history with messages, authors, and timestamps |
+| git restore | Discard changes in working directory or unstage changes |
+| git revert | Create a new commit that undoes changes from a specific commit |
+| git reset | Move HEAD and branch pointer to a different commit |
+| git reflog | View history of HEAD movements for recovery |
+
+```bash
+# example: last 3 commits
+git log --oneline -3
+```
+MD
+
+git add README.md
+git commit -m "docs: add git command reference table and example"
+git push -u origin feat/table-docs</code></pre>
+          </article>
+
+          <!-- B) Conflict exercise (summary references r4) -->
+          <article class="mt-4 rounded-lg bg-slate-50 p-4 ring-1 ring-slate-200">
+            <div class="mb-2 flex items-center justify-between">
+              <p class="text-sm font-medium text-slate-900">B) Create and resolve a real conflict</p>
+              <a href="#r4" class="text-xs font-medium text-indigo-700 hover:underline">Jump up to conflict script ↑</a>
+            </div>
+            <p class="text-slate-700">Follow the conflict script above, then push the proof line <code>CONFLICT_RESOLVED: &lt;your-github-username&gt;</code>.</p>
+          </article>
+
+          <!-- C) Safe undo -->
+          <article class="mt-4 rounded-lg bg-slate-50 p-4 ring-1 ring-slate-200">
+            <div class="mb-2 flex items-center justify-between">
+              <p class="text-sm font-medium text-slate-900">C) Practice a safe undo</p>
+              <a href="#r5" class="text-xs font-medium text-indigo-700 hover:underline">Jump up to undo toolkit ↑</a>
+            </div>
+            <pre class="overflow-auto"><code class="language-bash">echo "temporary-bad-line" >> README.md
+git add README.md
+git commit -m "oops: add temporary bad line"
+git push
+# copy the commit SHA from `git log --oneline -1`
+git revert &lt;bad-commit-sha&gt;
+git push
+
+git log --oneline -3
+# Optional: inspect reflog
+git reflog</code></pre>
+          </article>
+        </div>
+      </section>
+
+      <!-- Submission -->
+      <section id="submission" class="mt-10 scroll-mt-24">
+        <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <h2 class="text-xl font-semibold">Assignment Submission</h2>
+          <ol class="mt-4 list-decimal space-y-3 pl-5 text-slate-700">
+            <li>
+              Accept the assignment: <a class="text-indigo-600 hover:underline" href="#" onclick="alert('Replace <INVITE_LINK> with your actual Classroom invite URL.'); return false;">&lt;INVITE_LINK&gt;</a>
+              <ul class="mt-1 list-disc pl-5 text-slate-600 text-sm">
+                <li>Click the assignment link above.</li>
+                <li>Select your name from the list of identifiers. If you don’t select your name, you won’t be graded.</li>
+                <li>Click <em>Accept assignment</em> and wait for your repo to be created.</li>
+              </ul>
+            </li>
+            <li>Complete the steps above; CI should verify on <code>main</code> after merge:
+              <ul class="mt-2 list-disc pl-5">
+                <li>PR merged (merge commit exists)</li>
+                <li>PR body has checklist + an image/GIF</li>
+                <li>README contains a table + code fence</li>
+                <li><code>CONFLICT_RESOLVED:</code> token exists</li>
+                <li>A revert commit exists</li>
+                <li><code>CHANGELOG.md</code> mentions the revert</li>
+              </ul>
+            </li>
+            <li>
+              Submit the Module 3 Google Form: <a class="text-indigo-600 hover:underline" href="#" onclick="alert('Replace <FORM_LINK> with your actual Google Form URL.'); return false;">&lt;FORM_LINK&gt;</a> (include your repo URL).
+              <ul class="mt-1 list-disc pl-5 text-slate-600 text-sm">
+                <li>Click the form link above.</li>
+                <li>Sign in with the same Gmail account tied to your student details (the same email used on GitHub). If you’re logged into a different account, you won’t have access.</li>
+                <li>Select your name from the options, then complete and submit the quiz.</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Troubleshooting -->
+      <section id="troubleshooting" class="mt-10 scroll-mt-24">
+        <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <h2 class="text-xl font-semibold">Troubleshooting</h2>
+          <div class="mt-4 grid gap-4 md:grid-cols-2">
+            <div class="rounded-lg border border-slate-200 p-4">
+              <h3 class="font-medium">Push/merge problems</h3>
+              <ul class="mt-2 list-disc pl-5 text-slate-700">
+                <li>Ensure you’re on your feature branch when pushing.</li>
+                <li>Set upstream on first push: <code>git push -u origin &lt;branch&gt;</code>.</li>
+                <li>Check status checks and branch protection rules in the PR.</li>
+              </ul>
+            </div>
+            <div class="rounded-lg border border-slate-200 p-4">
+              <h3 class="font-medium">Conflict confusion</h3>
+              <ul class="mt-2 list-disc pl-5 text-slate-700">
+                <li>Search for conflict markers <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>.</li>
+                <li>Pick lines to keep; delete markers; stage and commit the resolution.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- References -->
+      <section id="references" class="mt-10 scroll-mt-24">
+        <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <h2 class="text-xl font-semibold">References</h2>
+          <ul class="mt-4 space-y-2 text-slate-700">
+            <li><a class="text-indigo-600 hover:underline" target="_blank" rel="noreferrer" href="https://docs.github.com/en/repositories/working-with-files/managing-files/differencing-between-commits">Differencing between commits</a></li>
+            <li><a class="text-indigo-600 hover:underline" target="_blank" rel="noreferrer" href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests">About pull requests</a></li>
+            <li><a class="text-indigo-600 hover:underline" target="_blank" rel="noreferrer" href="https://docs.github.com/en/get-started/writing-on-github/basic-writing-and-formatting-syntax">Basic writing & formatting (Markdown)</a></li>
+            <li><a class="text-indigo-600 hover:underline" target="_blank" rel="noreferrer" href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts">About merge conflicts</a></li>
+            <li><a class="text-indigo-600 hover:underline" target="_blank" rel="noreferrer" href="https://git-scm.com/docs/git-restore">git restore</a> · <a class="text-indigo-600 hover:underline" target="_blank" rel="noreferrer" href="https://git-scm.com/docs/git-revert">git revert</a> · <a class="text-indigo-600 hover:underline" target="_blank" rel="noreferrer" href="https://git-scm.com/docs/git-reset">git reset</a> · <a class="text-indigo-600 hover:underline" target="_blank" rel="noreferrer" href="https://git-scm.com/docs/git-reflog">git reflog</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Module navigation -->
+      <nav aria-label="Module navigation" class="mt-10">
+        <div class="flex items-center justify-between">
+          <a href="./module-02-branch-pr-merge.html" class="inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-medium text-slate-700 ring-1 ring-slate-200 hover:bg-slate-50">← Previous: Module 2 — Branch & PR</a>
+          <a href="../../../index.html" class="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow hover:bg-indigo-700">Return to Program ↩</a>
+        </div>
+      </nav>
+
+      <footer class="mt-12 pb-12 text-center text-sm text-slate-500">
+        <p>Built for the Frontend Track · Module 3</p>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    // --- Utilities ---
+    function sanitizeCopiedText(text) {
+      // Strip trailing newlines only, preserving trailing spaces
+      return text.replace(/\n+$/, '');
+    }
+
+    // Copy-to-clipboard for code blocks
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const id = btn.getAttribute('data-copy-target');
+        const block = document.querySelector(id);
+        if (!block) return;
+        const text = sanitizeCopiedText(block.innerText);
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(text);
+          } else {
+            const ta = document.createElement('textarea');
+            ta.value = text; document.body.appendChild(ta); ta.select();
+            document.execCommand('copy'); document.body.removeChild(ta);
+          }
+          const original = btn.textContent;
+          btn.textContent = 'Copied!';
+          btn.classList.add('bg-emerald-50','border-emerald-300');
+          setTimeout(() => { btn.textContent = original; btn.classList.remove('bg-emerald-50','border-emerald-300'); }, 1500);
+        } catch (e) {
+          alert('Copy failed. Select and copy manually.');
+          console.error(e);
+        }
+      });
+    });
+
+    // Enforce mobile block
+    const lockScrollForMobile = () => {
+      const isMobile = window.matchMedia('(max-width: 1023.98px)').matches;
+      document.documentElement.style.overflow = isMobile ? 'hidden' : '';
+      document.body.style.overflow = isMobile ? 'hidden' : '';
+    };
+    lockScrollForMobile();
+    window.addEventListener('resize', lockScrollForMobile);
+
+    // --- Minimal tests for sanitizeCopiedText ---
+    (function testSanitizeCopiedText(){
+      const tests = [
+        {name: 'single trailing newline', input: 'echo test\n', expected: 'echo test'},
+        {name: 'multiple trailing newlines', input: 'line1\nline2\n\n', expected: 'line1\nline2'},
+        {name: 'no trailing newline', input: 'no newline', expected: 'no newline'},
+        {name: 'preserve spaces, remove newlines', input: 'trailing spaces   \n\n', expected: 'trailing spaces   '},
+        {name: 'unchanged middle newlines', input: 'a\nb\nc', expected: 'a\nb\nc'}
+      ];
+      let passed = 0;
+      for (const t of tests) {
+        const got = sanitizeCopiedText(t.input);
+        if (got === t.expected) passed++; else console.warn('[CopyTest FAIL]', t.name, {expected: t.expected, got});
+      }
+      console.log(`[CopyTest] sanitizeCopiedText: ${passed}/${tests.length} passed`);
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wella Schools — Module 2 — Branch & PR (Frontend)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+    code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+    .prose code { background-color: rgb(243 244 246); padding: .125rem .375rem; border-radius: .375rem; }
+    /* Mobile gate: lock scroll & hide desktop content under lg */
+    @media (max-width: 1023.98px) {
+      html, body { height: 100%; overflow: hidden; }
+      .mobile-hidden { display: none !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+  <!-- Mobile Gate -->
+  <div class="fixed inset-0 z-[9999] flex h-screen w-screen items-center justify-center bg-white p-8 text-center lg:hidden overflow-hidden overscroll-none" role="dialog" aria-modal="true" aria-labelledby="gate-title" aria-describedby="gate-desc">
+    <div class="max-w-md">
+      <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-red-100">🚫</div>
+      <h2 id="gate-title" class="text-xl font-semibold text-slate-900">Desktop Required</h2>
+      <p id="gate-desc" class="mt-2 text-slate-700">Classroom assessments and assignments are to be completed on a desktop or laptop.</p>
+      <p class="mt-4 text-sm text-slate-500">Please open this page on a larger screen to continue.</p>
+    </div>
+  </div>
+
+  <div class="mobile-hidden lg:block">
+    <!-- Header (same layout as Module 1) -->
+    <header class="relative isolate">
+      <div class="absolute inset-0 -z-10 bg-gradient-to-br from-indigo-600 via-violet-600 to-fuchsia-600 opacity-90"></div>
+      <div class="relative mx-auto max-w-6xl px-6 py-12 text-white">
+        <div class="flex items-start justify-between gap-6">
+          <div>
+            <p class="mb-2 inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-sm font-medium ring-1 ring-white/20 backdrop-blur">
+              <span>Frontend Track</span>
+              <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+              <span>Module 2</span>
+            </p>
+            <p class="mt-1 text-white/80 text-sm font-semibold">Wella Schools</p>
+            <h1 class="mt-1 text-3xl font-bold tracking-tight sm:text-4xl">Branch & Pull Request (PR)</h1>
+            <p class="mt-3 max-w-2xl text-white/90">Create a feature branch, make a focused change, open a PR with a checklist, request a review, merge it, and delete the branch.</p>
+            <div class="mt-4 flex flex-wrap items-center gap-3 text-sm">
+              <span class="inline-flex items-center gap-2 rounded-full bg-black/10 px-3 py-1 ring-1 ring-white/20">⏱️ <strong class="font-semibold">Time:</strong> ~60–90 min</span>
+              <span class="inline-flex items-center gap-2 rounded-full bg-black/10 px-3 py-1 ring-1 ring-white/20">✅ <strong class="font-semibold">You will:</strong> Branch → Commit → PR → Review → Merge → Delete</span>
+            </div>
+          </div>
+          <nav class="hidden lg:block w-64">
+            <div class="sticky top-6 rounded-2xl bg-white/10 p-4 ring-1 ring-white/20 backdrop-blur">
+              <p class="mb-2 text-xs font-semibold uppercase tracking-wider text-white/70">On this page</p>
+              <ol class="space-y-2 text-sm text-white/90">
+                <li><a class="hover:underline" href="#outcomes">Outcomes</a></li>
+                <li><a class="hover:underline" href="#readings">Readings + Do-it</a></li>
+                <li><a class="hover:underline" href="#submission">Assignment Submission</a></li>
+                <li><a class="hover:underline" href="#troubleshooting">Troubleshooting</a></li>
+                <li><a class="hover:underline" href="#references">References</a></li>
+              </ol>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-6xl px-6 py-12">
+      <!-- Outcomes -->
+      <section id="outcomes" class="scroll-mt-24">
+        <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <h2 class="text-xl font-semibold">Outcomes</h2>
+          <ul class="mt-4 grid gap-2 sm:grid-cols-2">
+            <li class="flex items-start gap-3"><span class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600"></span><span>Create and work on a feature branch safely.</span></li>
+            <li class="flex items-start gap-3"><span class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600"></span><span>Write small, meaningful commits tied to a single change.</span></li>
+            <li class="flex items-start gap-3"><span class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600"></span><span>Open a PR with a clear description and checklist.</span></li>
+            <li class="flex items-start gap-3"><span class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600"></span><span>Request a review, address feedback, and merge.</span></li>
+            <li class="flex items-start gap-3"><span class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600"></span><span>Delete the feature branch after merge.</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Readings + Do-it (mirrors Module 1 structure) -->
+      <section id="readings" class="mt-8 scroll-mt-24">
+        <div class="mb-4 flex items-center justify-between">
+          <h2 class="text-xl font-semibold">Readings (with do-it steps)</h2>
+          <span class="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 text-sm font-medium text-emerald-700 ring-1 ring-emerald-200">Graded via Google Form</span>
+        </div>
+
+        <!-- Step 1: GitHub Flow -->
+        <article class="mt-4 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <div class="flex items-start gap-4">
+            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white font-semibold">1</div>
+            <div class="min-w-0 flex-1">
+              <h3 class="text-lg font-semibold">The GitHub Flow (branch → PR → review → merge)</h3>
+              <p class="mt-2 text-slate-700">Read the overview of GitHub Flow. <a class="text-indigo-600 hover:underline" target="_blank" rel="noreferrer" href="https://docs.github.com/en/get-started/using-git/about-git#the-github-flow">GitHub Docs</a></p>
+              <div class="mt-4 rounded-lg bg-slate-50 p-4 ring-1 ring-slate-200">
+                <div class="mb-2 text-xs font-semibold uppercase tracking-wider text-slate-500">Do-it (2–5 min)</div>
+                <pre class="overflow-auto"><code>Flow: branch -> commit -> open PR -> review -> merge -> pull</code></pre>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Step 2: Branches -->
+        <article class="mt-4 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <div class="flex items-start gap-4">
+            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white font-semibold">2</div>
+            <div class="min-w-0 flex-1">
+              <h3 class="text-lg font-semibold">Branches — what they are, why they’re safe</h3>
+              <p class="mt-2 text-slate-700">Learn branch basics and conventions. <a class="text-indigo-600 hover:underline" target="_blank" rel="noreferrer" href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/about-branches">GitHub Docs</a></p>
+              <div class="mt-4 rounded-lg bg-slate-50 p-4 ring-1 ring-slate-200">
+                <div class="mb-2 flex items-center justify-between">
+                  <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">Do-it (CLI)</p>
+                  <button data-copy-target="#code-branch-cli" class="copy-btn text-xs rounded-md border border-slate-300 px-2 py-1 hover:bg-slate-100">Copy</button>
+                </div>
+                <pre id="code-branch-cli" class="overflow-auto"><code class="language-bash">git checkout -b feature/readme-improvements
+# make a small change
+git add README.md
+git commit -m "Improve Module 2 goals"
+git push -u origin feature/readme-improvements</code></pre>
+              </div>
+              <p class="mt-2 text-slate-700"><strong>GitHub Desktop:</strong> Branch → <em>New Branch…</em> → name it → Create → Commit change → <em>Push origin</em>.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Step 3: Pull Requests -->
+        <article class="mt-4 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <div class="flex items-start gap-4">
+            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white font-semibold">3</div>
+            <div class="min-w-0 flex-1">
+              <h3 class="text-lg font-semibold">Pull requests — open, review, merge</h3>
+              <p class="mt-2 text-slate-700">Open a PR, request review, and merge cleanly. <a class="text-indigo-600 hover:underline" target="_blank" rel="noreferrer" href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests">GitHub Docs</a></p>
+              <div class="mt-4 rounded-lg bg-slate-50 p-4 ring-1 ring-slate-200">
+                <ol class="list-decimal pl-5 text-slate-700">
+                  <li>Open a PR from <code>feature/readme-improvements</code> → <code>main</code>.</li>
+                  <li>Include a checklist in the description (see Markdown step).</li>
+                  <li>Merge with <strong>Squash and merge</strong> and click <strong>Delete branch</strong>.</li>
+                  <li>Update local <code>main</code>:
+                    <pre class="mt-2 overflow-auto"><code class="language-bash">git switch main
+git pull --ff-only</code></pre>
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Step 4: Markdown for PRs -->
+        <article class="mt-4 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <div class="flex items-start gap-4">
+            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white font-semibold">4</div>
+            <div class="min-w-0 flex-1">
+              <h3 class="text-lg font-semibold">Basic Markdown for PR descriptions</h3>
+              <p class="mt-2 text-slate-700">Task lists, headings, code blocks. <a class="text-indigo-600 hover:underline" target="_blank" rel="noreferrer" href="https://docs.github.com/en/get-started/writing-on-github/basic-writing-and-formatting-syntax">GitHub Docs</a></p>
+              <div class="mt-4 rounded-lg bg-slate-50 p-4 ring-1 ring-slate-200">
+                <div class="mb-2 flex items-center justify-between">
+                  <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">Copy into your PR description or template</p>
+                  <button data-copy-target="#code-pr-template" class="copy-btn text-xs rounded-md border border-slate-300 px-2 py-1 hover:bg-slate-100">Copy</button>
+                </div>
+                <pre id="code-pr-template" class="overflow-auto"><code class="language-markdown">### What changed
+- Add Module 2 detailed reading goals
+- Include CLI/Desktop mini-labs
+
+### Why
+- Clear guidance for first-time contributors
+
+### How to test
+- [ ] Read Module 2 section
+- [ ] Create and merge a small PR from a feature branch
+
+### Notes
+Closes #&lt;issue-number&gt;  <!-- auto-closes when merged --></code></pre>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Step 5: Comparing changes (optional) -->
+        <article class="mt-4 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <div class="flex items-start gap-4">
+            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white font-semibold">5</div>
+            <div class="min-w-0 flex-1">
+              <h3 class="text-lg font-semibold">Comparing changes (optional)</h3>
+              <p class="mt-2 text-slate-700">Understand two‑dot vs three‑dot ranges & commit diffs. <a class="text-indigo-600 hover:underline" target="_blank" rel="noreferrer" href="https://docs.github.com/en/repositories/working-with-files/managing-files/differencing-between-commits">GitHub Docs</a></p>
+              <div class="mt-4 rounded-lg bg-slate-50 p-4 ring-1 ring-slate-200">
+                <div class="mb-2 flex items-center justify-between">
+                  <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">Do-it (CLI)</p>
+                  <button data-copy-target="#code-diff-cli" class="copy-btn text-xs rounded-md border border-slate-300 px-2 py-1 hover:bg-slate-100">Copy</button>
+                </div>
+                <pre id="code-diff-cli" class="overflow-auto"><code class="language-bash">git fetch origin
+git diff origin/main...feature/readme-improvements
+
+git diff &lt;commitA&gt; &lt;commitB&gt;</code></pre>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Quick actionable lab block like Module 1's Do-it -->
+        <article class="mt-4 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <div class="flex items-start gap-4">
+            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white font-semibold">★</div>
+            <div class="min-w-0 flex-1">
+              <h3 class="text-lg font-semibold">Do‑This‑Now (CLI)</h3>
+              <p class="mt-2 text-slate-700">Run these in your <strong>Module 2 Classroom repo</strong> after accepting the invite.</p>
+              <div class="mt-4 rounded-lg bg-slate-50 p-4 ring-1 ring-slate-200">
+                <div class="mb-2 flex items-center justify-between">
+                  <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">Create branch → edit → push</p>
+                  <button data-copy-target="#code-now" class="copy-btn text-xs rounded-md border border-slate-300 px-2 py-1 hover:bg-slate-100">Copy</button>
+                </div>
+                <pre id="code-now" class="overflow-auto"><code class="language-bash"># Create and switch to a feature branch
+git switch -c feature/welcome
+
+# Make a focused change (add a "Project Purpose" section to README)
+echo -e "
+## Project Purpose
+Explain the purpose of this repo in 2–3 lines." >> README.md
+
+git add README.md
+git commit -m "feat: add Project Purpose section"
+git push -u origin feature/welcome</code></pre>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Optional: quick helper card (kept like Module 1 cheat sheet) -->
+        <article class="mt-4 rounded-2xl border border-indigo-200 bg-indigo-50 p-6">
+          <div class="flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <h3 class="text-lg font-semibold text-indigo-900">PR Template Snippet</h3>
+              <p class="mt-1 text-indigo-900/80">Keep this handy when opening PRs.</p>
+            </div>
+            <a href="#code-pr-template" class="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 font-medium text-white shadow hover:bg-indigo-700">Jump to Snippet ↗</a>
+          </div>
+        </article>
+      </section>
+
+      <!-- Submission (exactly like Module 1 layout) -->
+      <section id="submission" class="mt-10 scroll-mt-24">
+        <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <h2 class="text-xl font-semibold">Assignment Submission</h2>
+          <ol class="mt-4 list-decimal space-y-3 pl-5 text-slate-700">
+            <li>
+              Accept the assignment: <a class="text-indigo-600 hover:underline" href="https://classroom.github.com/a/LleieDQs" target="_blank" rel="noreferrer">Accept</a>
+              <ul class="mt-1 list-disc pl-5 text-slate-600 text-sm">
+                <li>Click the assignment link above.</li>
+                <li>Select your name from the list of identifiers. If you don’t select your name, you won’t be graded.</li>
+                <li>Click <em>Accept assignment</em> and wait for your repo to be created.</li>
+              </ul>
+            </li>
+            <li>Complete the steps above until your PR is merged and the branch is deleted, with CI green on <code>main</code>.</li>
+            <li>
+              Take the module assessment quiz <a class="text-indigo-600 hover:underline" href="https://forms.gle/onC9xMyAYnkptQVG7" target="_blank">Take Quiz</a>
+              <ul class="mt-1 list-disc pl-5 text-slate-600 text-sm">
+                <li>Click the quiz link above.</li>
+                <li>Sign in with the same Gmail account tied to your student details (the same email used on GitHub). If you’re logged into a different account, you won’t have access.</li>
+                <li>Select your name from the options, then complete and submit the quiz.</li>
+              </ul>
+            </li>
+          </ol>
+          <div class="mt-4 grid gap-4 sm:grid-cols-2">
+            <div class="rounded-lg bg-emerald-50 p-4 ring-1 ring-emerald-200">
+              <p class="font-medium text-emerald-900">You’re done when:</p>
+              <ul class="mt-2 list-disc pl-5 text-emerald-900/90">
+                <li>The PR is merged into <code>main</code>.</li>
+                <li>The feature branch is deleted on the remote.</li>
+                <li><code>README</code> contains <code>## Project Purpose</code>.</li>
+                <li>CI is green.</li>
+              </ul>
+            </div>
+            <div class="rounded-lg bg-slate-50 p-4 ring-1 ring-slate-200">
+              <p class="text-sm text-slate-600">Tip: small PRs + clear checklists = faster approvals. Prefer “Squash and merge”.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Troubleshooting -->
+      <section id="troubleshooting" class="mt-10 scroll-mt-24">
+        <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <h2 class="text-xl font-semibold">Troubleshooting</h2>
+          <div class="mt-4 grid gap-4 md:grid-cols-2">
+            <div class="rounded-lg border border-slate-200 p-4">
+              <h3 class="font-medium">PR won’t merge</h3>
+              <ul class="mt-2 list-disc pl-5 text-slate-700">
+                <li>Check required checks (CI) and branch protection rules.</li>
+                <li>Resolve conflicts via the PR UI or rebase locally, then push.</li>
+              </ul>
+            </div>
+            <div class="rounded-lg border border-slate-200 p-4">
+              <h3 class="font-medium">Push fails</h3>
+              <ul class="mt-2 list-disc pl-5 text-slate-700">
+                <li>Run <code>git status</code> and read hints; confirm you’re on your feature branch.</li>
+                <li>Set upstream with <code>git push -u origin &lt;branch&gt;</code> on first push.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- References -->
+      <section id="references" class="mt-10 scroll-mt-24">
+        <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <h2 class="text-xl font-semibold">References</h2>
+          <ul class="mt-4 space-y-2 text-slate-700">
+            <li><a class="text-indigo-600 hover:underline" target="_blank" rel="noreferrer" href="https://docs.github.com/en/get-started/using-git/about-git#the-github-flow">The GitHub Flow</a></li>
+            <li><a class="text-indigo-600 hover:underline" target="_blank" rel="noreferrer" href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/about-branches">About branches</a></li>
+            <li><a class="text-indigo-600 hover:underline" target="_blank" rel="noreferrer" href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests">About pull requests</a></li>
+            <li><a class="text-indigo-600 hover:underline" target="_blank" rel="noreferrer" href="https://docs.github.com/en/get-started/writing-on-github/basic-writing-and-formatting-syntax">Basic writing & formatting (Markdown)</a></li>
+            <li><a class="text-indigo-600 hover:underline" target="_blank" rel="noreferrer" href="https://docs.github.com/en/repositories/working-with-files/managing-files/differencing-between-commits">Differencing between commits</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Module navigation -->
+      <nav aria-label="Module navigation" class="mt-10">
+        <div class="flex items-center justify-between">
+          <a href="./module-01-setup-and-first-commit.html" class="inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-medium text-slate-700 ring-1 ring-slate-200 hover:bg-slate-50">← Previous: Module 1 — Setup & First Commit</a>
+          <a href="./module-03-diff-history-conflicts-undo.html" class="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow hover:bg-indigo-700">Next: Module 3 — Diffs, History, Conflicts & Undo →</a>
+        </div>
+      </nav>
+
+      <footer class="mt-12 pb-12 text-center text-sm text-slate-500">
+        <p>Built for the Frontend Track · Module 2</p>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    // --- Utilities ---
+    function sanitizeCopiedText(text) {
+      // Strip trailing newlines only, preserving trailing spaces
+      return text.replace(/\n+$/, '');
+    }
+
+    // Copy-to-clipboard for code blocks
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const id = btn.getAttribute('data-copy-target');
+        const block = document.querySelector(id);
+        if (!block) return;
+        const text = sanitizeCopiedText(block.innerText);
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(text);
+          } else {
+            // Fallback: create a temporary textarea
+            const ta = document.createElement('textarea');
+            ta.value = text; document.body.appendChild(ta); ta.select();
+            document.execCommand('copy'); document.body.removeChild(ta);
+          }
+          const original = btn.textContent;
+          btn.textContent = 'Copied!';
+          btn.classList.add('bg-emerald-50','border-emerald-300');
+          setTimeout(() => { btn.textContent = original; btn.classList.remove('bg-emerald-50','border-emerald-300'); }, 1500);
+        } catch (e) {
+          alert('Copy failed. Select and copy manually.');
+          console.error(e);
+        }
+      });
+    });
+
+    // Hard-block scroll on under-lg just in case, and toggle when resizing
+    const lockScrollForMobile = () => {
+      const isMobile = window.matchMedia('(max-width: 1023.98px)').matches;
+      document.documentElement.style.overflow = isMobile ? 'hidden' : '';
+      document.body.style.overflow = isMobile ? 'hidden' : '';
+    };
+    lockScrollForMobile();
+    window.addEventListener('resize', lockScrollForMobile);
+
+    // --- Minimal tests for sanitizeCopiedText ---
+    (function testSanitizeCopiedText(){
+      const tests = [
+        {name: 'single trailing newline', input: 'echo test\n', expected: 'echo test'},
+        {name: 'multiple trailing newlines', input: 'line1\nline2\n\n', expected: 'line1\nline2'},
+        {name: 'no trailing newline', input: 'no newline', expected: 'no newline'},
+        {name: 'preserve spaces, remove newlines', input: 'trailing spaces   \n\n', expected: 'trailing spaces   '},
+        {name: 'large block unchanged middle newlines', input: 'a\nb\nc', expected: 'a\nb\nc'}
+      ];
+      let passed = 0;
+      for (const t of tests) {
+        const got = sanitizeCopiedText(t.input);
+        const ok = got === t.expected;
+        if (!ok) console.warn(`[Test FAIL] ${t.name}: expected %o, got %o`, t.expected, got);
+        else passed++;
+      }
+      console.log(`[Test] sanitizeCopiedText: ${passed}/${tests.length} passed`);
+    })();
+  </script>
+</body>
+</html>
