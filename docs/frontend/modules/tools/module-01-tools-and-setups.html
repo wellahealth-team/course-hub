@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wella Schools — Tools & Setups — IDEs and VS Code (Frontend)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+    code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+    .prose code { background-color: rgb(243 244 246); padding: .125rem .375rem; border-radius: .375rem; }
+    /* Mobile gate: lock scroll & hide desktop content under lg */
+    @media (max-width: 1023.98px) {
+      html, body { height: 100%; overflow: hidden; }
+      .mobile-hidden { display: none !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+  <!-- Mobile Gate -->
+  <div class="fixed inset-0 z-[9999] flex h-screen w-screen items-center justify-center bg-white p-8 text-center lg:hidden overflow-hidden overscroll-none" role="dialog" aria-modal="true" aria-labelledby="gate-title" aria-describedby="gate-desc">
+    <div class="max-w-md">
+      <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-red-100">🚫</div>
+      <h2 id="gate-title" class="text-xl font-semibold text-slate-900">Desktop Required</h2>
+      <p id="gate-desc" class="mt-2 text-slate-700">This module is best viewed and followed on a desktop or laptop.</p>
+      <p class="mt-4 text-sm text-slate-500">Please open this page on a desktop to continue.</p>
+    </div>
+  </div>
+
+  <div class="mobile-hidden lg:block">
+    <!-- Header -->
+    <header class="relative isolate">
+      <div class="absolute inset-0 -z-10 bg-gradient-to-br from-indigo-600 via-violet-600 to-fuchsia-600 opacity-90"></div>
+      <div class="relative mx-auto max-w-6xl px-6 py-12 text-white">
+        <div class="flex items-start justify-between gap-6">
+          <div>
+            <p class="mb-2 inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-sm font-medium ring-1 ring-white/20 backdrop-blur">
+              <span>Frontend Track</span>
+              <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+              <span>Tools & Setups</span>
+            </p>
+            <p class="mt-1 text-white/80 text-sm font-semibold">Wella Schools</p>
+            <h1 class="mt-1 text-3xl font-bold tracking-tight sm:text-4xl">IDEs and Visual Studio Code</h1>
+            <p class="mt-3 max-w-3xl text-white/90">What is an IDE, how to choose one, why we standardize on Visual Studio Code, and how to install and set it up with essential extensions.</p>
+            <div class="mt-4 flex flex-wrap items-center gap-3 text-sm">
+              <span class="inline-flex items-center gap-2 rounded-full bg-black/10 px-3 py-1 ring-1 ring-white/20">ℹ️ <strong class="font-semibold">Informational:</strong> no quiz/labs, no deadline</span>
+              <span class="inline-flex items-center gap-2 rounded-full bg-black/10 px-3 py-1 ring-1 ring-white/20">✅ <strong class="font-semibold">You will:</strong> Understand IDEs → Install VS Code → Add extensions</span>
+            </div>
+          </div>
+          <nav class="hidden lg:block w-64">
+            <div class="sticky top-6 rounded-2xl bg-white/10 p-4 ring-1 ring-white/20 backdrop-blur">
+              <p class="mb-2 text-xs font-semibold uppercase tracking-wider text-white/70">On this page</p>
+              <ol class="space-y-2 text-sm text-white/90">
+                <li><a class="hover:underline" href="#overview">Overview</a></li>
+                <li><a class="hover:underline" href="#what-is-ide">What is an IDE?</a></li>
+                <li><a class="hover:underline" href="#choosing">Choosing an IDE</a></li>
+                <li><a class="hover:underline" href="#vscode-install">Install VS Code</a></li>
+                <li><a class="hover:underline" href="#extensions">Essential Extensions</a></li>
+                <li><a class="hover:underline" href="#resources">Resources</a></li>
+                <li><a class="hover:underline" href="#submission">Submission</a></li>
+              </ol>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-6xl px-6 py-12">
+      <!-- Overview -->
+      <section id="overview" class="scroll-mt-24">
+        <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <h2 class="text-xl font-semibold">Overview</h2>
+          <p class="mt-2 text-slate-700">This module helps you understand IDEs and set up your development environment. Our program uses <strong>Visual Studio Code (VS Code)</strong>, the most widely used editor/IDE in the industry. This is an <strong>informational</strong> module — there is <strong>no quiz</strong>, <strong>no labs</strong>, and <strong>no deadline</strong>.</p>
+        </div>
+      </section>
+
+      <!-- What is an IDE -->
+      <section id="what-is-ide" class="mt-8 scroll-mt-24">
+        <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <h2 class="text-xl font-semibold">What is an IDE?</h2>
+          <p class="mt-2 text-slate-700">An IDE (Integrated Development Environment) is more than a text editor — it bundles tools to <strong>write</strong>, <strong>run</strong>, and <strong>debug</strong> code, and often integrates with <strong>version control</strong> and extensions. Read this beginner-friendly explainer from freeCodeCamp:</p>
+          <p class="mt-2"><a class="text-indigo-600 hover:underline" href="https://www.freecodecamp.org/news/what-is-an-ide-for-beginners/" target="_blank" rel="noreferrer">What is an IDE? (for beginners) — freeCodeCamp</a></p>
+          <div class="mt-4 grid gap-4 sm:grid-cols-2">
+            <div class="rounded-lg bg-slate-50 p-4 ring-1 ring-slate-200">
+              <p class="text-sm font-medium text-slate-900">Typical IDE features</p>
+              <ul class="mt-2 list-disc pl-5 text-slate-700">
+                <li>Syntax highlighting, IntelliSense/auto-completion.</li>
+                <li>Built-in terminals and debuggers.</li>
+                <li>Git integration and extensions marketplace.</li>
+                <li>Tasks, formatters, and linters.</li>
+              </ul>
+            </div>
+            <div class="rounded-lg bg-slate-50 p-4 ring-1 ring-slate-200">
+              <p class="text-sm font-medium text-slate-900">Why VS Code here?</p>
+              <ul class="mt-2 list-disc pl-5 text-slate-700">
+                <li>Widely adopted across web development.</li>
+                <li>Lightweight, fast, and cross‑platform.</li>
+                <li>Excellent JavaScript/TypeScript, HTML/CSS tooling.</li>
+                <li>Rich ecosystem of high‑quality extensions.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Choosing an IDE -->
+      <section id="choosing" class="mt-8 scroll-mt-24">
+        <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <h2 class="text-xl font-semibold">Choosing an IDE</h2>
+          <p class="mt-2 text-slate-700">If you already have a favorite editor, you can keep using it as long as you can follow course directions. For consistency, we recommend VS Code.</p>
+          <div class="mt-3 grid gap-3 sm:grid-cols-2">
+            <div>
+              <p class="text-sm font-medium text-slate-900">Considerations</p>
+              <ul class="mt-1 list-disc pl-5 text-slate-700">
+                <li>OS support: Windows, macOS, Linux.</li>
+                <li>Performance on your machine.</li>
+                <li>Language & framework support.</li>
+                <li>Ecosystem/plugins and community.</li>
+                <li>Team/program standards.</li>
+              </ul>
+            </div>
+            <div>
+              <p class="text-sm font-medium text-slate-900">Our standard</p>
+              <ul class="mt-1 list-disc pl-5 text-slate-700">
+                <li><strong>Visual Studio Code</strong> (Microsoft) — free and popular.</li>
+                <li>Great for web: HTML, CSS, JS/TS, React.</li>
+                <li>Shared tips and screenshots use VS Code.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Install VS Code -->
+      <section id="vscode-install" class="mt-8 scroll-mt-24">
+        <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <div class="mb-4 flex items-center justify-between">
+            <h2 class="text-xl font-semibold">Install and set up Visual Studio Code</h2>
+            <a href="https://code.visualstudio.com/" target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-3 py-1.5 text-sm font-medium text-white shadow hover:bg-indigo-700">Download VS Code ↗</a>
+          </div>
+          <ol class="list-decimal pl-5 text-slate-700 space-y-2">
+            <li>Download the installer for your OS from the official site and install with defaults.</li>
+            <li>Launch VS Code. On macOS, optionally enable the <em>code</em> command (Command Palette → “Shell Command: Install 'code' command in PATH”).</li>
+            <li>Set recommended preferences: <em>Auto Save</em> (after delay) and <em>Format on Save</em> (Settings → search).</li>
+          </ol>
+
+          <div class="mt-4 rounded-lg bg-slate-50 p-4 ring-1 ring-slate-200">
+            <div class="mb-2 flex items-center justify-between">
+              <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">Optional · Install via package manager</p>
+              <button data-copy-target="#code-pm" class="copy-btn text-xs rounded-md border border-slate-300 px-2 py-1 hover:bg-slate-100">Copy</button>
+            </div>
+            <pre id="code-pm" class="overflow-auto"><code class="language-bash"># macOS (Homebrew)
+brew install --cask visual-studio-code
+
+# Windows (Chocolatey, run as Administrator)
+choco install vscode -y
+
+# Ubuntu/Debian (Snap)
+sudo snap install code --classic</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- Extensions -->
+      <section id="extensions" class="mt-8 scroll-mt-24">
+        <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <h2 class="text-xl font-semibold">Essential extensions</h2>
+          <p class="mt-2 text-slate-700">Install these to boost your workflow. You can add more over time.</p>
+
+          <div class="mt-3 grid gap-4 md:grid-cols-2">
+            <div class="rounded-lg bg-slate-50 p-4 ring-1 ring-slate-200">
+              <p class="text-sm font-medium text-slate-900">Recommended</p>
+              <ul class="mt-2 list-disc pl-5 text-slate-700">
+                <li><a class="text-indigo-600 hover:underline" href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer" target="_blank" rel="noreferrer">Live Server (by Ritwick Dey)</a> — local dev server with auto‑reload.</li>
+                <li><a class="text-indigo-600 hover:underline" href="https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode" target="_blank" rel="noreferrer">Prettier</a> — opinionated code formatter.</li>
+                <li><a class="text-indigo-600 hover:underline" href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint" target="_blank" rel="noreferrer">ESLint</a> — surface JS/TS issues inline.</li>
+                <li><a class="text-indigo-600 hover:underline" href="https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github" target="_blank" rel="noreferrer">GitHub Pull Requests and Issues</a> — review from VS Code.</li>
+                <li><a class="text-indigo-600 hover:underline" href="https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss" target="_blank" rel="noreferrer">Tailwind CSS IntelliSense</a> — class name completions.</li>
+              </ul>
+            </div>
+            <div class="rounded-lg bg-slate-50 p-4 ring-1 ring-slate-200">
+              <div class="mb-2 flex items-center justify-between">
+                <p class="text-sm font-medium text-slate-900">Install via command line</p>
+                <button data-copy-target="#code-ext" class="copy-btn text-xs rounded-md border border-slate-300 px-2 py-1 hover:bg-slate-100">Copy</button>
+              </div>
+              <pre id="code-ext" class="overflow-auto"><code class="language-bash">code --install-extension ritwickdey.LiveServer
+code --install-extension esbenp.prettier-vscode
+code --install-extension dbaeumer.vscode-eslint
+code --install-extension github.vscode-pull-request-github
+code --install-extension bradlc.vscode-tailwindcss</code></pre>
+              <p class="mt-2 text-sm text-slate-600">Tip: open the <em>Extensions</em> view (square icon) and search by name if you prefer clicking.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Resources -->
+      <section id="resources" class="mt-8 scroll-mt-24">
+        <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <h2 class="text-xl font-semibold">Resources</h2>
+          <ul class="mt-4 space-y-2 text-slate-700">
+            <li><a class="text-indigo-600 hover:underline" href="https://www.freecodecamp.org/news/what-is-an-ide-for-beginners/" target="_blank" rel="noreferrer">What is an IDE? (for beginners) — freeCodeCamp</a></li>
+            <li><a class="text-indigo-600 hover:underline" href="https://code.visualstudio.com/" target="_blank" rel="noreferrer">Download VS Code</a> · <a class="text-indigo-600 hover:underline" href="https://code.visualstudio.com/docs" target="_blank" rel="noreferrer">VS Code Docs</a></li>
+            <li><a class="text-indigo-600 hover:underline" href="https://code.visualstudio.com/docs/getstarted/tips-and-tricks" target="_blank" rel="noreferrer">VS Code Tips and Tricks</a> · <a class="text-indigo-600 hover:underline" href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf" target="_blank" rel="noreferrer">Keyboard Shortcuts (Windows)</a> · <a class="text-indigo-600 hover:underline" href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf" target="_blank" rel="noreferrer">(macOS)</a> · <a class="text-indigo-600 hover:underline" href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf" target="_blank" rel="noreferrer">(Linux)</a></li>
+            <li><a class="text-indigo-600 hover:underline" href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer" target="_blank" rel="noreferrer">Live Server (Ritwick Dey)</a> · <a class="text-indigo-600 hover:underline" href="https://prettier.io/docs/en/editors.html#visual-studio-code" target="_blank" rel="noreferrer">Prettier in VS Code</a> · <a class="text-indigo-600 hover:underline" href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint" target="_blank" rel="noreferrer">ESLint extension</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Submission -->
+      <section id="submission" class="mt-8 scroll-mt-24">
+        <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <h2 class="text-xl font-semibold">Submission</h2>
+          <div class="mt-2 grid gap-4 sm:grid-cols-2">
+            <div class="rounded-lg bg-emerald-50 p-4 ring-1 ring-emerald-200">
+              <p class="font-medium text-emerald-900">Nothing to submit</p>
+              <p class="mt-1 text-emerald-900/90">This module is informational. There is no quiz, no labs, and no deadline.</p>
+            </div>
+            <div class="rounded-lg bg-slate-50 p-4 ring-1 ring-slate-200">
+              <p class="text-sm text-slate-600">Continue to Module 1 when you’re ready: Git & GitHub Setup + First Commit.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Module navigation -->
+      <nav aria-label="Module navigation" class="mt-10">
+        <div class="flex items-center justify-between">
+          <a href="../../../index.html" class="inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-medium text-slate-700 ring-1 ring-slate-200 hover:bg-slate-50">← Return to Program</a>
+          <a href="../git/module-01-setup-and-first-commit.html" class="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow hover:bg-indigo-700">Next: Module 1 — Setup & First Commit →</a>
+        </div>
+      </nav>
+
+      <footer class="mt-12 pb-12 text-center text-sm text-slate-500">
+        <p>Built for the Frontend Track · Tools & Setups (Informational)</p>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    // --- Utilities ---
+    function sanitizeCopiedText(text) {
+      // Strip trailing newlines only, preserving trailing spaces
+      return text.replace(/\n+$/, '');
+    }
+
+    // Copy-to-clipboard for code blocks
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const id = btn.getAttribute('data-copy-target');
+        const block = document.querySelector(id);
+        if (!block) return;
+        const text = sanitizeCopiedText(block.innerText);
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(text);
+          } else {
+            const ta = document.createElement('textarea');
+            ta.value = text; document.body.appendChild(ta); ta.select();
+            document.execCommand('copy'); document.body.removeChild(ta);
+          }
+          const original = btn.textContent;
+          btn.textContent = 'Copied!';
+          btn.classList.add('bg-emerald-50','border-emerald-300');
+          setTimeout(() => { btn.textContent = original; btn.classList.remove('bg-emerald-50','border-emerald-300'); }, 1500);
+        } catch (e) {
+          alert('Copy failed. Select and copy manually.');
+          console.error(e);
+        }
+      });
+    });
+
+    // Enforce mobile block
+    const lockScrollForMobile = () => {
+      const isMobile = window.matchMedia('(max-width: 1023.98px)').matches;
+      document.documentElement.style.overflow = isMobile ? 'hidden' : '';
+      document.body.style.overflow = isMobile ? 'hidden' : '';
+    };
+    lockScrollForMobile();
+    window.addEventListener('resize', lockScrollForMobile);
+  </script>
+</body>
+</html>
