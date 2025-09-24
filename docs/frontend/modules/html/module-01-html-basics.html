@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wella Schools — HTML Module 1 — Foundations & Hyperlinks (Frontend)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+    code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+    .prose code { background-color: rgb(243 244 246); padding: .125rem .375rem; border-radius: .375rem; }
+    /* Mobile gate: lock scroll & hide desktop content under lg */
+    @media (max-width: 1023.98px) {
+      html, body { height: 100%; overflow: hidden; }
+      .mobile-hidden { display: none !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+  <!-- Mobile Gate -->
+  <div class="fixed inset-0 z-[9999] flex h-screen w-screen items-center justify-center bg-white p-8 text-center lg:hidden overflow-hidden overscroll-none" role="dialog" aria-modal="true" aria-labelledby="gate-title" aria-describedby="gate-desc">
+    <div class="max-w-md">
+      <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-red-100">🚫</div>
+      <h2 id="gate-title" class="text-xl font-semibold text-slate-900">Desktop Required</h2>
+      <p id="gate-desc" class="mt-2 text-slate-700">Classroom assessments and assignments are to be completed on a desktop or laptop.</p>
+      <p class="mt-1 text-slate-700">Please open this page on a larger screen to continue.</p>
+      <p class="mt-4 text-xs text-slate-500">If you believe you’re seeing this in error, rotate your device or use “Request Desktop Site”.</p>
+    </div>
+  </div>
+
+  <div class="mobile-hidden lg:block">
+    <!-- Header -->
+    <header class="relative isolate">
+      <div class="absolute inset-0 -z-10 bg-gradient-to-br from-indigo-600 via-violet-600 to-fuchsia-600 opacity-90"></div>
+      <div class="relative mx-auto max-w-6xl px-6 py-12 text-white">
+        <div class="flex items-start justify-between gap-6">
+          <div>
+            <p class="mb-2 inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-sm font-medium ring-1 ring-white/20 backdrop-blur">
+              <span>Frontend Track</span>
+              <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+              <span>HTML Module 1</span>
+            </p>
+            <h1 class="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">Foundations & Hyperlinks</h1>
+            <p class="mt-3 max-w-3xl text-white/90">Build a clean HTML skeleton, set up proper <code>&lt;head&gt;</code> metadata, practice text semantics, and create accessible hyperlinks (absolute, relative, fragments, email/tel). CI will verify essentials.</p>
+            <div class="mt-4 flex flex-wrap items-center gap-3 text-sm">
+              <span class="inline-flex items-center gap-2 rounded-full bg-black/10 px-3 py-1 ring-1 ring-white/20">⏱️ <strong class="font-semibold">Time:</strong> ~90–120 min</span>
+              <span class="inline-flex items-center gap-2 rounded-full bg-black/10 px-3 py-1 ring-1 ring-white/20">✅ <strong class="font-semibold">You will:</strong> Skeleton → Metadata → Semantics → Links</span>
+            </div>
+          </div>
+          <nav class="hidden lg:block w-64">
+            <div class="sticky top-6 rounded-2xl bg-white/10 p-4 ring-1 ring-white/20 backdrop-blur">
+              <p class="mb-2 text-xs font-semibold uppercase tracking-wider text-white/70">On this page</p>
+              <ol class="space-y-2 text-sm text-white/90">
+                <li><a class="hover:underline" href="#outcomes">Outcomes</a></li>
+                <li><a class="hover:underline" href="#readings">Readings</a></li>
+                <li><a class="hover:underline" href="#submission">Assignment Submission</a></li>
+                <li><a class="hover:underline" href="#troubleshooting">Troubleshooting</a></li>
+                <li><a class="hover:underline" href="#references">References</a></li>
+              </ol>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-6xl px-6 py-12">
+      <!-- Deadline -->
+      <section id="deadline" class="scroll-mt-24">
+        <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <span class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-rose-600 text-white font-semibold">⌛</span>
+            <div>
+              <p class="text-sm text-slate-600">Submission deadline</p>
+              <p class="text-lg font-semibold text-slate-900">October 4, 2025, 6:00 PM</p>
+            </div>
+          </div>
+          <span class="rounded-full bg-rose-50 px-3 py-1 text-rose-700 ring-1 ring-rose-200 text-sm">You will lose access to the lab and quiz on the deadline</span>
+        </div>
+      </section>
+
+      <!-- Outcomes -->
+      <section id="outcomes" class="mt-8 scroll-mt-24">
+        <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <h2 class="text-xl font-semibold">Outcomes</h2>
+          <ul class="mt-4 grid gap-2 sm:grid-cols-2">
+            <li class="flex items-start gap-3"><span class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600 inline-block shrink-0"></span><span>Explain what HTML is for; distinguish elements vs. attributes; know block vs. inline and nesting rules.</span></li>
+            <li class="flex items-start gap-3"><span class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600 inline-block shrink-0"></span><span>Create a minimal, valid HTML document and open it in a browser.</span></li>
+            <li class="flex items-start gap-3"><span class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600 inline-block shrink-0"></span><span>Use <code>&lt;title&gt;</code>, <code>&lt;meta charset&gt;</code>, <code>&lt;meta name="viewport"&gt;</code>, <code>&lt;meta name="description"&gt;</code>; optionally link a favicon.</span></li>
+            <li class="flex items-start gap-3"><span class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600 inline-block shrink-0"></span><span>Mark up text with headings, paragraphs, lists, emphasis, quotes, and inline code.</span></li>
+            <li class="flex items-start gap-3 sm:col-span-2"><span class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600 inline-block shrink-0"></span><span>Create accessible hyperlinks: absolute, relative, fragment links, and email/telephone links; use <code>target</code>/<code>rel</code> safely.</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Readings -->
+      <section id="readings" class="mt-8 scroll-mt-24">
+        <div class="mb-4 flex items-center justify-between">
+          <h2 class="text-xl font-semibold">Readings</h2>
+        </div>
+
+        <!-- Numbered reading items styled like Git modules -->
+        <article class="mt-4 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <div class="flex items-start gap-4">
+            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white font-semibold">1</div>
+            <div class="min-w-0 flex-1">
+              <h3 class="text-lg font-semibold">Introduction to HTML</h3>
+              <p class="mt-1 text-slate-700"><a class="text-indigo-600 hover:underline" href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML" target="_blank" rel="noreferrer">MDN Docs</a></p>
+              <p class="mt-2 text-sm text-slate-600"><strong>Focus:</strong> what HTML is for, elements vs attributes, block vs inline, nesting rules.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="mt-4 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <div class="flex items-start gap-4">
+            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white font-semibold">2</div>
+            <div class="min-w-0 flex-1">
+              <h3 class="text-lg font-semibold">Getting started with HTML</h3>
+              <p class="mt-1 text-slate-700"><a class="text-indigo-600 hover:underline" href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started" target="_blank" rel="noreferrer">MDN Docs</a></p>
+              <p class="mt-2 text-sm text-slate-600"><strong>Focus:</strong> basic file structure, saving as <code>.html</code>, opening in a browser, minimal skeleton.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="mt-4 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <div class="flex items-start gap-4">
+            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white font-semibold">3</div>
+            <div class="min-w-0 flex-1">
+              <h3 class="text-lg font-semibold">The head metadata in HTML</h3>
+              <p class="mt-1 text-slate-700"><a class="text-indigo-600 hover:underline" href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML" target="_blank" rel="noreferrer">MDN Docs</a></p>
+              <p class="mt-2 text-sm text-slate-600"><strong>Focus:</strong> <code>&lt;title&gt;</code>, <code>&lt;meta charset&gt;</code>, <code>&lt;meta name="viewport"&gt;</code>, <code>&lt;meta name="description"&gt;</code>, favicon (optional).</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="mt-4 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <div class="flex items-start gap-4">
+            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white font-semibold">4</div>
+            <div class="min-w-0 flex-1">
+              <h3 class="text-lg font-semibold">HTML text fundamentals</h3>
+              <p class="mt-1 text-slate-700"><a class="text-indigo-600 hover:underline" href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/HTML_text_fundamentals" target="_blank" rel="noreferrer">MDN Docs</a></p>
+              <p class="mt-2 text-sm text-slate-600"><strong>Focus:</strong> headings, paragraphs, lists, emphasis, quotes, code.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="mt-4 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <div class="flex items-start gap-4">
+            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white font-semibold">5</div>
+            <div class="min-w-0 flex-1">
+              <h3 class="text-lg font-semibold">Creating hyperlinks</h3>
+              <p class="mt-1 text-slate-700"><a class="text-indigo-600 hover:underline" href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks" target="_blank" rel="noreferrer">MDN Docs</a></p>
+              <p class="mt-2 text-sm text-slate-600"><strong>Focus:</strong> <code>&lt;a href&gt;</code>, absolute vs relative URLs, <code>target</code>/<code>rel</code>, fragment links <code>#id</code>, email/telephone links.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Cheat Sheet card (unchanged) -->
+        <article class="mt-4 rounded-2xl border border-indigo-200 bg-indigo-50 p-6">
+          <div class="flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <h3 class="text-lg font-semibold text-indigo-900">Printable & pin-worthy</h3>
+              <p class="mt-1 text-indigo-900/80">Interactive HTML Cheat Sheet — keep it next to your keyboard.</p>
+            </div>
+            <a href="https://htmlcheatsheet.com/" target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 font-medium text-white shadow hover:bg-indigo-700">Open Cheat Sheet ↗</a>
+          </div>
+        </article>
+      </section>
+
+      <!-- Hide standalone Cheat‑Sheet section to match structure -->
+      <section id="cheatsheet" class="mt-8 scroll-mt-24 hidden"><!-- deprecated; content moved into Readings --></section>
+
+      <!-- Submission -->
+      <section id="submission" class="mt-10 scroll-mt-24">
+        <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <h2 class="text-xl font-semibold">Assignment</h2>
+          <ul class="mt-3 list-disc pl-5 text-slate-700">
+            <li>Accept Classroom: <a class="text-indigo-600 hover:underline" href="#" onclick="alert('Replace <INVITE_LINK> with your actual Classroom invite URL.'); return false;">&lt;INVITE_LINK&gt;</a></li>
+            <li>Build per the spec in your repo’s README.</li>
+            <li>Ensure CI is <strong>green</strong> on <code>main</code>.</li>
+            <li>Submit the Google Form: <a class="text-indigo-600 hover:underline" href="#" onclick="alert('Replace <FORM_LINK> with your actual Google Form URL.'); return false;">&lt;FORM_LINK&gt;</a> (graded)</li>
+          </ul>
+        </div>
+
+        <div class="mt-4 grid gap-4 sm:grid-cols-2">
+          <div class="rounded-lg bg-emerald-50 p-4 ring-1 ring-emerald-200">
+            <p class="font-medium text-emerald-900">You’re done when:</p>
+            <ul class="mt-2 list-disc pl-5 text-emerald-900/90">
+              <li><code>index.html</code> is valid and includes required metadata and text semantics.</li>
+              <li>Links work (absolute, relative, fragment, <code>mailto:</code>, <code>tel:</code>).</li>
+              <li>CI is green.</li>
+              <li>Google Form submitted.</li>
+            </ul>
+          </div>
+          <div class="rounded-lg bg-slate-50 p-4 ring-1 ring-slate-200">
+            <p class="text-sm text-slate-600">Tip: Use a local server (e.g., VS Code Live Server) so relative links and assets behave as they will in production.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Hide standalone Done when section to match Git modules -->
+      <section id="done" class="mt-8 scroll-mt-24 hidden"></section>
+
+      <!-- Troubleshooting -->
+      <section id="troubleshooting" class="mt-10 scroll-mt-24">
+        <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <h2 class="text-xl font-semibold">Troubleshooting</h2>
+          <div class="mt-4 grid gap-4 md:grid-cols-2">
+            <div class="rounded-lg border border-slate-200 p-4">
+              <h3 class="font-medium">HTML doesn’t render as expected</h3>
+              <ul class="mt-2 list-disc pl-5 text-slate-700">
+                <li>Validate your document starts with <code>&lt;!doctype html&gt;</code> and proper <code>&lt;head&gt;</code>/<code>&lt;body&gt;</code>.</li>
+                <li>Open DevTools (F12) → Console for syntax errors.</li>
+                <li>Ensure your file encoding is UTF‑8.</li>
+              </ul>
+            </div>
+            <div class="rounded-lg border border-slate-200 p-4">
+              <h3 class="font-medium">Links don’t work</h3>
+              <ul class="mt-2 list-disc pl-5 text-slate-700">
+                <li>Check relative paths and file names (case sensitive on many OS).</li>
+                <li>For external links, include <code>https://</code> and use <code>rel="noreferrer"</code> with <code>target="_blank"</code>.</li>
+                <li>Serve locally (Live Server) to test fragment and asset paths.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- References (unchanged) -->
+      <section id="references" class="mt-10 scroll-mt-24">
+        <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <h2 class="text-xl font-semibold">References</h2>
+          <ul class="mt-4 space-y-2 text-slate-700">
+            <li><a class="text-indigo-600 hover:underline" target="_blank" rel="noreferrer" href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML">Introduction to HTML (MDN)</a></li>
+            <li><a class="text-indigo-600 hover:underline" target="_blank" rel="noreferrer" href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started">Getting started with HTML (MDN)</a></li>
+            <li><a class="text-indigo-600 hover:underline" target="_blank" rel="noreferrer" href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML">The head metadata in HTML (MDN)</a></li>
+            <li><a class="text-indigo-600 hover:underline" target="_blank" rel="noreferrer" href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/HTML_text_fundamentals">HTML text fundamentals (MDN)</a></li>
+            <li><a class="text-indigo-600 hover:underline" target="_blank" rel="noreferrer" href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks">Creating hyperlinks (MDN)</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Module navigation -->
+      <nav aria-label="Module navigation" class="mt-10">
+        <div class="flex items-center justify-between">
+          <a href="../../../index.html" class="inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-medium text-slate-700 ring-1 ring-slate-200 hover:bg-slate-50">Return to Program ↩</a>
+          <span class="hidden sm:inline-flex items-center gap-2 rounded-lg bg-slate-100 px-4 py-2 text-sm font-medium text-slate-700 ring-1 ring-slate-200">HTML Track · Module 1</span>
+        </div>
+      </nav>
+
+      <footer class="mt-12 pb-12 text-center text-sm text-slate-500">
+        <p>Built for the Frontend Track · HTML Module 1</p>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    // --- Utilities ---
+    function sanitizeCopiedText(text) {
+      // Strip trailing newlines only, preserving trailing spaces
+      return text.replace(/\n+$/, '');
+    }
+
+    // Copy-to-clipboard for code blocks
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const id = btn.getAttribute('data-copy-target');
+        const block = document.querySelector(id);
+        if (!block) return;
+        const text = sanitizeCopiedText(block.innerText);
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(text);
+          } else {
+            const ta = document.createElement('textarea');
+            ta.value = text; document.body.appendChild(ta); ta.select();
+            document.execCommand('copy'); document.body.removeChild(ta);
+          }
+          const original = btn.textContent;
+          btn.textContent = 'Copied!';
+          btn.classList.add('bg-emerald-50','border-emerald-300');
+          setTimeout(() => { btn.textContent = original; btn.classList.remove('bg-emerald-50','border-emerald-300'); }, 1500);
+        } catch (e) {
+          alert('Copy failed. Select and copy manually.');
+          console.error(e);
+        }
+      });
+    });
+
+    // Enforce mobile block
+    const lockScrollForMobile = () => {
+      const isMobile = window.matchMedia('(max-width: 1023.98px)').matches;
+      document.documentElement.style.overflow = isMobile ? 'hidden' : '';
+      document.body.style.overflow = isMobile ? 'hidden' : '';
+    };
+    lockScrollForMobile();
+    window.addEventListener('resize', lockScrollForMobile);
+
+    // --- Minimal tests for sanitizeCopiedText ---
+    (function testSanitizeCopiedText(){
+      const tests = [
+        {name: 'single trailing newline', input: 'echo test\n', expected: 'echo test'},
+        {name: 'multiple trailing newlines', input: 'line1\nline2\n\n', expected: 'line1\nline2'},
+        {name: 'no trailing newline', input: 'no newline', expected: 'no newline'},
+        {name: 'preserve spaces, remove newlines', input: 'trailing spaces   \n\n', expected: 'trailing spaces   '},
+        {name: 'unchanged middle newlines', input: 'a\nb\nc', expected: 'a\nb\nc'}
+      ];
+      let passed = 0;
+      for (const t of tests) {
+        const got = sanitizeCopiedText(t.input);
+        if (got === t.expected) passed++; else console.warn('[CopyTest FAIL]', t.name, {expected: t.expected, got});
+      }
+      console.log(`[CopyTest] sanitizeCopiedText: ${passed}/${tests.length} passed`);
+    })();
+  </script>
+</body>
+</html>
