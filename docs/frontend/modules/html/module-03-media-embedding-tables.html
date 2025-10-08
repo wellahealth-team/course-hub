@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wella Schools — HTML Module 3 — Multimedia, Embeds & Tables (Frontend)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+    code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+    .prose code { background-color: rgb(243 244 246); padding: .125rem .375rem; border-radius: .375rem; }
+    /* Mobile gate: lock scroll & hide desktop content under lg */
+    @media (max-width: 1023.98px) {
+      html, body { height: 100%; overflow: hidden; }
+      .mobile-hidden { display: none !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+  <div class="fixed inset-0 z-[9999] flex h-screen w-screen items-center justify-center bg-white p-8 text-center lg:hidden overflow-hidden overscroll-none" role="dialog" aria-modal="true" aria-labelledby="gate-title" aria-describedby="gate-desc">
+    <div class="max-w-md">
+      <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-red-100">🚫</div>
+      <h2 id="gate-title" class="text-xl font-semibold text-slate-900">Desktop Required</h2>
+      <p id="gate-desc" class="mt-2 text-slate-700">Classroom assessments and assignments are to be completed on a desktop or laptop.</p>
+      <p class="mt-4 text-sm text-slate-500">Please open this page on a desktop to continue.</p>
+    </div>
+  </div>
+
+  <div class="mobile-hidden lg:block">
+    <header class="relative isolate">
+      <div class="absolute inset-0 -z-10 bg-gradient-to-br from-indigo-600 via-violet-600 to-fuchsia-600 opacity-90"></div>
+      <div class="relative mx-auto max-w-6xl px-6 py-12 text-white">
+        <div class="flex items-start justify-between gap-6">
+          <div>
+            <p class="mb-2 inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-sm font-medium ring-1 ring-white/20 backdrop-blur">
+              <span>Frontend Track</span>
+              <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+              <span>HTML Module 3</span>
+            </p>
+            <p class="mt-1 text-white/80 text-sm font-semibold">Wella Schools</p>
+            <h1 class="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">Multimedia, Embeds & Tables</h1>
+            <p class="mt-3 max-w-3xl text-white/90">Bring webpages to life with audio, video, and vector graphics, embed external experiences, and present complex data cleanly using semantic tables.</p>
+            <div class="mt-4 flex flex-wrap items-center gap-3 text-sm">
+              <span class="inline-flex items-center gap-2 rounded-full bg-black/10 px-3 py-1 ring-1 ring-white/20">⏱️ <strong class="font-semibold">Time:</strong> ~150–180 min</span>
+              <span class="inline-flex items-center gap-2 rounded-full bg-black/10 px-3 py-1 ring-1 ring-white/20">✅ <strong class="font-semibold">You will:</strong> Embed media → Manage responsive assets → Craft rich tables</span>
+            </div>
+          </div>
+          <nav class="hidden lg:block w-64">
+            <div class="sticky top-6 rounded-2xl bg-white/10 p-4 ring-1 ring-white/20 backdrop-blur">
+              <p class="mb-2 text-xs font-semibold uppercase tracking-wider text-white/70">On this page</p>
+              <ol class="space-y-2 text-sm text-white/90">
+                <li><a class="hover:underline" href="#outcomes">Outcomes</a></li>
+                <li><a class="hover:underline" href="#readings">Readings</a></li>
+                <li><a class="hover:underline" href="#submission">Assignment Submission</a></li>
+                <li><a class="hover:underline" href="#troubleshooting">Troubleshooting</a></li>
+                <li><a class="hover:underline" href="#references">References</a></li>
+              </ol>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-6xl px-6 py-12">
+      <section id="deadline" class="scroll-mt-24">
+        <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <span class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-rose-600 text-white font-semibold">⌛</span>
+            <div>
+              <p class="text-sm text-slate-600">Submission deadline</p>
+              <p class="text-lg font-semibold text-slate-900">October 18, 2025, 6:00 PM</p>
+            </div>
+          </div>
+          <span class="rounded-full bg-rose-50 px-3 py-1 text-rose-700 ring-1 ring-rose-200 text-sm">Late work locks automatically at the deadline.</span>
+        </div>
+      </section>
+
+      <section id="outcomes" class="mt-8 scroll-mt-24">
+        <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <h2 class="text-xl font-semibold">Outcomes</h2>
+          <ul class="mt-4 grid gap-2 sm:grid-cols-2">
+            <li class="flex items-start gap-3"><span class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600 inline-block shrink-0"></span><span>Insert images, video, and audio with accessible fallbacks and captions.</span></li>
+            <li class="flex items-start gap-3"><span class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600 inline-block shrink-0"></span><span>Embed external widgets (maps, slides, code sandboxes) safely.</span></li>
+            <li class="flex items-start gap-3"><span class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600 inline-block shrink-0"></span><span>Create and optimize SVG assets while planning responsive image sets.</span></li>
+            <li class="flex items-start gap-3"><span class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600 inline-block shrink-0"></span><span>Design semantic tables with headers, captions, and associations for screen readers.</span></li>
+            <li class="flex items-start gap-3 sm:col-span-2"><span class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600 inline-block shrink-0"></span><span>Ship the Module 3 lab deliverables (splash screen + planet data table) and pass every CI check.</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="readings" class="mt-8 scroll-mt-24">
+        <div class="mb-4 flex items-center justify-between">
+          <h2 class="text-xl font-semibold">Readings</h2>
+        </div>
+
+        <article class="mt-4 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <div class="flex items-start gap-4">
+            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white font-semibold">1</div>
+            <div class="min-w-0 flex-1">
+              <h3 class="text-lg font-semibold">Multimedia & embedding overview</h3>
+              <p class="mt-1 text-slate-700"><a class="text-indigo-600 hover:underline" href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding" target="_blank" rel="noreferrer">MDN Docs</a></p>
+              <p class="mt-2 text-sm text-slate-600"><strong>Focus:</strong> multimedia elements, attribute support, fallback strategies, and embedding approaches.</p>
+            </div>
+          </div>
+          <div class="mt-3 rounded-lg bg-slate-50 p-4 ring-1 ring-slate-200">
+            <div class="mb-2 flex items-center justify-between">
+              <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">Do-it (follow along)</p>
+              <button data-copy-target="#code-r1-doit" class="copy-btn text-xs rounded-md border border-slate-300 px-2 py-1 hover:bg-slate-100">Copy</button>
+            </div>
+            <pre id="code-r1-doit" class="overflow-auto"><code class="language-html">&lt;section aria-labelledby=&quot;media-intro&quot;&gt;
+  &lt;h2 id=&quot;media-intro&quot;&gt;Course intro&lt;/h2&gt;
+  &lt;video controls width=&quot;640&quot; poster=&quot;./assets/intro-cover.jpg&quot;&gt;
+    &lt;source src=&quot;./assets/intro.mp4&quot; type=&quot;video/mp4&quot;&gt;
+    &lt;p&gt;Your browser can&apos;t play the intro video. &lt;a href=&quot;./assets/intro.mp4&quot;&gt;Download it instead&lt;/a&gt;.&lt;/p&gt;
+  &lt;/video&gt;
+&lt;/section&gt;</code></pre>
+          </div>
+        </article>
+
+        <article class="mt-4 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <div class="flex items-start gap-4">
+            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white font-semibold">2</div>
+            <div class="min-w-0 flex-1">
+              <h3 class="text-lg font-semibold">Images & responsive sources</h3>
+              <p class="mt-1 text-slate-700"><a class="text-indigo-600 hover:underline" href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Images_in_HTML" target="_blank" rel="noreferrer">MDN Docs</a></p>
+              <p class="mt-2 text-sm text-slate-600"><strong>Focus:</strong> accessible <code>alt</code> text, <code>&lt;figure&gt;</code>, <code>&lt;picture&gt;</code>, and <code>srcset</code> for different devices.</p>
+            </div>
+          </div>
+          <div class="mt-3 rounded-lg bg-slate-50 p-4 ring-1 ring-slate-200">
+            <div class="mb-2 flex items-center justify-between">
+              <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">Do-it (follow along)</p>
+              <button data-copy-target="#code-r2-doit" class="copy-btn text-xs rounded-md border border-slate-300 px-2 py-1 hover:bg-slate-100">Copy</button>
+            </div>
+            <pre id="code-r2-doit" class="overflow-auto"><code class="language-html">&lt;figure&gt;
+  &lt;picture&gt;
+    &lt;source srcset=&quot;./images/campus-640.webp 640w, ./images/campus-1280.webp 1280w&quot; type=&quot;image/webp&quot;&gt;
+    &lt;img src=&quot;./images/campus-640.jpg&quot; alt=&quot;Students collaborating in the design studio&quot; width=&quot;640&quot;&gt;
+  &lt;/picture&gt;
+  &lt;figcaption&gt;Responsive hero image served in modern formats.&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+          </div>
+        </article>
+
+        <article class="mt-4 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <div class="flex items-start gap-4">
+            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white font-semibold">3</div>
+            <div class="min-w-0 flex-1">
+              <h3 class="text-lg font-semibold">Video, audio & captions</h3>
+              <p class="mt-1 text-slate-700"><a class="text-indigo-600 hover:underline" href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Video_and_audio_content" target="_blank" rel="noreferrer">MDN Docs</a></p>
+              <p class="mt-2 text-sm text-slate-600"><strong>Focus:</strong> <code>&lt;audio&gt;</code>, <code>&lt;video&gt;</code>, <code>&lt;track&gt;</code> captions, and fallbacks.</p>
+            </div>
+          </div>
+          <div class="mt-3 rounded-lg bg-slate-50 p-4 ring-1 ring-slate-200">
+            <div class="mb-2 flex items-center justify-between">
+              <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">Do-it (follow along)</p>
+              <button data-copy-target="#code-r3-doit" class="copy-btn text-xs rounded-md border border-slate-300 px-2 py-1 hover:bg-slate-100">Copy</button>
+            </div>
+            <pre id="code-r3-doit" class="overflow-auto"><code class="language-html">&lt;audio controls&gt;
+  &lt;source src=&quot;./audio/motivation.ogg&quot; type=&quot;audio/ogg&quot;&gt;
+  &lt;source src=&quot;./audio/motivation.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
+  &lt;p&gt;Download the update as an &lt;a href=&quot;./audio/motivation.mp3&quot;&gt;MP3&lt;/a&gt;.&lt;/p&gt;
+&lt;/audio&gt;</code></pre>
+          </div>
+        </article>
+
+        <article class="mt-4 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <div class="flex items-start gap-4">
+            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white font-semibold">4</div>
+            <div class="min-w-0 flex-1">
+              <h3 class="text-lg font-semibold">Embedding other experiences</h3>
+              <p class="mt-1 text-slate-700"><a class="text-indigo-600 hover:underline" href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Other_embedding_technologies" target="_blank" rel="noreferrer">MDN Docs</a></p>
+              <p class="mt-2 text-sm text-slate-600"><strong>Focus:</strong> <code>&lt;iframe&gt;</code>, sandboxes, and safe third-party integrations.</p>
+            </div>
+          </div>
+          <div class="mt-3 rounded-lg bg-slate-50 p-4 ring-1 ring-slate-200">
+            <div class="mb-2 flex items-center justify-between">
+              <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">Do-it (follow along)</p>
+              <button data-copy-target="#code-r4-doit" class="copy-btn text-xs rounded-md border border-slate-300 px-2 py-1 hover:bg-slate-100">Copy</button>
+            </div>
+            <pre id="code-r4-doit" class="overflow-auto"><code class="language-html">&lt;iframe
+  src=&quot;https://codesandbox.io/embed/new?codemirror=1&quot;
+  title=&quot;Code Sandbox Demo&quot;
+  loading=&quot;lazy&quot;
+  width=&quot;100%&quot;
+  height=&quot;400&quot;
+  sandbox=&quot;allow-scripts allow-same-origin&quot;&gt;&lt;/iframe&gt;</code></pre>
+          </div>
+        </article>
+
+        <article class="mt-4 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <div class="flex items-start gap-4">
+            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white font-semibold">5</div>
+            <div class="min-w-0 flex-1">
+              <h3 class="text-lg font-semibold">SVG & vector graphics</h3>
+              <p class="mt-1 text-slate-700"><a class="text-indigo-600 hover:underline" href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Adding_vector_graphics_to_the_Web" target="_blank" rel="noreferrer">MDN Docs</a></p>
+              <p class="mt-2 text-sm text-slate-600"><strong>Focus:</strong> inline SVG markup, accessibility considerations, and reusability.</p>
+            </div>
+          </div>
+          <div class="mt-3 rounded-lg bg-slate-50 p-4 ring-1 ring-slate-200">
+            <div class="mb-2 flex items-center justify-between">
+              <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">Do-it (follow along)</p>
+              <button data-copy-target="#code-r5-doit" class="copy-btn text-xs rounded-md border border-slate-300 px-2 py-1 hover:bg-slate-100">Copy</button>
+            </div>
+            <pre id="code-r5-doit" class="overflow-auto"><code class="language-html">&lt;svg width=&quot;160&quot; height=&quot;160&quot; role=&quot;img&quot; aria-labelledby=&quot;logo-title&quot;&gt;
+  &lt;title id=&quot;logo-title&quot;&gt;Frontend Track Badge&lt;/title&gt;
+  &lt;circle cx=&quot;80&quot; cy=&quot;80&quot; r=&quot;78&quot; fill=&quot;#312e81&quot; stroke=&quot;#a855f7&quot; stroke-width=&quot;4&quot; /&gt;
+  &lt;text x=&quot;50%&quot; y=&quot;54%&quot; text-anchor=&quot;middle&quot; font-size=&quot;32&quot; fill=&quot;white&quot;&gt;HTML&lt;/text&gt;
+&lt;/svg&gt;</code></pre>
+          </div>
+        </article>
+
+        <article class="mt-4 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <div class="flex items-start gap-4">
+            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white font-semibold">6</div>
+            <div class="min-w-0 flex-1">
+              <h3 class="text-lg font-semibold">Responsive images deep dive</h3>
+              <p class="mt-1 text-slate-700"><a class="text-indigo-600 hover:underline" href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images" target="_blank" rel="noreferrer">MDN Docs</a></p>
+              <p class="mt-2 text-sm text-slate-600"><strong>Focus:</strong> density descriptors, art direction, and browser selection logic.</p>
+            </div>
+          </div>
+          <div class="mt-3 rounded-lg bg-slate-50 p-4 ring-1 ring-slate-200">
+            <div class="mb-2 flex items-center justify-between">
+              <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">Do-it (follow along)</p>
+              <button data-copy-target="#code-r6-doit" class="copy-btn text-xs rounded-md border border-slate-300 px-2 py-1 hover:bg-slate-100">Copy</button>
+            </div>
+            <pre id="code-r6-doit" class="overflow-auto"><code class="language-html">&lt;img
+  src=&quot;./images/gallery-400.jpg&quot;
+  srcset=&quot;./images/gallery-400.jpg 400w, ./images/gallery-800.jpg 800w, ./images/gallery-1200.jpg 1200w&quot;
+  sizes=&quot;(min-width: 1024px) 50vw, 100vw&quot;
+  alt=&quot;Gallery wall with design inspiration posters&quot;&gt;</code></pre>
+          </div>
+        </article>
+
+        <article class="mt-4 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <div class="flex items-start gap-4">
+            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white font-semibold">7</div>
+            <div class="min-w-0 flex-1">
+              <h3 class="text-lg font-semibold">HTML tables — foundations</h3>
+              <p class="mt-1 text-slate-700"><a class="text-indigo-600 hover:underline" href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables" target="_blank" rel="noreferrer">MDN Docs</a></p>
+              <p class="mt-2 text-sm text-slate-600"><strong>Focus:</strong> table anatomy, headers vs. data cells, captions, and accessibility.</p>
+            </div>
+          </div>
+          <div class="mt-3 rounded-lg bg-slate-50 p-4 ring-1 ring-slate-200">
+            <div class="mb-2 flex items-center justify-between">
+              <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">Do-it (follow along)</p>
+              <button data-copy-target="#code-r7-doit" class="copy-btn text-xs rounded-md border border-slate-300 px-2 py-1 hover:bg-slate-100">Copy</button>
+            </div>
+            <pre id="code-r7-doit" class="overflow-auto"><code class="language-html">&lt;table&gt;
+  &lt;caption&gt;Weekly attendance&lt;/caption&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th scope=&quot;col&quot;&gt;Day&lt;/th&gt;
+      &lt;th scope=&quot;col&quot;&gt;Students present&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th scope=&quot;row&quot;&gt;Monday&lt;/th&gt;
+      &lt;td&gt;28&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+          </div>
+        </article>
+
+        <article class="mt-4 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <div class="flex items-start gap-4">
+            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white font-semibold">8</div>
+            <div class="min-w-0 flex-1">
+              <h3 class="text-lg font-semibold">Advanced tables & grouping</h3>
+              <p class="mt-1 text-slate-700"><a class="text-indigo-600 hover:underline" href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Advanced" target="_blank" rel="noreferrer">MDN Docs</a></p>
+              <p class="mt-2 text-sm text-slate-600"><strong>Focus:</strong> complex headers, <code>scope</code>, <code>headers</code>, and styling structure.</p>
+            </div>
+          </div>
+          <div class="mt-3 rounded-lg bg-slate-50 p-4 ring-1 ring-slate-200">
+            <div class="mb-2 flex items-center justify-between">
+              <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">Do-it (follow along)</p>
+              <button data-copy-target="#code-r8-doit" class="copy-btn text-xs rounded-md border border-slate-300 px-2 py-1 hover:bg-slate-100">Copy</button>
+            </div>
+            <pre id="code-r8-doit" class="overflow-auto"><code class="language-html">&lt;thead&gt;
+  &lt;tr&gt;
+    &lt;th scope=&quot;colgroup&quot; colspan=&quot;2&quot;&gt;Planet&lt;/th&gt;
+    &lt;th scope=&quot;col&quot;&gt;Mass (10^24kg)&lt;/th&gt;
+    &lt;th scope=&quot;col&quot;&gt;Diameter (km)&lt;/th&gt;
+  &lt;/tr&gt;
+&lt;/thead&gt;</code></pre>
+          </div>
+        </article>
+
+        <article class="mt-4 rounded-2xl border border-indigo-200 bg-indigo-50 p-6">
+          <div class="flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <h3 class="text-lg font-semibold text-indigo-900">Lab focus — Splash screen & planet data table</h3>
+              <p class="mt-1 text-indigo-900/80">Prototype a media-rich splash page, then translate raw planetary data into an accessible table.</p>
+            </div>
+            <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Basics" target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 font-medium text-white shadow hover:bg-indigo-700">Review table basics ↗</a>
+          </div>
+        </article>
+      </section>
+
+        <!-- Submission -->
+      <section id="submission" class="mt-10 scroll-mt-24">
+        <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <h2 class="text-xl font-semibold">Assignment Submission</h2>
+          <ol class="mt-4 list-decimal space-y-3 pl-5 text-slate-700">
+            <li>
+              Accept the assignment: <a class="text-indigo-600 hover:underline" href="https://classroom.github.com/a/fRZOnul2" target="_blank" rel="noreferrer">Accept</a>
+              <ul class="mt-1 list-disc pl-5 text-slate-600 text-sm">
+                <li>Click the assignment link above.</li>
+                <li>Select your name from the list of identifiers. If you don’t select your name, you won’t be graded.</li>
+                <li>Click <em>Accept assignment</em> and wait for your repo to be created.</li>
+              </ul>
+            </li>
+            <li>Complete the steps in the README file until your repo’s CI check passes (green checkmark on GitHub).</li>
+            <li>There is no quiz for this module. Your submission is the completed lab in your GitHub repo.</li>
+            </li>
+          </ol>
+        </div>
+
+        <div class="mt-4 grid gap-4 sm:grid-cols-2">
+          <div class="rounded-lg bg-emerald-50 p-4 ring-1 ring-emerald-200">
+            <p class="font-medium text-emerald-900">You’re done when:</p>
+            <ul class="mt-2 list-disc pl-5 text-emerald-900/90">
+              <li>Your article uses purposeful text semantics (no redundant <code>&lt;div&gt;</code>s).</li>
+              <li>The layout contains <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>, supporting <code>&lt;section&gt;</code>s, and an <code>&lt;aside&gt;</code>.</li>
+              <li>All headings follow a logical hierarchy (no jumps from <code>&lt;h1&gt;</code> to <code>&lt;h4&gt;</code>).</li>
+              <li>CI reports 100/100 and the W3C validator shows 0 errors.</li>
+            </ul>
+          </div>
+          <div class="rounded-lg bg-slate-50 p-4 ring-1 ring-slate-200">
+            <p class="text-sm text-slate-600">Tip: Keep DevTools open on the <em>Elements</em> tab while editing; hover nodes to preview spacing and ensure your sections wrap the expected content.</p>
+          </div>
+        </div>
+      </section>  
+
+      <section id="troubleshooting" class="mt-10 scroll-mt-24">
+        <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <h2 class="text-xl font-semibold">Troubleshooting</h2>
+          <div class="mt-4 grid gap-4 md:grid-cols-2">
+            <div class="rounded-lg border border-slate-200 p-4">
+              <h3 class="font-medium">Media won’t load</h3>
+              <ul class="mt-2 list-disc pl-5 text-slate-700">
+                <li>Check file paths; store assets relative to the HTML file.</li>
+                <li>Always provide multiple sources for audio/video (`.mp4`, `.webm`, `.mp3`).</li>
+                <li>Set `controls` and `preload="metadata"` to improve UX.</li>
+              </ul>
+            </div>
+            <div class="rounded-lg border border-slate-200 p-4">
+              <h3 class="font-medium">Table structure feels confusing</h3>
+              <ul class="mt-2 list-disc pl-5 text-slate-700">
+                <li>Sketch the table first—identify row groups, headers, and spanning cells.</li>
+                <li>Use the W3C validator to catch colspan/rowspan mismatches.</li>
+                <li>Use `scope="rowgroup"`/`scope="colgroup"` or `headers` attributes for clarity.</li>
+              </ul>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="references" class="mt-10 scroll-mt-24">
+        <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+          <h2 class="text-xl font-semibold">References</h2>
+          <ul class="mt-4 space-y-2 text-slate-700">
+          <li><a class="text-indigo-600 hover:underline" target="_blank" rel="noreferrer" href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding">Multimedia & embedding (MDN)</a></li>
+          <li><a class="text-indigo-600 hover:underline" target="_blank" rel="noreferrer" href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Images_in_HTML">Images in HTML (MDN)</a></li>
+          <li><a class="text-indigo-600 hover:underline" target="_blank" rel="noreferrer" href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Video_and_audio_content">Video and audio content (MDN)</a></li>
+          <li><a class="text-indigo-600 hover:underline" target="_blank" rel="noreferrer" href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Other_embedding_technologies">Other embedding technologies (MDN)</a></li>
+          <li><a class="text-indigo-600 hover:underline" target="_blank" rel="noreferrer" href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Adding_vector_graphics_to_the_Web">Adding vector graphics to the web (MDN)</a></li>
+          <li><a class="text-indigo-600 hover:underline" target="_blank" rel="noreferrer" href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images">Responsive images (MDN)</a></li>
+          <li><a class="text-indigo-600 hover:underline" target="_blank" rel="noreferrer" href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables">HTML tables (MDN)</a></li>
+          <li><a class="text-indigo-600 hover:underline" target="_blank" rel="noreferrer" href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Basics">Tables — basics (MDN)</a></li>
+          <li><a class="text-indigo-600 hover:underline" target="_blank" rel="noreferrer" href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Advanced">Tables — advanced (MDN)</a></li>
+        </ul>
+        </div>
+        
+      </section>
+
+      <nav aria-label="Module navigation" class="mt-10">
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <div class="flex flex-wrap gap-3">
+            <a href="../../../index.html" class="inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-medium text-slate-700 ring-1 ring-slate-200 hover:bg-slate-50">Return to Program ↩</a>
+            <a href="./module-02-text-structure-debugging.html" class="inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-medium text-slate-700 ring-1 ring-slate-200 hover:bg-slate-50">← Module 2 — Advanced Text, Structure & Debugging</a>
+          </div>
+          <span class="inline-flex items-center gap-2 rounded-lg bg-slate-100 px-4 py-2 text-sm font-medium text-slate-700 ring-1 ring-slate-200">HTML Track · Module 4 (coming soon)</span>
+        </div>
+      </nav>
+
+      <footer class="mt-12 pb-12 text-center text-sm text-slate-500">
+        <p>Built for the Frontend Track · HTML Module 3</p>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    function sanitizeCopiedText(text) {
+      return text.replace(/\n+$/, '');
+    }
+
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const id = btn.getAttribute('data-copy-target');
+        const block = document.querySelector(id);
+        if (!block) return;
+        const text = sanitizeCopiedText(block.innerText);
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(text);
+          } else {
+            const ta = document.createElement('textarea');
+            ta.value = text; document.body.appendChild(ta); ta.select();
+            document.execCommand('copy'); document.body.removeChild(ta);
+          }
+          const original = btn.textContent;
+          btn.textContent = 'Copied!';
+          btn.classList.add('bg-emerald-50','border-emerald-300');
+          setTimeout(() => { btn.textContent = original; btn.classList.remove('bg-emerald-50','border-emerald-300'); }, 1500);
+        } catch (e) {
+          alert('Copy failed. Select and copy manually.');
+          console.error(e);
+        }
+      });
+    });
+
+    const lockScrollForMobile = () => {
+      const isMobile = window.matchMedia('(max-width: 1023.98px)').matches;
+      document.documentElement.style.overflow = isMobile ? 'hidden' : 'auto';
+      document.body.style.overflow = isMobile ? 'hidden' : 'auto';
+    };
+    lockScrollForMobile();
+    window.addEventListener('resize', lockScrollForMobile);
+
+    (function testSanitizeCopiedText(){
+      const tests = [
+        {name: 'single trailing newline', input: 'echo test\n', expected: 'echo test'},
+        {name: 'multiple trailing newlines', input: 'line1\nline2\n\n', expected: 'line1\nline2'},
+        {name: 'no trailing newline', input: 'no newline', expected: 'no newline'},
+        {name: 'preserve spaces, remove newlines', input: 'trailing spaces   \n\n', expected: 'trailing spaces   '},
+        {name: 'unchanged middle newlines', input: 'a\nb\nc', expected: 'a\nb\nc'}
+      ];
+      let passed = 0;
+      for (const t of tests) {
+        const got = sanitizeCopiedText(t.input);
+        if (got === t.expected) passed++; else console.warn('[CopyTest FAIL]', t.name, {expected: t.expected, got});
+      }
+      console.log(`[CopyTest] sanitizeCopiedText: ${passed}/${tests.length} passed`);
+    })();
+  </script>
+</body>
+</html>
