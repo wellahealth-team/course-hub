@@ -4,7 +4,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>
-			Wella Schools — HTML Module 1 — Foundations & Hyperlinks (Frontend)
+			Wella Schools — HTML Module 4 — Web Forms & User Input (Frontend)
 		</title>
 		<script src="https://cdn.tailwindcss.com"></script>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -46,7 +46,6 @@
 		</style>
 	</head>
 	<body class="bg-slate-50 text-slate-900">
-		<!-- Mobile Gate -->
 		<div
 			class="fixed inset-0 z-[9999] flex h-screen w-screen items-center justify-center bg-white p-8 text-center lg:hidden overflow-hidden overscroll-none"
 			role="dialog"
@@ -74,7 +73,6 @@
 		</div>
 
 		<div class="mobile-hidden lg:block">
-			<!-- Header -->
 			<header class="relative isolate">
 				<div
 					class="absolute inset-0 -z-10 bg-gradient-to-br from-indigo-600 via-violet-600 to-fuchsia-600 opacity-90"
@@ -87,30 +85,31 @@
 							>
 								<span>Frontend Track</span>
 								<span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-								<span>HTML Module 1</span>
+								<span>HTML Module 4</span>
 							</p>
 							<p class="mt-1 text-white/80 text-sm font-semibold">
 								Wella Schools
 							</p>
 							<h1 class="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
-								Foundations & Hyperlinks
+								Web Forms & User Input
 							</h1>
 							<p class="mt-3 max-w-3xl text-white/90">
-								Build a clean HTML skeleton, set up proper
-								<code>&lt;head&gt;</code> metadata, practice text semantics, and
-								create accessible hyperlinks (absolute, relative, fragments,
-								email/tel). CI will verify essentials.
+								Master the art of collecting user data with accessible,
+								well-structured forms. Learn to use diverse input types,
+								validate data effectively, and create intuitive user
+								experiences.
 							</p>
 							<div class="mt-4 flex flex-wrap items-center gap-3 text-sm">
 								<span
 									class="inline-flex items-center gap-2 rounded-full bg-black/10 px-3 py-1 ring-1 ring-white/20"
-									>⏱️ <strong class="font-semibold">Time:</strong> ~90–120
+									>⏱️ <strong class="font-semibold">Time:</strong> ~180–210
 									min</span
 								>
 								<span
 									class="inline-flex items-center gap-2 rounded-full bg-black/10 px-3 py-1 ring-1 ring-white/20"
-									>✅ <strong class="font-semibold">You will:</strong> Skeleton
-									→ Metadata → Semantics → Links</span
+									>✅ <strong class="font-semibold">You will:</strong> Build
+									forms → Use input types → Validate data → Ensure
+									accessibility</span
 								>
 							</div>
 						</div>
@@ -151,7 +150,6 @@
 			</header>
 
 			<main class="mx-auto max-w-6xl px-6 py-12">
-				<!-- Deadline -->
 				<section id="deadline" class="scroll-mt-24">
 					<div
 						class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200 flex items-center justify-between"
@@ -164,18 +162,17 @@
 							<div>
 								<p class="text-sm text-slate-600">Submission deadline</p>
 								<p class="text-lg font-semibold text-slate-900">
-									October 4, 2025, 6:00 PM
+									November 8, 2025, 6:00 PM
 								</p>
 							</div>
 						</div>
 						<span
 							class="rounded-full bg-rose-50 px-3 py-1 text-rose-700 ring-1 ring-rose-200 text-sm"
-							>You will lose access to the lab and quiz on the deadline</span
+							>Late work locks automatically at the deadline.</span
 						>
 					</div>
 				</section>
 
-				<!-- Outcomes -->
 				<section id="outcomes" class="mt-8 scroll-mt-24">
 					<div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
 						<h2 class="text-xl font-semibold">Outcomes</h2>
@@ -185,8 +182,8 @@
 									class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600 inline-block shrink-0"
 								></span
 								><span
-									>Explain what HTML is for; distinguish elements vs.
-									attributes; know block vs. inline and nesting rules.</span
+									>Structure forms with proper semantic elements and
+									grouping.</span
 								>
 							</li>
 							<li class="flex items-start gap-3">
@@ -194,8 +191,8 @@
 									class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600 inline-block shrink-0"
 								></span
 								><span
-									>Create a minimal, valid HTML document and open it in a
-									browser.</span
+									>Use appropriate input types for different kinds of data
+									(email, date, number, etc.).</span
 								>
 							</li>
 							<li class="flex items-start gap-3">
@@ -203,11 +200,8 @@
 									class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600 inline-block shrink-0"
 								></span
 								><span
-									>Use <code>&lt;title&gt;</code>,
-									<code>&lt;meta charset&gt;</code>,
-									<code>&lt;meta name="viewport"&gt;</code>,
-									<code>&lt;meta name="description"&gt;</code>; optionally link
-									a favicon.</span
+									>Implement radio buttons, checkboxes, select menus, and
+									textareas effectively.</span
 								>
 							</li>
 							<li class="flex items-start gap-3">
@@ -215,8 +209,8 @@
 									class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600 inline-block shrink-0"
 								></span
 								><span
-									>Mark up text with headings, paragraphs, lists, emphasis,
-									quotes, and inline code.</span
+									>Apply accessibility best practices including labels,
+									fieldsets, and ARIA attributes.</span
 								>
 							</li>
 							<li class="flex items-start gap-3 sm:col-span-2">
@@ -224,22 +218,19 @@
 									class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600 inline-block shrink-0"
 								></span
 								><span
-									>Create accessible hyperlinks: absolute, relative, fragment
-									links, and email/telephone links; use
-									<code>target</code>/<code>rel</code> safely.</span
+									>Ship the Module 4 lab deliverables (registration + contact
+									forms) and pass every CI check.</span
 								>
 							</li>
 						</ul>
 					</div>
 				</section>
 
-				<!-- Readings -->
 				<section id="readings" class="mt-8 scroll-mt-24">
 					<div class="mb-4 flex items-center justify-between">
 						<h2 class="text-xl font-semibold">Readings</h2>
 					</div>
 
-					<!-- Numbered reading items styled like Git modules -->
 					<article
 						class="mt-4 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200"
 					>
@@ -250,24 +241,23 @@
 								1
 							</div>
 							<div class="min-w-0 flex-1">
-								<h3 class="text-lg font-semibold">Introduction to HTML</h3>
+								<h3 class="text-lg font-semibold">Your first form</h3>
 								<p class="mt-1 text-slate-700">
 									<a
 										class="text-indigo-600 hover:underline"
-										href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML"
+										href="https://developer.mozilla.org/en-US/docs/Learn/Forms/Your_first_form"
 										target="_blank"
 										rel="noreferrer"
 										>MDN Docs</a
 									>
 								</p>
 								<p class="mt-2 text-sm text-slate-600">
-									<strong>Focus:</strong> what HTML is for, elements vs
-									attributes, block vs inline, nesting rules.
+									<strong>Focus:</strong> form structure fundamentals, the
+									relationship between labels and inputs, and basic form
+									submission.
 								</p>
 							</div>
 						</div>
-
-						<!-- Do‑it (follow along) block for article 1 -->
 						<div class="mt-3 rounded-lg bg-slate-50 p-4 ring-1 ring-slate-200">
 							<div class="mb-2 flex items-center justify-between">
 								<p
@@ -285,8 +275,17 @@
 							<pre
 								id="code-r1-doit"
 								class="overflow-auto"
-							><code class="language-html">&lt;h1 class=&quot;title&quot;&gt;Hello, HTML&lt;/h1&gt;
-&lt;p&gt;This is a block element. &lt;em&gt;This is inline&lt;/em&gt;.&lt;/p&gt;</code></pre>
+							><code class="language-html">&lt;form action=&quot;/submit&quot; method=&quot;post&quot;&gt;
+  &lt;div&gt;
+    &lt;label for=&quot;username&quot;&gt;Username:&lt;/label&gt;
+    &lt;input type=&quot;text&quot; id=&quot;username&quot; name=&quot;username&quot; required&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;label for=&quot;email&quot;&gt;Email:&lt;/label&gt;
+    &lt;input type=&quot;email&quot; id=&quot;email&quot; name=&quot;email&quot; required&gt;
+  &lt;/div&gt;
+  &lt;button type=&quot;submit&quot;&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</code></pre>
 						</div>
 					</article>
 
@@ -300,24 +299,26 @@
 								2
 							</div>
 							<div class="min-w-0 flex-1">
-								<h3 class="text-lg font-semibold">Getting started with HTML</h3>
+								<h3 class="text-lg font-semibold">
+									How to structure a web form
+								</h3>
 								<p class="mt-1 text-slate-700">
 									<a
 										class="text-indigo-600 hover:underline"
-										href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started"
+										href="https://developer.mozilla.org/en-US/docs/Learn/Forms/How_to_structure_a_web_form"
 										target="_blank"
 										rel="noreferrer"
 										>MDN Docs</a
 									>
 								</p>
 								<p class="mt-2 text-sm text-slate-600">
-									<strong>Focus:</strong> basic file structure, saving as
-									<code>.html</code>, opening in a browser, minimal skeleton.
+									<strong>Focus:</strong> using
+									<code>&lt;fieldset&gt;</code> and
+									<code>&lt;legend&gt;</code> to group related controls, proper
+									labeling practices, and form organization.
 								</p>
 							</div>
 						</div>
-
-						<!-- Do‑it (follow along) block for article 2 -->
 						<div class="mt-3 rounded-lg bg-slate-50 p-4 ring-1 ring-slate-200">
 							<div class="mb-2 flex items-center justify-between">
 								<p
@@ -335,17 +336,20 @@
 							<pre
 								id="code-r2-doit"
 								class="overflow-auto"
-							><code class="language-html">&lt;!doctype html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-  &lt;meta charset=&quot;utf-8&quot;&gt;
-  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
-  &lt;title&gt;Starter&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;h1&gt;It works!&lt;/h1&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
+							><code class="language-html">&lt;form action=&quot;/register&quot; method=&quot;post&quot;&gt;
+  &lt;fieldset&gt;
+    &lt;legend&gt;Personal Information&lt;/legend&gt;
+    &lt;div&gt;
+      &lt;label for=&quot;fname&quot;&gt;First name:&lt;/label&gt;
+      &lt;input type=&quot;text&quot; id=&quot;fname&quot; name=&quot;fname&quot; required&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;label for=&quot;lname&quot;&gt;Last name:&lt;/label&gt;
+      &lt;input type=&quot;text&quot; id=&quot;lname&quot; name=&quot;lname&quot; required&gt;
+    &lt;/div&gt;
+  &lt;/fieldset&gt;
+  &lt;button type=&quot;submit&quot;&gt;Register&lt;/button&gt;
+&lt;/form&gt;</code></pre>
 						</div>
 					</article>
 
@@ -359,27 +363,25 @@
 								3
 							</div>
 							<div class="min-w-0 flex-1">
-								<h3 class="text-lg font-semibold">The head metadata in HTML</h3>
+								<h3 class="text-lg font-semibold">
+									Basic native form controls
+								</h3>
 								<p class="mt-1 text-slate-700">
 									<a
 										class="text-indigo-600 hover:underline"
-										href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML"
+										href="https://developer.mozilla.org/en-US/docs/Learn/Forms/Basic_native_form_controls"
 										target="_blank"
 										rel="noreferrer"
 										>MDN Docs</a
 									>
 								</p>
 								<p class="mt-2 text-sm text-slate-600">
-									<strong>Focus:</strong> <code>&lt;title&gt;</code>,
-									<code>&lt;meta charset&gt;</code>,
-									<code>&lt;meta name="viewport"&gt;</code>,
-									<code>&lt;meta name="description"&gt;</code>, favicon
-									(optional).
+									<strong>Focus:</strong> text inputs, checkboxes, radio
+									buttons, and buttons — the building blocks of interactive
+									forms.
 								</p>
 							</div>
 						</div>
-
-						<!-- Do‑it (follow along) block for article 3 -->
 						<div class="mt-3 rounded-lg bg-slate-50 p-4 ring-1 ring-slate-200">
 							<div class="mb-2 flex items-center justify-between">
 								<p
@@ -397,13 +399,33 @@
 							<pre
 								id="code-r3-doit"
 								class="overflow-auto"
-							><code class="language-html">&lt;head&gt;
-  &lt;meta charset=&quot;utf-8&quot;&gt;
-  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
-  &lt;title&gt;Metadata Demo&lt;/title&gt;
-  &lt;meta name=&quot;description&quot; content=&quot;Short page description&quot;&gt;
-  &lt;link rel=&quot;icon&quot; href=&quot;/favicon.ico&quot;&gt;
-&lt;/head&gt;</code></pre>
+							><code class="language-html">&lt;fieldset&gt;
+  &lt;legend&gt;Choose your track:&lt;/legend&gt;
+  &lt;div&gt;
+    &lt;input type=&quot;radio&quot; id=&quot;frontend&quot; name=&quot;track&quot; value=&quot;frontend&quot; required&gt;
+    &lt;label for=&quot;frontend&quot;&gt;Frontend Engineering&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;input type=&quot;radio&quot; id=&quot;backend&quot; name=&quot;track&quot; value=&quot;backend&quot;&gt;
+    &lt;label for=&quot;backend&quot;&gt;Backend Engineering&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;input type=&quot;radio&quot; id=&quot;fullstack&quot; name=&quot;track&quot; value=&quot;fullstack&quot;&gt;
+    &lt;label for=&quot;fullstack&quot;&gt;Full Stack Engineering&lt;/label&gt;
+  &lt;/div&gt;
+&lt;/fieldset&gt;
+
+&lt;fieldset&gt;
+  &lt;legend&gt;Areas of interest:&lt;/legend&gt;
+  &lt;div&gt;
+    &lt;input type=&quot;checkbox&quot; id=&quot;html&quot; name=&quot;interests&quot; value=&quot;html&quot;&gt;
+    &lt;label for=&quot;html&quot;&gt;HTML &amp; CSS&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;input type=&quot;checkbox&quot; id=&quot;js&quot; name=&quot;interests&quot; value=&quot;js&quot;&gt;
+    &lt;label for=&quot;js&quot;&gt;JavaScript&lt;/label&gt;
+  &lt;/div&gt;
+&lt;/fieldset&gt;</code></pre>
 						</div>
 					</article>
 
@@ -417,24 +439,23 @@
 								4
 							</div>
 							<div class="min-w-0 flex-1">
-								<h3 class="text-lg font-semibold">HTML text fundamentals</h3>
+								<h3 class="text-lg font-semibold">HTML5 input types</h3>
 								<p class="mt-1 text-slate-700">
 									<a
 										class="text-indigo-600 hover:underline"
-										href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/HTML_text_fundamentals"
+										href="https://developer.mozilla.org/en-US/docs/Learn/Forms/HTML5_input_types"
 										target="_blank"
 										rel="noreferrer"
 										>MDN Docs</a
 									>
 								</p>
 								<p class="mt-2 text-sm text-slate-600">
-									<strong>Focus:</strong> headings, paragraphs, lists, emphasis,
-									quotes, code.
+									<strong>Focus:</strong> specialized inputs like email, url,
+									number, date, time, color, and range — plus their validation
+									benefits.
 								</p>
 							</div>
 						</div>
-
-						<!-- Do‑it (follow along) block for article 4 -->
 						<div class="mt-3 rounded-lg bg-slate-50 p-4 ring-1 ring-slate-200">
 							<div class="mb-2 flex items-center justify-between">
 								<p
@@ -452,14 +473,35 @@
 							<pre
 								id="code-r4-doit"
 								class="overflow-auto"
-							><code class="language-html">&lt;h1&gt;Heading&lt;/h1&gt;
-&lt;p&gt;A paragraph with &lt;strong&gt;strong&lt;/strong&gt; and &lt;em&gt;emphasis&lt;/em&gt;.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Item A&lt;/li&gt;
-  &lt;li&gt;Item B&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;Quoted text&lt;/blockquote&gt;
-&lt;code&gt;inline-code&lt;/code&gt;</code></pre>
+							><code class="language-html">&lt;div&gt;
+  &lt;label for=&quot;user-email&quot;&gt;Email address:&lt;/label&gt;
+  &lt;input type=&quot;email&quot; id=&quot;user-email&quot; name=&quot;email&quot; placeholder=&quot;you@example.com&quot; required&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;label for=&quot;user-url&quot;&gt;Portfolio URL:&lt;/label&gt;
+  &lt;input type=&quot;url&quot; id=&quot;user-url&quot; name=&quot;portfolio&quot; placeholder=&quot;https://example.com&quot;&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;label for=&quot;user-phone&quot;&gt;Phone number:&lt;/label&gt;
+  &lt;input type=&quot;tel&quot; id=&quot;user-phone&quot; name=&quot;phone&quot; placeholder=&quot;(123) 456-7890&quot;&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;label for=&quot;birthdate&quot;&gt;Date of birth:&lt;/label&gt;
+  &lt;input type=&quot;date&quot; id=&quot;birthdate&quot; name=&quot;birthdate&quot; required&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;label for=&quot;age&quot;&gt;Age:&lt;/label&gt;
+  &lt;input type=&quot;number&quot; id=&quot;age&quot; name=&quot;age&quot; min=&quot;16&quot; max=&quot;100&quot; required&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;label for=&quot;experience&quot;&gt;Experience level (0-10):&lt;/label&gt;
+  &lt;input type=&quot;range&quot; id=&quot;experience&quot; name=&quot;experience&quot; min=&quot;0&quot; max=&quot;10&quot; value=&quot;5&quot;&gt;
+&lt;/div&gt;</code></pre>
 						</div>
 					</article>
 
@@ -473,25 +515,23 @@
 								5
 							</div>
 							<div class="min-w-0 flex-1">
-								<h3 class="text-lg font-semibold">Creating hyperlinks</h3>
+								<h3 class="text-lg font-semibold">Other form controls</h3>
 								<p class="mt-1 text-slate-700">
 									<a
 										class="text-indigo-600 hover:underline"
-										href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks"
+										href="https://developer.mozilla.org/en-US/docs/Learn/Forms/Other_form_controls"
 										target="_blank"
 										rel="noreferrer"
 										>MDN Docs</a
 									>
 								</p>
 								<p class="mt-2 text-sm text-slate-600">
-									<strong>Focus:</strong> <code>&lt;a href&gt;</code>, absolute
-									vs relative URLs, <code>target</code>/<code>rel</code>,
-									fragment links <code>#id</code>, email/telephone links.
+									<strong>Focus:</strong> multi-line text with
+									<code>&lt;textarea&gt;</code>, dropdown menus with
+									<code>&lt;select&gt;</code>, and other specialized controls.
 								</p>
 							</div>
 						</div>
-
-						<!-- Do‑it (follow along) block for article 5 -->
 						<div class="mt-3 rounded-lg bg-slate-50 p-4 ring-1 ring-slate-200">
 							<div class="mb-2 flex items-center justify-between">
 								<p
@@ -509,41 +549,114 @@
 							<pre
 								id="code-r5-doit"
 								class="overflow-auto"
-							><code class="language-html">&lt;a href=&quot;https://example.com&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot;&gt;External&lt;/a&gt;
-&lt;a href=&quot;/about.html&quot;&gt;Relative&lt;/a&gt;
-&lt;a href=&quot;#contact&quot;&gt;Fragment&lt;/a&gt;
-&lt;a href=&quot;mailto:hello@example.com&quot;&gt;Email us&lt;/a&gt;
-&lt;a href=&quot;tel:+1234567890&quot;&gt;Call us&lt;/a&gt;</code></pre>
+							><code class="language-html">&lt;div&gt;
+  &lt;label for=&quot;learning-pace&quot;&gt;Learning pace:&lt;/label&gt;
+  &lt;select id=&quot;learning-pace&quot; name=&quot;pace&quot; required&gt;
+    &lt;option value=&quot;&quot;&gt;-- Please choose --&lt;/option&gt;
+    &lt;option value=&quot;fulltime&quot;&gt;Full-time (40 hrs/week)&lt;/option&gt;
+    &lt;option value=&quot;parttime&quot;&gt;Part-time (20 hrs/week)&lt;/option&gt;
+    &lt;option value=&quot;selfpaced&quot;&gt;Self-paced&lt;/option&gt;
+  &lt;/select&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;label for=&quot;comments&quot;&gt;Additional comments:&lt;/label&gt;
+  &lt;textarea id=&quot;comments&quot; name=&quot;comments&quot; rows=&quot;5&quot; cols=&quot;50&quot; placeholder=&quot;Tell us more about your goals...&quot;&gt;&lt;/textarea&gt;
+&lt;/div&gt;</code></pre>
 						</div>
 					</article>
 
-					<!-- Cheat Sheet card (unchanged) -->
+					<article
+						class="mt-4 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200"
+					>
+						<div class="flex items-start gap-4">
+							<div
+								class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white font-semibold"
+							>
+								6
+							</div>
+							<div class="min-w-0 flex-1">
+								<h3 class="text-lg font-semibold">
+									Form validation & accessibility
+								</h3>
+								<p class="mt-1 text-slate-700">
+									<a
+										class="text-indigo-600 hover:underline"
+										href="https://developer.mozilla.org/en-US/docs/Learn/Forms"
+										target="_blank"
+										rel="noreferrer"
+										>MDN Docs</a
+									>
+								</p>
+								<p class="mt-2 text-sm text-slate-600">
+									<strong>Focus:</strong> using <code>required</code>,
+									<code>pattern</code>, <code>minlength</code>,
+									<code>maxlength</code>, and ensuring all controls are
+									accessible to assistive technologies.
+								</p>
+							</div>
+						</div>
+						<div class="mt-3 rounded-lg bg-slate-50 p-4 ring-1 ring-slate-200">
+							<div class="mb-2 flex items-center justify-between">
+								<p
+									class="text-xs font-semibold uppercase tracking-wider text-slate-500"
+								>
+									Do‑it (follow along)
+								</p>
+								<button
+									data-copy-target="#code-r6-doit"
+									class="copy-btn text-xs rounded-md border border-slate-300 px-2 py-1 hover:bg-slate-100"
+								>
+									Copy
+								</button>
+							</div>
+							<pre
+								id="code-r6-doit"
+								class="overflow-auto"
+							><code class="language-html">&lt;div&gt;
+  &lt;label for=&quot;password&quot;&gt;Password:&lt;/label&gt;
+  &lt;input 
+    type=&quot;password&quot; 
+    id=&quot;password&quot; 
+    name=&quot;password&quot; 
+    minlength=&quot;8&quot;
+    pattern=&quot;^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$&quot;
+    required
+    aria-describedby=&quot;password-help&quot;&gt;
+  &lt;p id=&quot;password-help&quot; class=&quot;text-sm text-slate-600&quot;&gt;
+    Must be at least 8 characters and include letters and numbers.
+  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;input type=&quot;checkbox&quot; id=&quot;terms&quot; name=&quot;terms&quot; required&gt;
+  &lt;label for=&quot;terms&quot;&gt;I agree to the terms and conditions&lt;/label&gt;
+&lt;/div&gt;</code></pre>
+						</div>
+					</article>
+
 					<article
 						class="mt-4 rounded-2xl border border-indigo-200 bg-indigo-50 p-6"
 					>
 						<div class="flex flex-wrap items-center justify-between gap-3">
 							<div>
 								<h3 class="text-lg font-semibold text-indigo-900">
-									HTML Cheatsheet
+									Lab focus — Registration & contact forms
 								</h3>
 								<p class="mt-1 text-indigo-900/80">
-									Interactive HTML Cheat Sheet — keep it next to your keyboard.
+									Build a comprehensive registration form with diverse input
+									types and a simpler contact form to reinforce fundamentals.
 								</p>
 							</div>
 							<a
-								href="https://htmlcheatsheet.com/"
+								href="https://developer.mozilla.org/en-US/docs/Learn/Forms/Your_first_form"
 								target="_blank"
 								rel="noreferrer"
 								class="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 font-medium text-white shadow hover:bg-indigo-700"
-								>Open Cheat Sheet ↗</a
+								>Build your first form ↗</a
 							>
 						</div>
 					</article>
-				</section>
-
-				<!-- Hide standalone Cheat‑Sheet section to match structure -->
-				<section id="cheatsheet" class="mt-8 scroll-mt-24 hidden">
-					<!-- deprecated; content moved into Readings -->
 				</section>
 
 				<!-- Submission -->
@@ -555,7 +668,7 @@
 								Accept the assignment:
 								<a
 									class="text-indigo-600 hover:underline"
-									href="https://classroom.github.com/a/9cX7i1Hv"
+									href="https://classroom.github.com/a/eZNE_egL"
 									target="_blank"
 									rel="noreferrer"
 									>Accept</a
@@ -563,8 +676,8 @@
 								<ul class="mt-1 list-disc pl-5 text-slate-600 text-sm">
 									<li>Click the assignment link above.</li>
 									<li>
-										Select your name from the list of identifiers. If you don’t
-										select your name, you won’t be graded.
+										Select your name from the list of identifiers. If you don't
+										select your name, you won't be graded.
 									</li>
 									<li>
 										Click <em>Accept assignment</em> and wait for your repo to
@@ -573,94 +686,120 @@
 								</ul>
 							</li>
 							<li>
-								Complete the steps in the README file until your repo’s CI check
+								Complete the steps in the README file until your repo's CI check
 								passes (green checkmark on GitHub).
 							</li>
 							<li>
-								Submit the Module 3 Google Form:
-								<a
-									class="text-indigo-600 hover:underline"
-									href="https://forms.gle/UtBHTtzSEGpZKXsUA"
-									target="_blank"
-									>Take Quiz</a
-								>
-								<ul class="mt-1 list-disc pl-5 text-slate-600 text-sm">
-									<li>Click the form link above.</li>
-									<li>
-										Sign in with the same Gmail account tied to your student
-										details (the same email used on GitHub). If you’re logged
-										into a different account, you won’t have access.
-									</li>
-									<li>Fill out the Quiz completely and submit.</li>
-									<li>
-										You can submit the form only once, so double-check your
-										answers before submitting.
-									</li>
-								</ul>
+								There is no quiz for this module. Your submission is the
+								completed lab in your GitHub repo.
 							</li>
 						</ol>
 					</div>
 
 					<div class="mt-4 grid gap-4 sm:grid-cols-2">
 						<div class="rounded-lg bg-emerald-50 p-4 ring-1 ring-emerald-200">
-							<p class="font-medium text-emerald-900">You’re done when:</p>
+							<p class="font-medium text-emerald-900">You're done when:</p>
 							<ul class="mt-2 list-disc pl-5 text-emerald-900/90">
 								<li>
-									<code>index.html</code> is valid and includes required
-									metadata and text semantics.
+									Both forms use proper <code>&lt;form&gt;</code>,
+									<code>&lt;fieldset&gt;</code>, and
+									<code>&lt;legend&gt;</code> elements.
 								</li>
 								<li>
-									Links work (absolute, relative, fragment,
-									<code>mailto:</code>, <code>tel:</code>).
+									Every input has an associated <code>&lt;label&gt;</code> with
+									matching <code>for</code> and <code>id</code> attributes.
 								</li>
-								<li>CI is green.</li>
-								<li>Google Form submitted.</li>
+								<li>
+									Required fields use the <code>required</code> attribute and
+									validate correctly.
+								</li>
+								<li>
+									Radio buttons and checkboxes are properly grouped and
+									navigable by keyboard.
+								</li>
+								<li>
+									CI reports 100/100 and the W3C validator shows 0 errors.
+								</li>
 							</ul>
 						</div>
 						<div class="rounded-lg bg-slate-50 p-4 ring-1 ring-slate-200">
 							<p class="text-sm text-slate-600">
-								Tip: Use a local server (e.g., VS Code Live Server) so relative
-								links and assets behave as they will in production.
+								Tip: Test your forms by trying to submit without filling
+								required fields. The browser should prevent submission and show
+								helpful error messages.
 							</p>
 						</div>
 					</div>
 				</section>
 
-				<!-- Hide standalone Done when section to match Git modules -->
-				<section id="done" class="mt-8 scroll-mt-24 hidden"></section>
-
-				<!-- Troubleshooting -->
 				<section id="troubleshooting" class="mt-10 scroll-mt-24">
 					<div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
 						<h2 class="text-xl font-semibold">Troubleshooting</h2>
 						<div class="mt-4 grid gap-4 md:grid-cols-2">
 							<div class="rounded-lg border border-slate-200 p-4">
-								<h3 class="font-medium">HTML doesn’t render as expected</h3>
+								<h3 class="font-medium">Labels not working</h3>
 								<ul class="mt-2 list-disc pl-5 text-slate-700">
 									<li>
-										Validate your document starts with
-										<code>&lt;!doctype html&gt;</code> and proper
-										<code>&lt;head&gt;</code>/<code>&lt;body&gt;</code>.
+										Ensure the <code>for</code> attribute on the label exactly
+										matches the <code>id</code> on the input.
 									</li>
-									<li>Open DevTools (F12) → Console for syntax errors.</li>
-									<li>Ensure your file encoding is UTF‑8.</li>
+									<li>
+										Place the <code>for</code> attribute on
+										<code>&lt;label&gt;</code>, not on the input itself.
+									</li>
+									<li>Each <code>id</code> must be unique on the page.</li>
 								</ul>
 							</div>
 							<div class="rounded-lg border border-slate-200 p-4">
-								<h3 class="font-medium">Links don’t work</h3>
+								<h3 class="font-medium">
+									Radio buttons allow multiple selections
+								</h3>
 								<ul class="mt-2 list-disc pl-5 text-slate-700">
 									<li>
-										Check relative paths and file names (case sensitive on many
-										OS).
+										All radio buttons in a group must share the same
+										<code>name</code> attribute.
 									</li>
 									<li>
-										For external links, include <code>https://</code> and use
-										<code>rel="noreferrer"</code> with
-										<code>target="_blank"</code>.
+										Each radio button needs a unique <code>id</code> for its
+										label.
 									</li>
 									<li>
-										Serve locally (Live Server) to test fragment and asset
-										paths.
+										Only one radio button with the same <code>name</code> can be
+										selected at a time.
+									</li>
+								</ul>
+							</div>
+							<div class="rounded-lg border border-slate-200 p-4">
+								<h3 class="font-medium">Form validation not working</h3>
+								<ul class="mt-2 list-disc pl-5 text-slate-700">
+									<li>
+										Ensure your button has <code>type="submit"</code> (default
+										for buttons inside forms).
+									</li>
+									<li>
+										Check that <code>required</code> attributes are on the
+										correct inputs.
+									</li>
+									<li>
+										Use appropriate input types (e.g.,
+										<code>type="email"</code>) for automatic validation.
+									</li>
+								</ul>
+							</div>
+							<div class="rounded-lg border border-slate-200 p-4">
+								<h3 class="font-medium">Accessibility issues</h3>
+								<ul class="mt-2 list-disc pl-5 text-slate-700">
+									<li>
+										Use DevTools → Accessibility pane to verify label
+										associations.
+									</li>
+									<li>
+										Test keyboard navigation (Tab, Space, Enter) through your
+										entire form.
+									</li>
+									<li>
+										Add <code>aria-describedby</code> for help text that
+										explains validation rules.
 									</li>
 								</ul>
 							</div>
@@ -668,7 +807,6 @@
 					</div>
 				</section>
 
-				<!-- References (unchanged) -->
 				<section id="references" class="mt-10 scroll-mt-24">
 					<div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
 						<h2 class="text-xl font-semibold">References</h2>
@@ -678,8 +816,8 @@
 									class="text-indigo-600 hover:underline"
 									target="_blank"
 									rel="noreferrer"
-									href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML"
-									>Introduction to HTML (MDN)</a
+									href="https://developer.mozilla.org/en-US/docs/Learn/Forms"
+									>Web forms overview (MDN)</a
 								>
 							</li>
 							<li>
@@ -687,8 +825,8 @@
 									class="text-indigo-600 hover:underline"
 									target="_blank"
 									rel="noreferrer"
-									href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started"
-									>Getting started with HTML (MDN)</a
+									href="https://developer.mozilla.org/en-US/docs/Learn/Forms/Your_first_form"
+									>Your first form (MDN)</a
 								>
 							</li>
 							<li>
@@ -696,8 +834,8 @@
 									class="text-indigo-600 hover:underline"
 									target="_blank"
 									rel="noreferrer"
-									href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML"
-									>The head metadata in HTML (MDN)</a
+									href="https://developer.mozilla.org/en-US/docs/Learn/Forms/How_to_structure_a_web_form"
+									>How to structure a web form (MDN)</a
 								>
 							</li>
 							<li>
@@ -705,8 +843,8 @@
 									class="text-indigo-600 hover:underline"
 									target="_blank"
 									rel="noreferrer"
-									href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/HTML_text_fundamentals"
-									>HTML text fundamentals (MDN)</a
+									href="https://developer.mozilla.org/en-US/docs/Learn/Forms/Basic_native_form_controls"
+									>Basic native form controls (MDN)</a
 								>
 							</li>
 							<li>
@@ -714,46 +852,75 @@
 									class="text-indigo-600 hover:underline"
 									target="_blank"
 									rel="noreferrer"
-									href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks"
-									>Creating hyperlinks (MDN)</a
+									href="https://developer.mozilla.org/en-US/docs/Learn/Forms/HTML5_input_types"
+									>HTML5 input types (MDN)</a
+								>
+							</li>
+							<li>
+								<a
+									class="text-indigo-600 hover:underline"
+									target="_blank"
+									rel="noreferrer"
+									href="https://developer.mozilla.org/en-US/docs/Learn/Forms/Other_form_controls"
+									>Other form controls (MDN)</a
+								>
+							</li>
+							<li>
+								<a
+									class="text-indigo-600 hover:underline"
+									target="_blank"
+									rel="noreferrer"
+									href="https://www.w3.org/WAI/tutorials/forms/"
+									>W3C Forms Tutorial</a
+								>
+							</li>
+							<li>
+								<a
+									class="text-indigo-600 hover:underline"
+									target="_blank"
+									rel="noreferrer"
+									href="https://webaim.org/techniques/forms/"
+									>WebAIM: Creating Accessible Forms</a
 								>
 							</li>
 						</ul>
 					</div>
 				</section>
 
-				<!-- Module navigation -->
 				<nav aria-label="Module navigation" class="mt-10">
 					<div
 						class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
 					>
-						<a
-							href="../../../index.html"
-							class="inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-medium text-slate-700 ring-1 ring-slate-200 hover:bg-slate-50"
-							>Return to Program ↩</a
-						>
-						<a
-							href="./module-02-text-structure-debugging.html"
-							class="inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-medium text-slate-700 ring-1 ring-slate-200 hover:bg-slate-50"
-							>Module 2 — Advanced Text, Structure & Debugging →</a
+						<div class="flex flex-wrap gap-3">
+							<a
+								href="../../../index.html"
+								class="inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-medium text-slate-700 ring-1 ring-slate-200 hover:bg-slate-50"
+								>Return to Program ↩</a
+							>
+							<a
+								href="./module-03-media-embedding-tables.html"
+								class="inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-medium text-slate-700 ring-1 ring-slate-200 hover:bg-slate-50"
+								>← Module 3 — Multimedia, Embeds & Tables</a
+							>
+						</div>
+						<span
+							class="inline-flex items-center gap-2 rounded-lg bg-slate-100 px-4 py-2 text-sm font-medium text-slate-700 ring-1 ring-slate-200"
+							>End of HTML Track · CSS starts next</span
 						>
 					</div>
 				</nav>
 
 				<footer class="mt-12 pb-12 text-center text-sm text-slate-500">
-					<p>Built for the Frontend Track · HTML Module 1</p>
+					<p>Built for the Frontend Track · HTML Module 4</p>
 				</footer>
 			</main>
 		</div>
 
 		<script>
-			// --- Utilities ---
 			function sanitizeCopiedText(text) {
-				// Strip trailing newlines only, preserving trailing spaces
 				return text.replace(/\n+$/, "");
 			}
 
-			// Copy-to-clipboard for code blocks
 			document.querySelectorAll(".copy-btn").forEach((btn) => {
 				btn.addEventListener("click", async () => {
 					const id = btn.getAttribute("data-copy-target");
@@ -785,16 +952,14 @@
 				});
 			});
 
-			// Enforce mobile block
 			const lockScrollForMobile = () => {
 				const isMobile = window.matchMedia("(max-width: 1023.98px)").matches;
-				document.documentElement.style.overflow = isMobile ? "hidden" : "";
-				document.body.style.overflow = isMobile ? "hidden" : "";
+				document.documentElement.style.overflow = isMobile ? "hidden" : "auto";
+				document.body.style.overflow = isMobile ? "hidden" : "auto";
 			};
 			lockScrollForMobile();
 			window.addEventListener("resize", lockScrollForMobile);
 
-			// --- Minimal tests for sanitizeCopiedText ---
 			(function testSanitizeCopiedText() {
 				const tests = [
 					{

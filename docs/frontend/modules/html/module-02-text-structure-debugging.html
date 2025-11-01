@@ -1,121 +1,280 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Wella Schools — HTML Module 2 — Advanced Text, Structure & Debugging (Frontend)</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    html { scroll-behavior: smooth; }
-    body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
-    code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
-    .prose code { background-color: rgb(243 244 246); padding: .125rem .375rem; border-radius: .375rem; }
-    /* Mobile gate: lock scroll & hide desktop content under lg */
-    @media (max-width: 1023.98px) {
-      html, body { height: 100%; overflow: hidden; }
-      .mobile-hidden { display: none !important; }
-    }
-  </style>
-</head>
-<body class="bg-slate-50 text-slate-900">
-  <!-- Mobile Gate -->
-  <div class="fixed inset-0 z-[9999] flex h-screen w-screen items-center justify-center bg-white p-8 text-center lg:hidden overflow-hidden overscroll-none" role="dialog" aria-modal="true" aria-labelledby="gate-title" aria-describedby="gate-desc">
-    <div class="max-w-md">
-      <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-red-100">🚫</div>
-       <h2 id="gate-title" class="text-xl font-semibold text-slate-900">Desktop Required</h2>
-      <p id="gate-desc" class="mt-2 text-slate-700">Classroom assessments and assignments are to be completed on a desktop or laptop.</p>
-      <p class="mt-4 text-sm text-slate-500">Please open this page on a desktop to continue.</p>
-    </div>
-  </div>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>
+			Wella Schools — HTML Module 2 — Advanced Text, Structure & Debugging
+			(Frontend)
+		</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			html {
+				scroll-behavior: smooth;
+			}
+			body {
+				font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI,
+					Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial,
+					"Apple Color Emoji", "Segoe UI Emoji";
+			}
+			code,
+			pre {
+				font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+					"Liberation Mono", "Courier New", monospace;
+			}
+			.prose code {
+				background-color: rgb(243 244 246);
+				padding: 0.125rem 0.375rem;
+				border-radius: 0.375rem;
+			}
+			/* Mobile gate: lock scroll & hide desktop content under lg */
+			@media (max-width: 1023.98px) {
+				html,
+				body {
+					height: 100%;
+					overflow: hidden;
+				}
+				.mobile-hidden {
+					display: none !important;
+				}
+			}
+		</style>
+	</head>
+	<body class="bg-slate-50 text-slate-900">
+		<!-- Mobile Gate -->
+		<div
+			class="fixed inset-0 z-[9999] flex h-screen w-screen items-center justify-center bg-white p-8 text-center lg:hidden overflow-hidden overscroll-none"
+			role="dialog"
+			aria-modal="true"
+			aria-labelledby="gate-title"
+			aria-describedby="gate-desc"
+		>
+			<div class="max-w-md">
+				<div
+					class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-red-100"
+				>
+					🚫
+				</div>
+				<h2 id="gate-title" class="text-xl font-semibold text-slate-900">
+					Desktop Required
+				</h2>
+				<p id="gate-desc" class="mt-2 text-slate-700">
+					Classroom assessments and assignments are to be completed on a desktop
+					or laptop.
+				</p>
+				<p class="mt-4 text-sm text-slate-500">
+					Please open this page on a desktop to continue.
+				</p>
+			</div>
+		</div>
 
-  <div class="mobile-hidden lg:block">
-    <!-- Header -->
-    <header class="relative isolate">
-      <div class="absolute inset-0 -z-10 bg-gradient-to-br from-indigo-600 via-violet-600 to-fuchsia-600 opacity-90"></div>
-      <div class="relative mx-auto max-w-6xl px-6 py-12 text-white">
-        <div class="flex items-start justify-between gap-6">
-          <div>
-            <p class="mb-2 inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-sm font-medium ring-1 ring-white/20 backdrop-blur">
-              <span>Frontend Track</span>
-              <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-              <span>HTML Module 2</span>
-            </p>
-            <p class="mt-1 text-white/80 text-sm font-semibold">Wella Schools</p>
-            <h1 class="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">Advanced Text, Structure & Debugging</h1>
-            <p class="mt-3 max-w-3xl text-white/90">Move beyond basic paragraphs: master semantic text patterns, plan full-page structures, and practice debugging strategies so errors never block your progress.</p>
-            <div class="mt-4 flex flex-wrap items-center gap-3 text-sm">
-              <span class="inline-flex items-center gap-2 rounded-full bg-black/10 px-3 py-1 ring-1 ring-white/20">⏱️ <strong class="font-semibold">Time:</strong> ~120–150 min</span>
-              <span class="inline-flex items-center gap-2 rounded-full bg-black/10 px-3 py-1 ring-1 ring-white/20">✅ <strong class="font-semibold">You will:</strong> Format text → Map layout → Debug issues</span>
-            </div>
-          </div>
-          <nav class="hidden lg:block w-64">
-            <div class="sticky top-6 rounded-2xl bg-white/10 p-4 ring-1 ring-white/20 backdrop-blur">
-              <p class="mb-2 text-xs font-semibold uppercase tracking-wider text-white/70">On this page</p>
-              <ol class="space-y-2 text-sm text-white/90">
-                <li><a class="hover:underline" href="#outcomes">Outcomes</a></li>
-                <li><a class="hover:underline" href="#readings">Readings</a></li>
-                <li><a class="hover:underline" href="#submission">Assignment Submission</a></li>
-                <li><a class="hover:underline" href="#troubleshooting">Troubleshooting</a></li>
-                <li><a class="hover:underline" href="#references">References</a></li>
-              </ol>
-            </div>
-          </nav>
-        </div>
-      </div>
-    </header>
+		<div class="mobile-hidden lg:block">
+			<!-- Header -->
+			<header class="relative isolate">
+				<div
+					class="absolute inset-0 -z-10 bg-gradient-to-br from-indigo-600 via-violet-600 to-fuchsia-600 opacity-90"
+				></div>
+				<div class="relative mx-auto max-w-6xl px-6 py-12 text-white">
+					<div class="flex items-start justify-between gap-6">
+						<div>
+							<p
+								class="mb-2 inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-sm font-medium ring-1 ring-white/20 backdrop-blur"
+							>
+								<span>Frontend Track</span>
+								<span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+								<span>HTML Module 2</span>
+							</p>
+							<p class="mt-1 text-white/80 text-sm font-semibold">
+								Wella Schools
+							</p>
+							<h1 class="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
+								Advanced Text, Structure & Debugging
+							</h1>
+							<p class="mt-3 max-w-3xl text-white/90">
+								Move beyond basic paragraphs: master semantic text patterns,
+								plan full-page structures, and practice debugging strategies so
+								errors never block your progress.
+							</p>
+							<div class="mt-4 flex flex-wrap items-center gap-3 text-sm">
+								<span
+									class="inline-flex items-center gap-2 rounded-full bg-black/10 px-3 py-1 ring-1 ring-white/20"
+									>⏱️ <strong class="font-semibold">Time:</strong> ~120–150
+									min</span
+								>
+								<span
+									class="inline-flex items-center gap-2 rounded-full bg-black/10 px-3 py-1 ring-1 ring-white/20"
+									>✅ <strong class="font-semibold">You will:</strong> Format
+									text → Map layout → Debug issues</span
+								>
+							</div>
+						</div>
+						<nav class="hidden lg:block w-64">
+							<div
+								class="sticky top-6 rounded-2xl bg-white/10 p-4 ring-1 ring-white/20 backdrop-blur"
+							>
+								<p
+									class="mb-2 text-xs font-semibold uppercase tracking-wider text-white/70"
+								>
+									On this page
+								</p>
+								<ol class="space-y-2 text-sm text-white/90">
+									<li>
+										<a class="hover:underline" href="#outcomes">Outcomes</a>
+									</li>
+									<li>
+										<a class="hover:underline" href="#readings">Readings</a>
+									</li>
+									<li>
+										<a class="hover:underline" href="#submission"
+											>Assignment Submission</a
+										>
+									</li>
+									<li>
+										<a class="hover:underline" href="#troubleshooting"
+											>Troubleshooting</a
+										>
+									</li>
+									<li>
+										<a class="hover:underline" href="#references">References</a>
+									</li>
+								</ol>
+							</div>
+						</nav>
+					</div>
+				</div>
+			</header>
 
-    <main class="mx-auto max-w-6xl px-6 py-12">
-      <!-- Deadline -->
-      <section id="deadline" class="scroll-mt-24">
-        <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200 flex items-center justify-between">
-          <div class="flex items-center gap-3">
-            <span class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-rose-600 text-white font-semibold">⌛</span>
-            <div>
-              <p class="text-sm text-slate-600">Submission deadline</p>
-              <p class="text-lg font-semibold text-slate-900">October 11, 2025, 6:00 PM</p>
-            </div>
-          </div>
-          <span class="rounded-full bg-rose-50 px-3 py-1 text-rose-700 ring-1 ring-rose-200 text-sm">You will lose access to the lab and quiz on the deadline</span>
-        </div>
-      </section>
+			<main class="mx-auto max-w-6xl px-6 py-12">
+				<!-- Deadline -->
+				<section id="deadline" class="scroll-mt-24">
+					<div
+						class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200 flex items-center justify-between"
+					>
+						<div class="flex items-center gap-3">
+							<span
+								class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-rose-600 text-white font-semibold"
+								>⌛</span
+							>
+							<div>
+								<p class="text-sm text-slate-600">Submission deadline</p>
+								<p class="text-lg font-semibold text-slate-900">
+									October 11, 2025, 6:00 PM
+								</p>
+							</div>
+						</div>
+						<span
+							class="rounded-full bg-rose-50 px-3 py-1 text-rose-700 ring-1 ring-rose-200 text-sm"
+							>You will lose access to the lab and quiz on the deadline</span
+						>
+					</div>
+				</section>
 
-      <!-- Outcomes -->
-      <section id="outcomes" class="mt-8 scroll-mt-24">
-        <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
-          <h2 class="text-xl font-semibold">Outcomes</h2>
-          <ul class="mt-4 grid gap-2 sm:grid-cols-2">
-            <li class="flex items-start gap-3"><span class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600 inline-block shrink-0"></span><span>Apply advanced inline semantics such as <code>&lt;abbr&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;mark&gt;</code>, <code>&lt;cite&gt;</code>, and <code>&lt;time&gt;</code> to convey meaning.</span></li>
-            <li class="flex items-start gap-3"><span class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600 inline-block shrink-0"></span><span>Sketch a content outline, then translate it into a semantic page structure with <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;section&gt;</code>, and <code>&lt;aside&gt;</code>.</span></li>
-            <li class="flex items-start gap-3"><span class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600 inline-block shrink-0"></span><span>Use browser DevTools, the HTML validator, and console feedback to diagnose malformed markup.</span></li>
-            <li class="flex items-start gap-3 sm:col-span-2"><span class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600 inline-block shrink-0"></span><span>Deliver a well-structured, accessible article page for the Module 2 lab and pass all automated CI checks.</span></li>
-          </ul>
-        </div>
-      </section>
+				<!-- Outcomes -->
+				<section id="outcomes" class="mt-8 scroll-mt-24">
+					<div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+						<h2 class="text-xl font-semibold">Outcomes</h2>
+						<ul class="mt-4 grid gap-2 sm:grid-cols-2">
+							<li class="flex items-start gap-3">
+								<span
+									class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600 inline-block shrink-0"
+								></span
+								><span
+									>Apply advanced inline semantics such as
+									<code>&lt;abbr&gt;</code>, <code>&lt;strong&gt;</code>,
+									<code>&lt;mark&gt;</code>, <code>&lt;cite&gt;</code>, and
+									<code>&lt;time&gt;</code> to convey meaning.</span
+								>
+							</li>
+							<li class="flex items-start gap-3">
+								<span
+									class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600 inline-block shrink-0"
+								></span
+								><span
+									>Sketch a content outline, then translate it into a semantic
+									page structure with <code>&lt;header&gt;</code>,
+									<code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>,
+									<code>&lt;section&gt;</code>, and
+									<code>&lt;aside&gt;</code>.</span
+								>
+							</li>
+							<li class="flex items-start gap-3">
+								<span
+									class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600 inline-block shrink-0"
+								></span
+								><span
+									>Use browser DevTools, the HTML validator, and console
+									feedback to diagnose malformed markup.</span
+								>
+							</li>
+							<li class="flex items-start gap-3 sm:col-span-2">
+								<span
+									class="mt-1.5 h-2 w-2 rounded-full bg-indigo-600 inline-block shrink-0"
+								></span
+								><span
+									>Deliver a well-structured, accessible article page for the
+									Module 2 lab and pass all automated CI checks.</span
+								>
+							</li>
+						</ul>
+					</div>
+				</section>
 
-      <!-- Readings -->
-      <section id="readings" class="mt-8 scroll-mt-24">
-        <div class="mb-4 flex items-center justify-between">
-          <h2 class="text-xl font-semibold">Readings</h2>
-        </div>
+				<!-- Readings -->
+				<section id="readings" class="mt-8 scroll-mt-24">
+					<div class="mb-4 flex items-center justify-between">
+						<h2 class="text-xl font-semibold">Readings</h2>
+					</div>
 
-        <article class="mt-4 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
-          <div class="flex items-start gap-4">
-            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white font-semibold">1</div>
-            <div class="min-w-0 flex-1">
-              <h3 class="text-lg font-semibold">Advanced text formatting</h3>
-              <p class="mt-1 text-slate-700"><a class="text-indigo-600 hover:underline" href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Advanced_text_formatting" target="_blank" rel="noreferrer">MDN Docs</a></p>
-              <p class="mt-2 text-sm text-slate-600"><strong>Focus:</strong> semantic emphasis, definitions, quotes, figures, dates, and expand/collapse patterns.</p>
-            </div>
-          </div>
-          <div class="mt-3 rounded-lg bg-slate-50 p-4 ring-1 ring-slate-200">
-            <div class="mb-2 flex items-center justify-between">
-              <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">Do‑it (follow along)</p>
-              <button data-copy-target="#code-r1-doit" class="copy-btn text-xs rounded-md border border-slate-300 px-2 py-1 hover:bg-slate-100">Copy</button>
-            </div>
-            <pre id="code-r1-doit" class="overflow-auto"><code class="language-html">&lt;article&gt;
+					<article
+						class="mt-4 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200"
+					>
+						<div class="flex items-start gap-4">
+							<div
+								class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white font-semibold"
+							>
+								1
+							</div>
+							<div class="min-w-0 flex-1">
+								<h3 class="text-lg font-semibold">Advanced text formatting</h3>
+								<p class="mt-1 text-slate-700">
+									<a
+										class="text-indigo-600 hover:underline"
+										href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Advanced_text_formatting"
+										target="_blank"
+										rel="noreferrer"
+										>MDN Docs</a
+									>
+								</p>
+								<p class="mt-2 text-sm text-slate-600">
+									<strong>Focus:</strong> semantic emphasis, definitions,
+									quotes, figures, dates, and expand/collapse patterns.
+								</p>
+							</div>
+						</div>
+						<div class="mt-3 rounded-lg bg-slate-50 p-4 ring-1 ring-slate-200">
+							<div class="mb-2 flex items-center justify-between">
+								<p
+									class="text-xs font-semibold uppercase tracking-wider text-slate-500"
+								>
+									Do‑it (follow along)
+								</p>
+								<button
+									data-copy-target="#code-r1-doit"
+									class="copy-btn text-xs rounded-md border border-slate-300 px-2 py-1 hover:bg-slate-100"
+								>
+									Copy
+								</button>
+							</div>
+							<pre
+								id="code-r1-doit"
+								class="overflow-auto"
+							><code class="language-html">&lt;article&gt;
   &lt;h2&gt;Understanding the DOM&lt;/h2&gt;
   &lt;p&gt;The &lt;abbr title=&quot;Document Object Model&quot;&gt;DOM&lt;/abbr&gt; is the browser’s API for HTML.&lt;/p&gt;
   &lt;p&gt;We first encountered it in &lt;cite&gt;Programming the Web&lt;/cite&gt; (&lt;time datetime=&quot;2023-06&quot;&gt;June 2023&lt;/time&gt;).&lt;/p&gt;
@@ -124,24 +283,55 @@
     &lt;figcaption&gt;&lt;mark&gt;Key insight:&lt;/mark&gt; nodes mirror your HTML structure.&lt;/figcaption&gt;
   &lt;/figure&gt;
 &lt;/article&gt;</code></pre>
-          </div>
-        </article>
+						</div>
+					</article>
 
-        <article class="mt-4 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
-          <div class="flex items-start gap-4">
-            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white font-semibold">2</div>
-            <div class="min-w-0 flex-1">
-              <h3 class="text-lg font-semibold">Document & website structure</h3>
-              <p class="mt-1 text-slate-700"><a class="text-indigo-600 hover:underline" href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Document_and_website_structure" target="_blank" rel="noreferrer">MDN Docs</a></p>
-              <p class="mt-2 text-sm text-slate-600"><strong>Focus:</strong> planning content hierarchies, semantic layout containers, and site-wide navigation.</p>
-            </div>
-          </div>
-          <div class="mt-3 rounded-lg bg-slate-50 p-4 ring-1 ring-slate-200">
-            <div class="mb-2 flex items-center justify-between">
-              <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">Do‑it (follow along)</p>
-              <button data-copy-target="#code-r2-doit" class="copy-btn text-xs rounded-md border border-slate-300 px-2 py-1 hover:bg-slate-100">Copy</button>
-            </div>
-            <pre id="code-r2-doit" class="overflow-auto"><code class="language-html">&lt;body&gt;
+					<article
+						class="mt-4 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200"
+					>
+						<div class="flex items-start gap-4">
+							<div
+								class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white font-semibold"
+							>
+								2
+							</div>
+							<div class="min-w-0 flex-1">
+								<h3 class="text-lg font-semibold">
+									Document & website structure
+								</h3>
+								<p class="mt-1 text-slate-700">
+									<a
+										class="text-indigo-600 hover:underline"
+										href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Document_and_website_structure"
+										target="_blank"
+										rel="noreferrer"
+										>MDN Docs</a
+									>
+								</p>
+								<p class="mt-2 text-sm text-slate-600">
+									<strong>Focus:</strong> planning content hierarchies, semantic
+									layout containers, and site-wide navigation.
+								</p>
+							</div>
+						</div>
+						<div class="mt-3 rounded-lg bg-slate-50 p-4 ring-1 ring-slate-200">
+							<div class="mb-2 flex items-center justify-between">
+								<p
+									class="text-xs font-semibold uppercase tracking-wider text-slate-500"
+								>
+									Do‑it (follow along)
+								</p>
+								<button
+									data-copy-target="#code-r2-doit"
+									class="copy-btn text-xs rounded-md border border-slate-300 px-2 py-1 hover:bg-slate-100"
+								>
+									Copy
+								</button>
+							</div>
+							<pre
+								id="code-r2-doit"
+								class="overflow-auto"
+							><code class="language-html">&lt;body&gt;
   &lt;header&gt;
     &lt;nav aria-label=&quot;Primary&quot;&gt;
       &lt;ul&gt;
@@ -171,24 +361,53 @@
     &lt;small&gt;© 2025 Wella Schools&lt;/small&gt;
   &lt;/footer&gt;
 &lt;/body&gt;</code></pre>
-          </div>
-        </article>
+						</div>
+					</article>
 
-        <article class="mt-4 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
-          <div class="flex items-start gap-4">
-            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white font-semibold">3</div>
-            <div class="min-w-0 flex-1">
-              <h3 class="text-lg font-semibold">Debugging HTML</h3>
-              <p class="mt-1 text-slate-700"><a class="text-indigo-600 hover:underline" href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Debugging_HTML" target="_blank" rel="noreferrer">MDN Docs</a></p>
-              <p class="mt-2 text-sm text-slate-600"><strong>Focus:</strong> spotting missing tags, validating markup, using DevTools, and tracing accessibility hints.</p>
-            </div>
-          </div>
-          <div class="mt-3 rounded-lg bg-slate-50 p-4 ring-1 ring-slate-200">
-            <div class="mb-2 flex items-center justify-between">
-              <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">Do‑it (follow along)</p>
-              <button data-copy-target="#code-r3-doit" class="copy-btn text-xs rounded-md border border-slate-300 px-2 py-1 hover:bg-slate-100">Copy</button>
-            </div>
-            <pre id="code-r3-doit" class="overflow-auto"><code class="language-html">&lt;!-- Open DevTools (Ctrl+Shift+I) → Console --&gt;
+					<article
+						class="mt-4 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200"
+					>
+						<div class="flex items-start gap-4">
+							<div
+								class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white font-semibold"
+							>
+								3
+							</div>
+							<div class="min-w-0 flex-1">
+								<h3 class="text-lg font-semibold">Debugging HTML</h3>
+								<p class="mt-1 text-slate-700">
+									<a
+										class="text-indigo-600 hover:underline"
+										href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Debugging_HTML"
+										target="_blank"
+										rel="noreferrer"
+										>MDN Docs</a
+									>
+								</p>
+								<p class="mt-2 text-sm text-slate-600">
+									<strong>Focus:</strong> spotting missing tags, validating
+									markup, using DevTools, and tracing accessibility hints.
+								</p>
+							</div>
+						</div>
+						<div class="mt-3 rounded-lg bg-slate-50 p-4 ring-1 ring-slate-200">
+							<div class="mb-2 flex items-center justify-between">
+								<p
+									class="text-xs font-semibold uppercase tracking-wider text-slate-500"
+								>
+									Do‑it (follow along)
+								</p>
+								<button
+									data-copy-target="#code-r3-doit"
+									class="copy-btn text-xs rounded-md border border-slate-300 px-2 py-1 hover:bg-slate-100"
+								>
+									Copy
+								</button>
+							</div>
+							<pre
+								id="code-r3-doit"
+								class="overflow-auto"
+							><code class="language-html">&lt;!-- Open DevTools (Ctrl+Shift+I) → Console --&gt;
 &lt;main&gt;
   &lt;section id=&quot;agenda&quot;&gt;
     &lt;h2&gt;Agenda&lt;/h2&gt;
@@ -200,172 +419,332 @@
   &lt;/section&gt;
 &lt;/main&gt;
 &lt;!-- If you forget a closing tag, the validator at https://validator.w3.org/ will flag it. --&gt;</code></pre>
-          </div>
-        </article>
+						</div>
+					</article>
 
-        <article class="mt-4 rounded-2xl border border-indigo-200 bg-indigo-50 p-6">
-          <div class="flex flex-wrap items-center justify-between gap-3">
-            <div>
-              <h3 class="text-lg font-semibold text-indigo-900">Lab focus — Structuring a page of content</h3>
-              <p class="mt-1 text-indigo-900/80">Use your new semantics to organize a feature article. Plan first, code after.</p>
-            </div>
-            <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Structuring_a_page_of_content" target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 font-medium text-white shadow hover:bg-indigo-700">Open Lab Brief ↗</a>
-          </div>
-        </article>
-      </section>
+					<article
+						class="mt-4 rounded-2xl border border-indigo-200 bg-indigo-50 p-6"
+					>
+						<div class="flex flex-wrap items-center justify-between gap-3">
+							<div>
+								<h3 class="text-lg font-semibold text-indigo-900">
+									Lab focus — Structuring a page of content
+								</h3>
+								<p class="mt-1 text-indigo-900/80">
+									Use your new semantics to organize a feature article. Plan
+									first, code after.
+								</p>
+							</div>
+							<a
+								href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Structuring_a_page_of_content"
+								target="_blank"
+								rel="noreferrer"
+								class="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 font-medium text-white shadow hover:bg-indigo-700"
+								>Open Lab Brief ↗</a
+							>
+						</div>
+					</article>
+				</section>
 
-      <section id="cheatsheet" class="mt-8 scroll-mt-24 hidden"></section>
+				<section id="cheatsheet" class="mt-8 scroll-mt-24 hidden"></section>
 
-      <!-- Submission -->
-      <section id="submission" class="mt-10 scroll-mt-24">
-        <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
-          <h2 class="text-xl font-semibold">Assignment Submission</h2>
-          <ol class="mt-4 list-decimal space-y-3 pl-5 text-slate-700">
-            <li>
-              Accept the assignment: <a class="text-indigo-600 hover:underline" href="https://classroom.github.com/a/4attelnN" target="_blank" rel="noreferrer">Accept</a>
-              <ul class="mt-1 list-disc pl-5 text-slate-600 text-sm">
-                <li>Click the assignment link above.</li>
-                <li>Select your name from the list of identifiers. If you don’t select your name, you won’t be graded.</li>
-                <li>Click <em>Accept assignment</em> and wait for your repo to be created.</li>
-              </ul>
-            </li>
-            <li>Complete the steps in the README file until your repo’s CI check passes (green checkmark on GitHub).</li>
-            <li>
-              Submit the Module 3 Google Form: <a class="text-indigo-600 hover:underline" href="https://forms.gle/Yr6gtvPpSDEszbwJ9" target="_blank">Take Quiz</a>
-              <ul class="mt-1 list-disc pl-5 text-slate-600 text-sm">
-                <li>Click the form link above.</li>
-                <li>Sign in with the same Gmail account tied to your student details (the same email used on GitHub). If you’re logged into a different account, you won’t have access.</li>
-                <li>Fill out the Quiz completely and submit.</li>
-                <li>You can submit the form only once, so double-check your answers before submitting.</li>
-              </ul>
-            </li>
-          </ol>
-        </div>
+				<!-- Submission -->
+				<section id="submission" class="mt-10 scroll-mt-24">
+					<div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+						<h2 class="text-xl font-semibold">Assignment Submission</h2>
+						<ol class="mt-4 list-decimal space-y-3 pl-5 text-slate-700">
+							<li>
+								Accept the assignment:
+								<a
+									class="text-indigo-600 hover:underline"
+									href="https://classroom.github.com/a/4attelnN"
+									target="_blank"
+									rel="noreferrer"
+									>Accept</a
+								>
+								<ul class="mt-1 list-disc pl-5 text-slate-600 text-sm">
+									<li>Click the assignment link above.</li>
+									<li>
+										Select your name from the list of identifiers. If you don’t
+										select your name, you won’t be graded.
+									</li>
+									<li>
+										Click <em>Accept assignment</em> and wait for your repo to
+										be created.
+									</li>
+								</ul>
+							</li>
+							<li>
+								Complete the steps in the README file until your repo’s CI check
+								passes (green checkmark on GitHub).
+							</li>
+							<li>
+								Submit the Module 3 Google Form:
+								<a
+									class="text-indigo-600 hover:underline"
+									href="https://forms.gle/Yr6gtvPpSDEszbwJ9"
+									target="_blank"
+									>Take Quiz</a
+								>
+								<ul class="mt-1 list-disc pl-5 text-slate-600 text-sm">
+									<li>Click the form link above.</li>
+									<li>
+										Sign in with the same Gmail account tied to your student
+										details (the same email used on GitHub). If you’re logged
+										into a different account, you won’t have access.
+									</li>
+									<li>Fill out the Quiz completely and submit.</li>
+									<li>
+										You can submit the form only once, so double-check your
+										answers before submitting.
+									</li>
+								</ul>
+							</li>
+						</ol>
+					</div>
 
-        <div class="mt-4 grid gap-4 sm:grid-cols-2">
-          <div class="rounded-lg bg-emerald-50 p-4 ring-1 ring-emerald-200">
-            <p class="font-medium text-emerald-900">You’re done when:</p>
-            <ul class="mt-2 list-disc pl-5 text-emerald-900/90">
-              <li>Your article uses purposeful text semantics (no redundant <code>&lt;div&gt;</code>s).</li>
-              <li>The layout contains <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>, supporting <code>&lt;section&gt;</code>s, and an <code>&lt;aside&gt;</code>.</li>
-              <li>All headings follow a logical hierarchy (no jumps from <code>&lt;h1&gt;</code> to <code>&lt;h4&gt;</code>).</li>
-              <li>CI reports 100/100 and the W3C validator shows 0 errors.</li>
-            </ul>
-          </div>
-          <div class="rounded-lg bg-slate-50 p-4 ring-1 ring-slate-200">
-            <p class="text-sm text-slate-600">Tip: Keep DevTools open on the <em>Elements</em> tab while editing; hover nodes to preview spacing and ensure your sections wrap the expected content.</p>
-          </div>
-        </div>
-      </section>
+					<div class="mt-4 grid gap-4 sm:grid-cols-2">
+						<div class="rounded-lg bg-emerald-50 p-4 ring-1 ring-emerald-200">
+							<p class="font-medium text-emerald-900">You’re done when:</p>
+							<ul class="mt-2 list-disc pl-5 text-emerald-900/90">
+								<li>
+									Your article uses purposeful text semantics (no redundant
+									<code>&lt;div&gt;</code>s).
+								</li>
+								<li>
+									The layout contains <code>&lt;header&gt;</code>,
+									<code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>,
+									supporting <code>&lt;section&gt;</code>s, and an
+									<code>&lt;aside&gt;</code>.
+								</li>
+								<li>
+									All headings follow a logical hierarchy (no jumps from
+									<code>&lt;h1&gt;</code> to <code>&lt;h4&gt;</code>).
+								</li>
+								<li>
+									CI reports 100/100 and the W3C validator shows 0 errors.
+								</li>
+							</ul>
+						</div>
+						<div class="rounded-lg bg-slate-50 p-4 ring-1 ring-slate-200">
+							<p class="text-sm text-slate-600">
+								Tip: Keep DevTools open on the <em>Elements</em> tab while
+								editing; hover nodes to preview spacing and ensure your sections
+								wrap the expected content.
+							</p>
+						</div>
+					</div>
+				</section>
 
-      <section id="done" class="mt-8 scroll-mt-24 hidden"></section>
+				<section id="done" class="mt-8 scroll-mt-24 hidden"></section>
 
-      <!-- Troubleshooting -->
-      <section id="troubleshooting" class="mt-10 scroll-mt-24">
-        <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
-          <h2 class="text-xl font-semibold">Troubleshooting</h2>
-          <div class="mt-4 grid gap-4 md:grid-cols-2">
-            <div class="rounded-lg border border-slate-200 p-4">
-              <h3 class="font-medium">Text semantics look wrong</h3>
-              <ul class="mt-2 list-disc pl-5 text-slate-700">
-                <li>Use the Accessibility pane in DevTools to check computed roles for <code>&lt;abbr&gt;</code>, <code>&lt;mark&gt;</code>, and citations.</li>
-                <li>Ensure figures include <code>&lt;figcaption&gt;</code> so screen readers announce the context.</li>
-                <li>Remember that <code>&lt;b&gt;</code> and <code>&lt;i&gt;</code> are visual only—swap for <code>&lt;strong&gt;</code>/<code>&lt;em&gt;</code> when meaning matters.</li>
-              </ul>
-            </div>
-            <div class="rounded-lg border border-slate-200 p-4">
-              <h3 class="font-medium">Layout feels disorganized</h3>
-              <ul class="mt-2 list-disc pl-5 text-slate-700">
-                <li>Sketch the page outline first; each heading level should introduce a new idea, not styling.</li>
-                <li>Check for unopened or unclosed tags—the validator link above flags line numbers.</li>
-                <li>Group related content inside <code>&lt;section&gt;</code> with a heading; move side notes into <code>&lt;aside&gt;</code>.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
+				<!-- Troubleshooting -->
+				<section id="troubleshooting" class="mt-10 scroll-mt-24">
+					<div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+						<h2 class="text-xl font-semibold">Troubleshooting</h2>
+						<div class="mt-4 grid gap-4 md:grid-cols-2">
+							<div class="rounded-lg border border-slate-200 p-4">
+								<h3 class="font-medium">Text semantics look wrong</h3>
+								<ul class="mt-2 list-disc pl-5 text-slate-700">
+									<li>
+										Use the Accessibility pane in DevTools to check computed
+										roles for <code>&lt;abbr&gt;</code>,
+										<code>&lt;mark&gt;</code>, and citations.
+									</li>
+									<li>
+										Ensure figures include <code>&lt;figcaption&gt;</code> so
+										screen readers announce the context.
+									</li>
+									<li>
+										Remember that <code>&lt;b&gt;</code> and
+										<code>&lt;i&gt;</code> are visual only—swap for
+										<code>&lt;strong&gt;</code>/<code>&lt;em&gt;</code> when
+										meaning matters.
+									</li>
+								</ul>
+							</div>
+							<div class="rounded-lg border border-slate-200 p-4">
+								<h3 class="font-medium">Layout feels disorganized</h3>
+								<ul class="mt-2 list-disc pl-5 text-slate-700">
+									<li>
+										Sketch the page outline first; each heading level should
+										introduce a new idea, not styling.
+									</li>
+									<li>
+										Check for unopened or unclosed tags—the validator link above
+										flags line numbers.
+									</li>
+									<li>
+										Group related content inside
+										<code>&lt;section&gt;</code> with a heading; move side notes
+										into <code>&lt;aside&gt;</code>.
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</section>
 
-      <section id="references" class="mt-10 scroll-mt-24">
-        <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
-          <h2 class="text-xl font-semibold">References</h2>
-          <ul class="mt-4 space-y-2 text-slate-700">
-            <li><a class="text-indigo-600 hover:underline" target="_blank" rel="noreferrer" href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Advanced_text_formatting">Advanced text formatting (MDN)</a></li>
-            <li><a class="text-indigo-600 hover:underline" target="_blank" rel="noreferrer" href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Document_and_website_structure">Document and website structure (MDN)</a></li>
-            <li><a class="text-indigo-600 hover:underline" target="_blank" rel="noreferrer" href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Debugging_HTML">Debugging HTML (MDN)</a></li>
-            <li><a class="text-indigo-600 hover:underline" target="_blank" rel="noreferrer" href="https://validator.w3.org/">W3C Markup Validation Service</a></li>
-          </ul>
-        </div>
-      </section>
+				<section id="references" class="mt-10 scroll-mt-24">
+					<div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+						<h2 class="text-xl font-semibold">References</h2>
+						<ul class="mt-4 space-y-2 text-slate-700">
+							<li>
+								<a
+									class="text-indigo-600 hover:underline"
+									target="_blank"
+									rel="noreferrer"
+									href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Advanced_text_formatting"
+									>Advanced text formatting (MDN)</a
+								>
+							</li>
+							<li>
+								<a
+									class="text-indigo-600 hover:underline"
+									target="_blank"
+									rel="noreferrer"
+									href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Document_and_website_structure"
+									>Document and website structure (MDN)</a
+								>
+							</li>
+							<li>
+								<a
+									class="text-indigo-600 hover:underline"
+									target="_blank"
+									rel="noreferrer"
+									href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Debugging_HTML"
+									>Debugging HTML (MDN)</a
+								>
+							</li>
+							<li>
+								<a
+									class="text-indigo-600 hover:underline"
+									target="_blank"
+									rel="noreferrer"
+									href="https://validator.w3.org/"
+									>W3C Markup Validation Service</a
+								>
+							</li>
+						</ul>
+					</div>
+				</section>
 
-      <nav aria-label="Module navigation" class="mt-10">
-        <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <div class="flex flex-wrap gap-3">
-            <a href="../../../index.html" class="inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-medium text-slate-700 ring-1 ring-slate-200 hover:bg-slate-50">Return to Program ↩</a>
-            <a href="./module-01-html-basics.html" class="inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-medium text-slate-700 ring-1 ring-slate-200 hover:bg-slate-50">← Module 1 — Foundations & Hyperlinks</a>
-          </div>
-          <a href="./module-03-media-embedding-tables.html" class="inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-medium text-slate-700 ring-1 ring-slate-200 hover:bg-slate-50">Module 3 — Multimedia, Embeds & Tables →</a>
-        </div>
-      </nav>
+				<nav aria-label="Module navigation" class="mt-10">
+					<div
+						class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
+					>
+						<div class="flex flex-wrap gap-3">
+							<a
+								href="../../../index.html"
+								class="inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-medium text-slate-700 ring-1 ring-slate-200 hover:bg-slate-50"
+								>Return to Program ↩</a
+							>
+							<a
+								href="./module-01-html-basics.html"
+								class="inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-medium text-slate-700 ring-1 ring-slate-200 hover:bg-slate-50"
+								>← Module 1 — Foundations & Hyperlinks</a
+							>
+						</div>
+						<a
+							href="./module-03-media-embedding-tables.html"
+							class="inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-medium text-slate-700 ring-1 ring-slate-200 hover:bg-slate-50"
+							>Module 3 — Multimedia, Embeds & Tables →</a
+						>
+					</div>
+				</nav>
 
-      <footer class="mt-12 pb-12 text-center text-sm text-slate-500">
-        <p>Built for the Frontend Track · HTML Module 2</p>
-      </footer>
-    </main>
-  </div>
+				<footer class="mt-12 pb-12 text-center text-sm text-slate-500">
+					<p>Built for the Frontend Track · HTML Module 2</p>
+				</footer>
+			</main>
+		</div>
 
-  <script>
-    function sanitizeCopiedText(text) {
-      return text.replace(/\n+$/, '');
-    }
+		<script>
+			function sanitizeCopiedText(text) {
+				return text.replace(/\n+$/, "");
+			}
 
-    document.querySelectorAll('.copy-btn').forEach(btn => {
-      btn.addEventListener('click', async () => {
-        const id = btn.getAttribute('data-copy-target');
-        const block = document.querySelector(id);
-        if (!block) return;
-        const text = sanitizeCopiedText(block.innerText);
-        try {
-          if (navigator.clipboard && navigator.clipboard.writeText) {
-            await navigator.clipboard.writeText(text);
-          } else {
-            const ta = document.createElement('textarea');
-            ta.value = text; document.body.appendChild(ta); ta.select();
-            document.execCommand('copy'); document.body.removeChild(ta);
-          }
-          const original = btn.textContent;
-          btn.textContent = 'Copied!';
-          btn.classList.add('bg-emerald-50','border-emerald-300');
-          setTimeout(() => { btn.textContent = original; btn.classList.remove('bg-emerald-50','border-emerald-300'); }, 1500);
-        } catch (e) {
-          alert('Copy failed. Select and copy manually.');
-          console.error(e);
-        }
-      });
-    });
+			document.querySelectorAll(".copy-btn").forEach((btn) => {
+				btn.addEventListener("click", async () => {
+					const id = btn.getAttribute("data-copy-target");
+					const block = document.querySelector(id);
+					if (!block) return;
+					const text = sanitizeCopiedText(block.innerText);
+					try {
+						if (navigator.clipboard && navigator.clipboard.writeText) {
+							await navigator.clipboard.writeText(text);
+						} else {
+							const ta = document.createElement("textarea");
+							ta.value = text;
+							document.body.appendChild(ta);
+							ta.select();
+							document.execCommand("copy");
+							document.body.removeChild(ta);
+						}
+						const original = btn.textContent;
+						btn.textContent = "Copied!";
+						btn.classList.add("bg-emerald-50", "border-emerald-300");
+						setTimeout(() => {
+							btn.textContent = original;
+							btn.classList.remove("bg-emerald-50", "border-emerald-300");
+						}, 1500);
+					} catch (e) {
+						alert("Copy failed. Select and copy manually.");
+						console.error(e);
+					}
+				});
+			});
 
-    const lockScrollForMobile = () => {
-      const isMobile = window.matchMedia('(max-width: 1023.98px)').matches;
-      document.documentElement.style.overflow = isMobile ? 'hidden' : '';
-      document.body.style.overflow = isMobile ? 'hidden' : '';
-    };
-    lockScrollForMobile();
-    window.addEventListener('resize', lockScrollForMobile);
+			const lockScrollForMobile = () => {
+				const isMobile = window.matchMedia("(max-width: 1023.98px)").matches;
+				document.documentElement.style.overflow = isMobile ? "hidden" : "";
+				document.body.style.overflow = isMobile ? "hidden" : "";
+			};
+			lockScrollForMobile();
+			window.addEventListener("resize", lockScrollForMobile);
 
-    (function testSanitizeCopiedText(){
-      const tests = [
-        {name: 'single trailing newline', input: 'echo test\n', expected: 'echo test'},
-        {name: 'multiple trailing newlines', input: 'line1\nline2\n\n', expected: 'line1\nline2'},
-        {name: 'no trailing newline', input: 'no newline', expected: 'no newline'},
-        {name: 'preserve spaces, remove newlines', input: 'trailing spaces   \n\n', expected: 'trailing spaces   '},
-        {name: 'unchanged middle newlines', input: 'a\nb\nc', expected: 'a\nb\nc'}
-      ];
-      let passed = 0;
-      for (const t of tests) {
-        const got = sanitizeCopiedText(t.input);
-        if (got === t.expected) passed++; else console.warn('[CopyTest FAIL]', t.name, {expected: t.expected, got});
-      }
-      console.log(`[CopyTest] sanitizeCopiedText: ${passed}/${tests.length} passed`);
-    })();
-  </script>
-</body>
+			(function testSanitizeCopiedText() {
+				const tests = [
+					{
+						name: "single trailing newline",
+						input: "echo test\n",
+						expected: "echo test",
+					},
+					{
+						name: "multiple trailing newlines",
+						input: "line1\nline2\n\n",
+						expected: "line1\nline2",
+					},
+					{
+						name: "no trailing newline",
+						input: "no newline",
+						expected: "no newline",
+					},
+					{
+						name: "preserve spaces, remove newlines",
+						input: "trailing spaces   \n\n",
+						expected: "trailing spaces   ",
+					},
+					{
+						name: "unchanged middle newlines",
+						input: "a\nb\nc",
+						expected: "a\nb\nc",
+					},
+				];
+				let passed = 0;
+				for (const t of tests) {
+					const got = sanitizeCopiedText(t.input);
+					if (got === t.expected) passed++;
+					else
+						console.warn("[CopyTest FAIL]", t.name, {
+							expected: t.expected,
+							got,
+						});
+				}
+				console.log(
+					`[CopyTest] sanitizeCopiedText: ${passed}/${tests.length} passed`
+				);
+			})();
+		</script>
+	</body>
 </html>
