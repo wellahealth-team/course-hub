@@ -1,370 +1,738 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Wella Schools — Frontend Engineering Track</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    html { scroll-behavior: smooth; }
-    body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
-    .badge { @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium ring-1; }
-    .badge-green { @apply bg-emerald-50 text-emerald-700 ring-emerald-200; }
-    .badge-amber { @apply bg-amber-50 text-amber-700 ring-amber-200; }
-    .badge-slate { @apply bg-slate-50 text-slate-700 ring-slate-200; }
-    .card { @apply rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200; }
-  </style>
-</head>
-<body class="bg-slate-50 text-slate-900">
-  <!-- Header -->
-  <header class="relative isolate">
-    <div class="absolute inset-0 -z-10 bg-gradient-to-br from-indigo-600 via-violet-600 to-fuchsia-600 opacity-90"></div>
-    <div class="relative mx-auto max-w-6xl px-6 py-12 text-white">
-      <div class="flex items-start justify-between gap-6">
-        <div>
-          <p class="mb-2 inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-sm font-medium ring-1 ring-white/20 backdrop-blur">
-            <span>Program</span>
-            <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-            <span>Frontend Engineering Track</span>
-          </p>
-          <p class="mt-1 text-white/80 text-sm font-semibold">Wella Schools</p>
-          <h1 class="mt-1 text-3xl font-bold tracking-tight sm:text-4xl">Frontend Engineering Track</h1>
-          <p class="mt-3 max-w-2xl text-white/90">Your guided path from the basics to production-grade frontend. Start with Git & GitHub, then grow through HTML, CSS, JavaScript, and React — capped with hands-on projects.</p>
-          <div class="mt-4 flex flex-wrap items-center gap-3 text-sm">
-            <span class="badge badge-green">Self-paced</span>
-            <span class="badge badge-slate">Beginner → Intermediate</span>
-          </div>
-        </div>
-        <nav class="hidden lg:block w-64">
-          <div class="sticky top-6 rounded-2xl bg-white/10 p-4 ring-1 ring-white/20 backdrop-blur">
-            <p class="mb-2 text-xs font-semibold uppercase tracking-wider text-white/70">On this page</p>
-            <ol class="space-y-2 text-sm text-white/90">
-              <li><a class="hover:underline" href="#start-here">Start here</a></li>
-              <li><a class="hover:underline" href="#learning-areas">Learning areas</a></li>
-              <li><a class="hover:underline" href="#roadmap">Roadmap</a></li>
-            </ol>
-          </div>
-        </nav>
-      </div>
-    </div>
-  </header>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Wella Schools — Frontend Engineering Track</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			html {
+				scroll-behavior: smooth;
+			}
+			body {
+				font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI,
+					Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial,
+					"Apple Color Emoji", "Segoe UI Emoji";
+			}
+			.badge {
+				@apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium ring-1;
+			}
+			.badge-green {
+				@apply bg-emerald-50 text-emerald-700 ring-emerald-200;
+			}
+			.badge-amber {
+				@apply bg-amber-50 text-amber-700 ring-amber-200;
+			}
+			.badge-slate {
+				@apply bg-slate-50 text-slate-700 ring-slate-200;
+			}
+			.card {
+				@apply rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200;
+			}
+		</style>
+	</head>
+	<body class="bg-slate-50 text-slate-900">
+		<!-- Header -->
+		<header class="relative isolate">
+			<div
+				class="absolute inset-0 -z-10 bg-gradient-to-br from-indigo-600 via-violet-600 to-fuchsia-600 opacity-90"
+			></div>
+			<div class="relative mx-auto max-w-6xl px-6 py-12 text-white">
+				<div class="flex items-start justify-between gap-6">
+					<div>
+						<p
+							class="mb-2 inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-sm font-medium ring-1 ring-white/20 backdrop-blur"
+						>
+							<span>Program</span>
+							<span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+							<span>Frontend Engineering Track</span>
+						</p>
+						<p class="mt-1 text-white/80 text-sm font-semibold">
+							Wella Schools
+						</p>
+						<h1 class="mt-1 text-3xl font-bold tracking-tight sm:text-4xl">
+							Frontend Engineering Track
+						</h1>
+						<p class="mt-3 max-w-2xl text-white/90">
+							Your guided path from the basics to production-grade frontend.
+							Start with Git & GitHub, then grow through HTML, CSS, JavaScript,
+							and React — capped with hands-on projects.
+						</p>
+						<div class="mt-4 flex flex-wrap items-center gap-3 text-sm">
+							<span class="badge badge-green">Self-paced</span>
+							<span class="badge badge-slate">Beginner → Intermediate</span>
+						</div>
+					</div>
+					<nav class="hidden lg:block w-64">
+						<div
+							class="sticky top-6 rounded-2xl bg-white/10 p-4 ring-1 ring-white/20 backdrop-blur"
+						>
+							<p
+								class="mb-2 text-xs font-semibold uppercase tracking-wider text-white/70"
+							>
+								On this page
+							</p>
+							<ol class="space-y-2 text-sm text-white/90">
+								<li>
+									<a class="hover:underline" href="#start-here">Start here</a>
+								</li>
+								<li>
+									<a class="hover:underline" href="#learning-areas"
+										>Learning areas</a
+									>
+								</li>
+								<li><a class="hover:underline" href="#roadmap">Roadmap</a></li>
+							</ol>
+						</div>
+					</nav>
+				</div>
+			</div>
+		</header>
 
-  <main class="mx-auto max-w-6xl px-6 py-12">
-    <!-- Start here callout -->
-    <section id="start-here" class="scroll-mt-24">
-      <div class="card">
-        <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <h2 class="text-xl font-semibold">Start here</h2>
-            <p class="mt-1 text-slate-700">Kick off with Git & GitHub to set up your tooling and collaboration habits.</p>
-          </div>
-          <a href="./frontend/modules/git/module-01-setup-and-first-commit.html" class="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 font-medium text-white shadow hover:bg-indigo-700">Module 1 — Setup & First Commit ↗</a>
-        </div>
-      </div>
-    </section>
-    <!-- Learning areas grid -->
-    <section id="learning-areas" class="mt-8 scroll-mt-24">
-      <div class="flex items-center justify-between">
-        <h2 class="text-xl font-semibold">Learning areas</h2>
-        <span class="hidden sm:inline-flex items-center gap-2 rounded-full bg-slate-100 px-3 py-1 text-sm font-medium text-slate-700 ring-1 ring-slate-200">Curriculum overview</span>
-      </div>
+		<main class="mx-auto max-w-6xl px-6 py-12">
+			<!-- Start here callout -->
+			<section id="start-here" class="scroll-mt-24">
+				<div class="card">
+					<div
+						class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
+					>
+						<div>
+							<h2 class="text-xl font-semibold">Start here</h2>
+							<p class="mt-1 text-slate-700">
+								Kick off with Git & GitHub to set up your tooling and
+								collaboration habits.
+							</p>
+						</div>
+						<a
+							href="./frontend/modules/git/module-01-setup-and-first-commit.html"
+							class="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 font-medium text-white shadow hover:bg-indigo-700"
+							>Module 1 — Setup & First Commit ↗</a
+						>
+					</div>
+				</div>
+			</section>
+			<!-- Learning areas grid -->
+			<section id="learning-areas" class="mt-8 scroll-mt-24">
+				<div class="flex items-center justify-between">
+					<h2 class="text-xl font-semibold">Learning areas</h2>
+					<span
+						class="hidden sm:inline-flex items-center gap-2 rounded-full bg-slate-100 px-3 py-1 text-sm font-medium text-slate-700 ring-1 ring-slate-200"
+						>Curriculum overview</span
+					>
+				</div>
 
-      <div class="mt-4 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-         <!-- Tools & Setups (new informational module) -->
-        <article class="group relative overflow-hidden rounded-2xl bg-white ring-1 ring-slate-200 shadow-sm transition hover:shadow-md">
-          <div class="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-indigo-500 via-violet-500 to-fuchsia-500"></div>
-          <div class="p-6">
-            <div class="flex items-start justify-between gap-3">
-              <div class="flex items-center gap-3">
-                <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-50 text-indigo-700">🛠️</div>
-                <h3 class="text-lg font-semibold">Tools & Setups</h3>
-              </div>
-              <span class="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-medium text-emerald-700 ring-1 ring-emerald-200">Available</span>
-            </div>
-            <p class="mt-2 text-slate-700">IDEs, choosing one, VS Code install & essential extensions. Informational — no quiz/labs, no deadline.</p>
-            <ul class="mt-3 grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-slate-600">
-              <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-indigo-500"></span> What is an IDE</li>
-              <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-indigo-500"></span> Choosing an editor</li>
-              <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-indigo-500"></span> Install VS Code</li>
-              <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-indigo-500"></span> Live Server, Prettier</li>
-            </ul>
-            <div class="mt-4 flex items-center justify-between">
-              <div class="flex items-center gap-2 text-xs text-slate-500"><span class="inline-flex h-2 w-2 rounded-full bg-emerald-500"></span> Informational</div>
-              <a href="./frontend/modules/tools/module-01-tools-and-setups.html" class="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-3 py-1.5 text-sm font-medium text-white shadow hover:bg-indigo-700">Open module ↗</a>
-            </div>
-          </div>
-        </article>
-        
-        <!-- Git & GitHub (highlighted) -->
-        <article class="group relative overflow-hidden rounded-2xl bg-white ring-1 ring-slate-200 shadow-sm transition hover:shadow-md">
-          <div class="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-indigo-500 via-violet-500 to-fuchsia-500"></div>
-          <div class="p-6">
-            <div class="flex items-start justify-between gap-3">
-              <div class="flex items-center gap-3">
-                <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-50 text-indigo-700">{}</div>
-                <h3 class="text-lg font-semibold">Git & GitHub</h3>
-              </div>
-              <span class="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-medium text-emerald-700 ring-1 ring-emerald-200">Available</span>
-            </div>
-            <p class="mt-2 text-slate-700">Version control fundamentals, collaboration, branching, pull requests, and CI basics.</p>
-            <ul class="mt-3 grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-slate-600">
-              <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-indigo-500"></span> Repos & commits</li>
-              <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-indigo-500"></span> Branches & PRs</li>
-              <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-indigo-500"></span> CI check</li>
-              <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-indigo-500"></span> Undo safely</li>
-            </ul>
-            <div class="mt-4 flex items-center justify-between">
-              <div class="flex items-center gap-2 text-xs text-slate-500"><span class="inline-flex h-2 w-2 rounded-full bg-emerald-500"></span> 3/3 modules live</div>
-            </div>
-          </div>
-        </article>
+				<div class="mt-4 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+					<!-- Tools & Setups (new informational module) -->
+					<article
+						class="group relative overflow-hidden rounded-2xl bg-white ring-1 ring-slate-200 shadow-sm transition hover:shadow-md"
+					>
+						<div
+							class="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-indigo-500 via-violet-500 to-fuchsia-500"
+						></div>
+						<div class="p-6">
+							<div class="flex items-start justify-between gap-3">
+								<div class="flex items-center gap-3">
+									<div
+										class="flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-50 text-indigo-700"
+									>
+										🛠️
+									</div>
+									<h3 class="text-lg font-semibold">Tools & Setups</h3>
+								</div>
+								<span
+									class="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-medium text-emerald-700 ring-1 ring-emerald-200"
+									>Available</span
+								>
+							</div>
+							<p class="mt-2 text-slate-700">
+								IDEs, choosing one, VS Code install & essential extensions.
+								Informational — no quiz/labs, no deadline.
+							</p>
+							<ul
+								class="mt-3 grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-slate-600"
+							>
+								<li class="flex items-center gap-2">
+									<span class="h-1.5 w-1.5 rounded-full bg-indigo-500"></span>
+									What is an IDE
+								</li>
+								<li class="flex items-center gap-2">
+									<span class="h-1.5 w-1.5 rounded-full bg-indigo-500"></span>
+									Choosing an editor
+								</li>
+								<li class="flex items-center gap-2">
+									<span class="h-1.5 w-1.5 rounded-full bg-indigo-500"></span>
+									Install VS Code
+								</li>
+								<li class="flex items-center gap-2">
+									<span class="h-1.5 w-1.5 rounded-full bg-indigo-500"></span>
+									Live Server, Prettier
+								</li>
+							</ul>
+							<div class="mt-4 flex items-center justify-between">
+								<div class="flex items-center gap-2 text-xs text-slate-500">
+									<span
+										class="inline-flex h-2 w-2 rounded-full bg-emerald-500"
+									></span>
+									Informational
+								</div>
+								<a
+									href="./frontend/modules/tools/module-01-tools-and-setups.html"
+									class="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-3 py-1.5 text-sm font-medium text-white shadow hover:bg-indigo-700"
+									>Open module ↗</a
+								>
+							</div>
+						</div>
+					</article>
 
-        <!-- HTML -->
-        <article class="group relative overflow-hidden rounded-2xl bg-white ring-1 ring-slate-200 shadow-sm transition hover:shadow-md">
-          <div class="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-indigo-500 via-violet-500 to-fuchsia-500"></div>
-          <div class="p-6">
-            <div class="flex items-start justify-between gap-3">
-              <div class="flex items-center gap-3">
-                <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-100 text-slate-700"><>/</div>
-                <h3 class="text-lg font-semibold">HTML</h3>
-              </div>
-              <span class="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-medium text-emerald-700 ring-1 ring-emerald-200">Available</span>
-            </div>
-            <p class="mt-2 text-slate-700">Semantic markup, accessibility foundations, forms, and document structure.</p>
-            <ul class="mt-3 grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-slate-600">
-              <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span> Semantics</li>
-              <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span> A11y basics</li>
-              <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span> Forms</li>
-              <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span> Media</li>
-            </ul>
-            <div class="mt-4 flex items-center justify-between">
-              <div class="flex items-center gap-2 text-xs text-slate-500"><span class="inline-flex h-2 w-2 rounded-full bg-emerald-500"></span> 4/4 modules</div>
-            </div>
-          </div>
-        </article>
+					<!-- Git & GitHub (highlighted) -->
+					<article
+						class="group relative overflow-hidden rounded-2xl bg-white ring-1 ring-slate-200 shadow-sm transition hover:shadow-md"
+					>
+						<div
+							class="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-indigo-500 via-violet-500 to-fuchsia-500"
+						></div>
+						<div class="p-6">
+							<div class="flex items-start justify-between gap-3">
+								<div class="flex items-center gap-3">
+									<div
+										class="flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-50 text-indigo-700"
+									>
+										{}
+									</div>
+									<h3 class="text-lg font-semibold">Git & GitHub</h3>
+								</div>
+								<span
+									class="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-medium text-emerald-700 ring-1 ring-emerald-200"
+									>Available</span
+								>
+							</div>
+							<p class="mt-2 text-slate-700">
+								Version control fundamentals, collaboration, branching, pull
+								requests, and CI basics.
+							</p>
+							<ul
+								class="mt-3 grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-slate-600"
+							>
+								<li class="flex items-center gap-2">
+									<span class="h-1.5 w-1.5 rounded-full bg-indigo-500"></span>
+									Repos & commits
+								</li>
+								<li class="flex items-center gap-2">
+									<span class="h-1.5 w-1.5 rounded-full bg-indigo-500"></span>
+									Branches & PRs
+								</li>
+								<li class="flex items-center gap-2">
+									<span class="h-1.5 w-1.5 rounded-full bg-indigo-500"></span>
+									CI check
+								</li>
+								<li class="flex items-center gap-2">
+									<span class="h-1.5 w-1.5 rounded-full bg-indigo-500"></span>
+									Undo safely
+								</li>
+							</ul>
+							<div class="mt-4 flex items-center justify-between">
+								<div class="flex items-center gap-2 text-xs text-slate-500">
+									<span
+										class="inline-flex h-2 w-2 rounded-full bg-emerald-500"
+									></span>
+									3/3 modules live
+								</div>
+							</div>
+						</div>
+					</article>
 
-        <!-- HTML Module 3 -->
-        <article class="rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition hover:shadow-md">
-          <div class="flex items-start gap-4">
-            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-indigo-600 text-base font-bold text-white">3</div>
-            <div class="min-w-0 flex-1">
-              <h3 class="font-semibold text-slate-900">Multimedia, Embeds & Tables</h3>
-              <p class="mt-1 text-sm text-slate-600">Bring webpages to life with audio, video, and vector graphics, embed external experiences, and present complex data cleanly using semantic tables.</p>
-              <div class="mt-3 flex flex-wrap items-center gap-2">
-                <a href="./frontend/modules/html/module-03-media-embedding-tables.html" class="inline-flex items-center gap-1.5 rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-medium text-white hover:bg-indigo-700">
-                  Open module
-                  <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                </a>
-                <span class="rounded-md bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600">~150–180 min</span>
-              </div>
-            </div>
-          </div>
-        </article>
+					<!-- HTML -->
+					<article
+						class="group relative overflow-hidden rounded-2xl bg-white ring-1 ring-slate-200 shadow-sm transition hover:shadow-md"
+					>
+						<div
+							class="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-indigo-500 via-violet-500 to-fuchsia-500"
+						></div>
+						<div class="p-6">
+							<div class="flex items-start justify-between gap-3">
+								<div class="flex items-center gap-3">
+									<div
+										class="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-100 text-slate-700"
+									>
+										<>/
+									</div>
+									<h3 class="text-lg font-semibold">HTML</h3>
+								</div>
+								<span
+									class="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-medium text-emerald-700 ring-1 ring-emerald-200"
+									>Available</span
+								>
+							</div>
+							<p class="mt-2 text-slate-700">
+								Semantic markup, accessibility foundations, forms, and document
+								structure.
+							</p>
+							<ul
+								class="mt-3 grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-slate-600"
+							>
+								<li class="flex items-center gap-2">
+									<span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span>
+									Semantics
+								</li>
+								<li class="flex items-center gap-2">
+									<span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span>
+									A11y basics
+								</li>
+								<li class="flex items-center gap-2">
+									<span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span>
+									Forms
+								</li>
+								<li class="flex items-center gap-2">
+									<span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span>
+									Media
+								</li>
+							</ul>
+							<div class="mt-4 flex items-center justify-between">
+								<div class="flex items-center gap-2 text-xs text-slate-500">
+									<span
+										class="inline-flex h-2 w-2 rounded-full bg-emerald-500"
+									></span>
+									4/4 modules
+								</div>
+							</div>
+						</div>
+					</article>
 
-        <!-- HTML Module 4 -->
-        <article class="rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition hover:shadow-md">
-          <div class="flex items-start gap-4">
-            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-indigo-600 text-base font-bold text-white">4</div>
-            <div class="min-w-0 flex-1">
-              <h3 class="font-semibold text-slate-900">Web Forms & User Input</h3>
-              <p class="mt-1 text-sm text-slate-600">Master collecting user data with accessible, well-structured forms. Learn diverse input types, validation, and create intuitive user experiences.</p>
-              <div class="mt-3 flex flex-wrap items-center gap-2">
-                <a href="./frontend/modules/html/module-04-web-forms.html" class="inline-flex items-center gap-1.5 rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-medium text-white hover:bg-indigo-700">
-                  Open module
-                  <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                </a>
-                <span class="rounded-md bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600">~180–210 min</span>
-              </div>
-            </div>
-          </div>
-        </article>
+					<!-- CSS -->
+					<article
+						class="relative overflow-hidden rounded-2xl bg-white ring-1 ring-slate-200 shadow-sm transition hover:shadow-md"
+					>
+						<div
+							class="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-slate-200 to-slate-100"
+						></div>
+						<div class="p-6">
+							<div class="flex items-start justify-between gap-3">
+								<div class="flex items-center gap-3">
+									<div
+										class="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-100 text-slate-700"
+									>
+										#
+									</div>
+									<h3 class="text-lg font-semibold">CSS</h3>
+								</div>
+								<span
+									class="inline-flex items-center gap-1.5 rounded-full bg-amber-50 px-2.5 py-1 text-xs font-medium text-amber-700 ring-1 ring-amber-200"
+									>Coming soon</span
+								>
+							</div>
+							<p class="mt-2 text-slate-700">
+								Layout systems (Flexbox/Grid), responsive design, modern UI
+								patterns, theming.
+							</p>
+							<ul
+								class="mt-3 grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-slate-600"
+							>
+								<li class="flex items-center gap-2">
+									<span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span>
+									Flexbox / Grid
+								</li>
+								<li class="flex items-center gap-2">
+									<span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span>
+									Responsive
+								</li>
+								<li class="flex items-center gap-2">
+									<span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span>
+									Utilities
+								</li>
+								<li class="flex items-center gap-2">
+									<span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span>
+									Theming
+								</li>
+							</ul>
+							<div class="mt-4 flex items-center justify-between">
+								<div class="flex items-center gap-2 text-xs text-slate-500">
+									<span
+										class="inline-flex h-2 w-2 rounded-full bg-slate-400"
+									></span>
+									0/5 modules
+								</div>
+								<button
+									disabled
+									class="cursor-not-allowed inline-flex items-center gap-2 rounded-lg bg-slate-200 px-3 py-1.5 text-sm font-medium text-slate-600"
+								>
+									Locked
+								</button>
+							</div>
+						</div>
+					</article>
 
-        <!-- CSS -->
-        <article class="relative overflow-hidden rounded-2xl bg-white ring-1 ring-slate-200 shadow-sm transition hover:shadow-md">
-          <div class="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-slate-200 to-slate-100"></div>
-          <div class="p-6">
-            <div class="flex items-start justify-between gap-3">
-              <div class="flex items-center gap-3">
-                <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-100 text-slate-700">#</div>
-                <h3 class="text-lg font-semibold">CSS</h3>
-              </div>
-              <span class="inline-flex items-center gap-1.5 rounded-full bg-amber-50 px-2.5 py-1 text-xs font-medium text-amber-700 ring-1 ring-amber-200">Coming soon</span>
-            </div>
-            <p class="mt-2 text-slate-700">Layout systems (Flexbox/Grid), responsive design, modern UI patterns, theming.</p>
-            <ul class="mt-3 grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-slate-600">
-              <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span> Flexbox / Grid</li>
-              <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span> Responsive</li>
-              <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span> Utilities</li>
-              <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span> Theming</li>
-            </ul>
-            <div class="mt-4 flex items-center justify-between">
-              <div class="flex items-center gap-2 text-xs text-slate-500"><span class="inline-flex h-2 w-2 rounded-full bg-slate-400"></span> 0/5 modules</div>
-              <button disabled class="cursor-not-allowed inline-flex items-center gap-2 rounded-lg bg-slate-200 px-3 py-1.5 text-sm font-medium text-slate-600">Locked</button>
-            </div>
-          </div>
-        </article>
+					<!-- JavaScript -->
+					<article
+						class="relative overflow-hidden rounded-2xl bg-white ring-1 ring-slate-200 shadow-sm transition hover:shadow-md"
+					>
+						<div
+							class="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-slate-200 to-slate-100"
+						></div>
+						<div class="p-6">
+							<div class="flex items-start justify-between gap-3">
+								<div class="flex items-center gap-3">
+									<div
+										class="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-100 text-slate-700"
+									>
+										JS
+									</div>
+									<h3 class="text-lg font-semibold">JavaScript</h3>
+								</div>
+								<span
+									class="inline-flex items-center gap-1.5 rounded-full bg-amber-50 px-2.5 py-1 text-xs font-medium text-amber-700 ring-1 ring-amber-200"
+									>Coming soon</span
+								>
+							</div>
+							<p class="mt-2 text-slate-700">
+								Language fundamentals, DOM APIs, async patterns, tooling, and
+								testing.
+							</p>
+							<ul
+								class="mt-3 grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-slate-600"
+							>
+								<li class="flex items-center gap-2">
+									<span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span>
+									Syntax & types
+								</li>
+								<li class="flex items-center gap-2">
+									<span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span>
+									DOM / Events
+								</li>
+								<li class="flex items-center gap-2">
+									<span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span>
+									Async / Fetch
+								</li>
+								<li class="flex items-center gap-2">
+									<span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span>
+									Tooling / Tests
+								</li>
+							</ul>
+							<div class="mt-4 flex items-center justify-between">
+								<div class="flex items-center gap-2 text-xs text-slate-500">
+									<span
+										class="inline-flex h-2 w-2 rounded-full bg-slate-400"
+									></span>
+									0/6 modules
+								</div>
+								<button
+									disabled
+									class="cursor-not-allowed inline-flex items-center gap-2 rounded-lg bg-slate-200 px-3 py-1.5 text-sm font-medium text-slate-600"
+								>
+									Locked
+								</button>
+							</div>
+						</div>
+					</article>
 
-        <!-- JavaScript -->
-        <article class="relative overflow-hidden rounded-2xl bg-white ring-1 ring-slate-200 shadow-sm transition hover:shadow-md">
-          <div class="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-slate-200 to-slate-100"></div>
-          <div class="p-6">
-            <div class="flex items-start justify-between gap-3">
-              <div class="flex items-center gap-3">
-                <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-100 text-slate-700">JS</div>
-                <h3 class="text-lg font-semibold">JavaScript</h3>
-              </div>
-              <span class="inline-flex items-center gap-1.5 rounded-full bg-amber-50 px-2.5 py-1 text-xs font-medium text-amber-700 ring-1 ring-amber-200">Coming soon</span>
-            </div>
-            <p class="mt-2 text-slate-700">Language fundamentals, DOM APIs, async patterns, tooling, and testing.</p>
-            <ul class="mt-3 grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-slate-600">
-              <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span> Syntax & types</li>
-              <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span> DOM / Events</li>
-              <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span> Async / Fetch</li>
-              <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span> Tooling / Tests</li>
-            </ul>
-            <div class="mt-4 flex items-center justify-between">
-              <div class="flex items-center gap-2 text-xs text-slate-500"><span class="inline-flex h-2 w-2 rounded-full bg-slate-400"></span> 0/6 modules</div>
-              <button disabled class="cursor-not-allowed inline-flex items-center gap-2 rounded-lg bg-slate-200 px-3 py-1.5 text-sm font-medium text-slate-600">Locked</button>
-            </div>
-          </div>
-        </article>
+					<!-- React -->
+					<article
+						class="relative overflow-hidden rounded-2xl bg-white ring-1 ring-slate-200 shadow-sm transition hover:shadow-md"
+					>
+						<div
+							class="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-slate-200 to-slate-100"
+						></div>
+						<div class="p-6">
+							<div class="flex items-start justify-between gap-3">
+								<div class="flex items-center gap-3">
+									<div
+										class="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-100 text-slate-700"
+									>
+										⚛︎
+									</div>
+									<h3 class="text-lg font-semibold">React</h3>
+								</div>
+								<span
+									class="inline-flex items-center gap-1.5 rounded-full bg-amber-50 px-2.5 py-1 text-xs font-medium text-amber-700 ring-1 ring-amber-200"
+									>Coming soon</span
+								>
+							</div>
+							<p class="mt-2 text-slate-700">
+								Components, state & effects, hooks, routing, data fetching, and
+								patterns.
+							</p>
+							<ul
+								class="mt-3 grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-slate-600"
+							>
+								<li class="flex items-center gap-2">
+									<span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span>
+									Hooks
+								</li>
+								<li class="flex items-center gap-2">
+									<span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span>
+									State mgmt
+								</li>
+								<li class="flex items-center gap-2">
+									<span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span>
+									Routing
+								</li>
+								<li class="flex items-center gap-2">
+									<span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span>
+									Data fetching
+								</li>
+							</ul>
+							<div class="mt-4 flex items-center justify-between">
+								<div class="flex items-center gap-2 text-xs text-slate-500">
+									<span
+										class="inline-flex h-2 w-2 rounded-full bg-slate-400"
+									></span>
+									0/6 modules
+								</div>
+								<button
+									disabled
+									class="cursor-not-allowed inline-flex items-center gap-2 rounded-lg bg-slate-200 px-3 py-1.5 text-sm font-medium text-slate-600"
+								>
+									Locked
+								</button>
+							</div>
+						</div>
+					</article>
 
-        <!-- React -->
-        <article class="relative overflow-hidden rounded-2xl bg-white ring-1 ring-slate-200 shadow-sm transition hover:shadow-md">
-          <div class="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-slate-200 to-slate-100"></div>
-          <div class="p-6">
-            <div class="flex items-start justify-between gap-3">
-              <div class="flex items-center gap-3">
-                <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-100 text-slate-700">⚛︎</div>
-                <h3 class="text-lg font-semibold">React</h3>
-              </div>
-              <span class="inline-flex items-center gap-1.5 rounded-full bg-amber-50 px-2.5 py-1 text-xs font-medium text-amber-700 ring-1 ring-amber-200">Coming soon</span>
-            </div>
-            <p class="mt-2 text-slate-700">Components, state & effects, hooks, routing, data fetching, and patterns.</p>
-            <ul class="mt-3 grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-slate-600">
-              <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span> Hooks</li>
-              <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span> State mgmt</li>
-              <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span> Routing</li>
-              <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span> Data fetching</li>
-            </ul>
-            <div class="mt-4 flex items-center justify-between">
-              <div class="flex items-center gap-2 text-xs text-slate-500"><span class="inline-flex h-2 w-2 rounded-full bg-slate-400"></span> 0/6 modules</div>
-              <button disabled class="cursor-not-allowed inline-flex items-center gap-2 rounded-lg bg-slate-200 px-3 py-1.5 text-sm font-medium text-slate-600">Locked</button>
-            </div>
-          </div>
-        </article>
+					<!-- Projects -->
+					<article
+						class="relative overflow-hidden rounded-2xl bg-white ring-1 ring-slate-200 shadow-sm transition hover:shadow-md"
+					>
+						<div
+							class="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-slate-200 to-slate-100"
+						></div>
+						<div class="p-6">
+							<div class="flex items-start justify-between gap-3">
+								<div class="flex items-center gap-3">
+									<div
+										class="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-100 text-slate-700"
+									>
+										🏁
+									</div>
+									<h3 class="text-lg font-semibold">Projects</h3>
+								</div>
+								<span
+									class="inline-flex items-center gap-1.5 rounded-full bg-amber-50 px-2.5 py-1 text-xs font-medium text-amber-700 ring-1 ring-amber-200"
+									>Coming soon</span
+								>
+							</div>
+							<p class="mt-2 text-slate-700">
+								Capstone builds that integrate your skills into real-world
+								deliverables.
+							</p>
+							<ul
+								class="mt-3 grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-slate-600"
+							>
+								<li class="flex items-center gap-2">
+									<span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span>
+									Mini apps
+								</li>
+								<li class="flex items-center gap-2">
+									<span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span>
+									Capstones
+								</li>
+								<li class="flex items-center gap-2">
+									<span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span>
+									Team projects
+								</li>
+								<li class="flex items-center gap-2">
+									<span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span>
+									Portfolio polish
+								</li>
+							</ul>
+							<div class="mt-4 flex items-center justify-between">
+								<div class="flex items-center gap-2 text-xs text-slate-500">
+									<span
+										class="inline-flex h-2 w-2 rounded-full bg-slate-400"
+									></span>
+									0/3 modules
+								</div>
+								<button
+									disabled
+									class="cursor-not-allowed inline-flex items-center gap-2 rounded-lg bg-slate-200 px-3 py-1.5 text-sm font-medium text-slate-600"
+								>
+									Locked
+								</button>
+							</div>
+						</div>
+					</article>
+				</div>
+			</section>
 
-        <!-- Projects -->
-        <article class="relative overflow-hidden rounded-2xl bg-white ring-1 ring-slate-200 shadow-sm transition hover:shadow-md">
-          <div class="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-slate-200 to-slate-100"></div>
-          <div class="p-6">
-            <div class="flex items-start justify-between gap-3">
-              <div class="flex items-center gap-3">
-                <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-100 text-slate-700">🏁</div>
-                <h3 class="text-lg font-semibold">Projects</h3>
-              </div>
-              <span class="inline-flex items-center gap-1.5 rounded-full bg-amber-50 px-2.5 py-1 text-xs font-medium text-amber-700 ring-1 ring-amber-200">Coming soon</span>
-            </div>
-            <p class="mt-2 text-slate-700">Capstone builds that integrate your skills into real-world deliverables.</p>
-            <ul class="mt-3 grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-slate-600">
-              <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span> Mini apps</li>
-              <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span> Capstones</li>
-              <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span> Team projects</li>
-              <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span> Portfolio polish</li>
-            </ul>
-            <div class="mt-4 flex items-center justify-between">
-              <div class="flex items-center gap-2 text-xs text-slate-500"><span class="inline-flex h-2 w-2 rounded-full bg-slate-400"></span> 0/3 modules</div>
-              <button disabled class="cursor-not-allowed inline-flex items-center gap-2 rounded-lg bg-slate-200 px-3 py-1.5 text-sm font-medium text-slate-600">Locked</button>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
+			<!-- Roadmap -->
+			<section id="roadmap" class="mt-10 scroll-mt-24">
+				<div class="card">
+					<h2 class="text-xl font-semibold">Roadmap</h2>
+					<ol class="mt-4 space-y-4">
+						<!-- New: Tools & Setups informational module -->
+						<li class="flex items-start gap-4">
+							<span
+								class="mt-1.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-indigo-600 text-white font-semibold"
+								>0</span
+							>
+							<div>
+								<p class="font-medium">Tools & Setups</p>
+								<p class="text-slate-700">
+									Understand IDEs, pick one, install VS Code, and set up
+									extensions
+								</p>
+								<p class="text-amber-700">
+									Informational — no quiz/labs, no deadline.
+								</p>
+								<ul class="mt-2 space-y-1 text-slate-700">
+									<li>
+										<a
+											class="text-indigo-600 hover:underline"
+											href="./frontend/modules/tools/module-01-tools-and-setups.html"
+											>Tools & Setups — IDEs and VS Code ↗</a
+										>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li class="flex items-start gap-4">
+							<span
+								class="mt-1.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-indigo-600 text-white font-semibold"
+								>1</span
+							>
+							<div>
+								<p class="font-medium">Git & GitHub</p>
+								<p class="text-slate-700">
+									Set up version control and collaboration workflows.
+								</p>
+								<ul class="mt-2 space-y-1 text-slate-700">
+									<li>
+										<a
+											class="text-indigo-600 hover:underline"
+											href="./frontend/modules/git/module-01-setup-and-first-commit.html"
+											>Module 1 — Setup & First Commit ↗</a
+										>
+									</li>
+									<li>
+										<a
+											class="text-indigo-600 hover:underline"
+											href="./frontend/modules/git/module-02-branch-pr-merge.html"
+											>Module 2 — Branch & PR ↗</a
+										>
+									</li>
+									<li>
+										<a
+											class="text-indigo-600 hover:underline"
+											href="./frontend/modules/git/module-03-diff-history-conflicts-undo.html"
+											>Module 3 — Diffs, History, Conflicts & Undo ↗</a
+										>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li class="flex items-start gap-4">
+							<span
+								class="mt-1.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-indigo-600 text-white font-semibold"
+								>2</span
+							>
+							<div>
+								<p class="font-medium">HTML</p>
+								<p class="text-slate-700">
+									Learn semantic structure and accessibility-ready markup.
+								</p>
+								<ul class="mt-2 space-y-1 text-slate-700">
+									<li>
+										<a
+											class="text-indigo-600 hover:underline"
+											href="./frontend/modules/html/module-01-html-basics.html"
+											>Module 1 — Foundations and Hyperlinks ↗</a
+										>
+									</li>
+									<li>
+										<a
+											class="text-indigo-600 hover:underline"
+											href="./frontend/modules/html/module-02-text-structure-debugging.html"
+											>Module 2 — Advanced Text, Structure &amp; Debugging ↗</a
+										>
+									</li>
+									<li>
+										<a
+											class="text-indigo-600 hover:underline"
+											href="./frontend/modules/html/module-03-media-embedding-tables.html"
+											>Module 3 — Multimedia, Embeds &amp; Tables ↗</a
+										>
+									</li>
+									<li>
+										<a
+											class="text-indigo-600 hover:underline"
+											href="./frontend/modules/html/module-04-web-forms.html"
+											>Module 4 — Web Forms &amp; User Input ↗</a
+										>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li class="flex items-start gap-4">
+							<span
+								class="mt-1.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-indigo-600 text-white font-semibold"
+								>3</span
+							>
+							<div>
+								<p class="font-medium">CSS</p>
+								<p class="text-slate-700">
+									Master responsive layouts and clean, modern UIs.
+								</p>
+								<p class="mt-2 text-sm text-slate-600">
+									Modules: 0/5 · Coming soon
+								</p>
+							</div>
+						</li>
+						<li class="flex items-start gap-4">
+							<span
+								class="mt-1.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-indigo-600 text-white font-semibold"
+								>4</span
+							>
+							<div>
+								<p class="font-medium">JavaScript</p>
+								<p class="text-slate-700">
+									Turn UX into interactions using modern JS patterns.
+								</p>
+								<p class="mt-2 text-sm text-slate-600">
+									Modules: 0/6 · Coming soon
+								</p>
+							</div>
+						</li>
+						<li class="flex items-start gap-4">
+							<span
+								class="mt-1.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-indigo-600 text-white font-semibold"
+								>5</span
+							>
+							<div>
+								<p class="font-medium">React</p>
+								<p class="text-slate-700">
+									Build component-driven apps with data and routing.
+								</p>
+								<p class="mt-2 text-sm text-slate-600">
+									Modules: 0/6 · Coming soon
+								</p>
+							</div>
+						</li>
+						<li class="flex items-start gap-4">
+							<span
+								class="mt-1.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-indigo-600 text-white font-semibold"
+								>6</span
+							>
+							<div>
+								<p class="font-medium">Projects</p>
+								<p class="text-slate-700">
+									Ship capstones that demonstrate end-to-end skill.
+								</p>
+								<p class="mt-2 text-sm text-slate-600">
+									Modules: 0/3 · Coming soon
+								</p>
+							</div>
+						</li>
+					</ol>
+				</div>
+			</section>
 
-    <!-- Roadmap -->
-    <section id="roadmap" class="mt-10 scroll-mt-24">
-      <div class="card">
-        <h2 class="text-xl font-semibold">Roadmap</h2>
-        <ol class="mt-4 space-y-4">
-          <!-- New: Tools & Setups informational module -->
-          <li class="flex items-start gap-4">
-            <span class="mt-1.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-indigo-600 text-white font-semibold">0</span>
-            <div>
-              <p class="font-medium">Tools & Setups</p>
-              <p class="text-slate-700">Understand IDEs, pick one, install VS Code, and set up extensions</p>
-              <p class="text-amber-700">Informational — no quiz/labs, no deadline.</p>
-              <ul class="mt-2 space-y-1 text-slate-700">
-                <li><a class="text-indigo-600 hover:underline" href="./frontend/modules/tools/module-01-tools-and-setups.html">Tools & Setups — IDEs and VS Code ↗</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="flex items-start gap-4">
-            <span class="mt-1.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-indigo-600 text-white font-semibold">1</span>
-            <div>
-              <p class="font-medium">Git & GitHub</p>
-              <p class="text-slate-700">Set up version control and collaboration workflows.</p>
-              <ul class="mt-2 space-y-1 text-slate-700">
-                <li><a class="text-indigo-600 hover:underline" href="./frontend/modules/git/module-01-setup-and-first-commit.html">Module 1 — Setup & First Commit ↗</a></li>
-                <li><a class="text-indigo-600 hover:underline" href="./frontend/modules/git/module-02-branch-pr-merge.html">Module 2 — Branch & PR ↗</a></li>
-                <li><a class="text-indigo-600 hover:underline" href="./frontend/modules/git/module-03-diff-history-conflicts-undo.html">Module 3 — Diffs, History, Conflicts & Undo ↗</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="flex items-start gap-4">
-            <span class="mt-1.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-indigo-600 text-white font-semibold">2</span>
-            <div>
-              <p class="font-medium">HTML</p>
-              <p class="text-slate-700">Learn semantic structure and accessibility-ready markup.</p>
-              <ul class="mt-2 space-y-1 text-slate-700">
-                <li><a class="text-indigo-600 hover:underline" href="./frontend/modules/html/module-01-html-basics.html">Module 1 — Foundations and Hyperlinks ↗</a></li>
-                <li><a class="text-indigo-600 hover:underline" href="./frontend/modules/html/module-02-text-structure-debugging.html">Module 2 — Advanced Text, Structure &amp; Debugging ↗</a></li>
-                <li><a class="text-indigo-600 hover:underline" href="./frontend/modules/html/module-03-media-embedding-tables.html">Module 3 — Multimedia, Embeds &amp; Tables ↗</a></li>
-                <li><a class="text-indigo-600 hover:underline" href="./frontend/modules/html/module-04-web-forms.html">Module 4 — Web Forms &amp; User Input ↗</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="flex items-start gap-4">
-            <span class="mt-1.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-indigo-600 text-white font-semibold">3</span>
-            <div>
-              <p class="font-medium">CSS</p>
-              <p class="text-slate-700">Master responsive layouts and clean, modern UIs.</p>
-              <p class="mt-2 text-sm text-slate-600">Modules: 0/5 · Coming soon</p>
-            </div>
-          </li>
-          <li class="flex items-start gap-4">
-            <span class="mt-1.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-indigo-600 text-white font-semibold">4</span>
-            <div>
-              <p class="font-medium">JavaScript</p>
-              <p class="text-slate-700">Turn UX into interactions using modern JS patterns.</p>
-              <p class="mt-2 text-sm text-slate-600">Modules: 0/6 · Coming soon</p>
-            </div>
-          </li>
-          <li class="flex items-start gap-4">
-            <span class="mt-1.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-indigo-600 text-white font-semibold">5</span>
-            <div>
-              <p class="font-medium">React</p>
-              <p class="text-slate-700">Build component-driven apps with data and routing.</p>
-              <p class="mt-2 text-sm text-slate-600">Modules: 0/6 · Coming soon</p>
-            </div>
-          </li>
-          <li class="flex items-start gap-4">
-            <span class="mt-1.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-indigo-600 text-white font-semibold">6</span>
-            <div>
-              <p class="font-medium">Projects</p>
-              <p class="text-slate-700">Ship capstones that demonstrate end-to-end skill.</p>
-              <p class="mt-2 text-sm text-slate-600">Modules: 0/3 · Coming soon</p>
-            </div>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <footer class="mt-12 pb-12 text-center text-sm text-slate-500">
-      <p>Frontend Engineering Track · Crafted with Tailwind</p>
-    </footer>
-  </main>
-</body>
+			<footer class="mt-12 pb-12 text-center text-sm text-slate-500">
+				<p>Frontend Engineering Track · Crafted with Tailwind</p>
+			</footer>
+		</main>
+	</body>
 </html>
